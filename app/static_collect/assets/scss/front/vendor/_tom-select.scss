@@ -1,0 +1,159 @@
+/*------------------------------------
+  Select
+------------------------------------*/
+
+.tom-select-custom {
+  .input-group-sm > .ts-control .ts-input.has-items,
+  .ts-control.form-select-sm .ts-input.has-items,
+  .ts-control.form-control-sm .ts-input.has-items {
+    padding: $form-select-padding-y-sm $form-select-indicator-padding $form-select-padding-y-sm $form-select-padding-x-sm;
+  }
+
+  .input-group-lg > .ts-control > .ts-input,
+  .ts-control.form-control-lg .ts-input,
+  .ts-control.form-select-lg .ts-input {
+    padding: $form-select-padding-y-lg $form-select-indicator-padding $form-select-padding-y-lg $form-select-padding-x-lg;
+  }
+
+  .hs-select-single-multiple {
+    .item {
+      display: none !important;
+    }
+  }
+
+  .ts-control.form-select .ts-input,
+  .ts-control.multi .ts-input.has-items.hs-select-single-multiple {
+    padding: $form-select-padding-y $form-select-indicator-padding $form-select-padding-y $form-select-padding-x;
+
+    & .tom-select-custom-hide {
+      display: none;
+    }
+
+    &:focus,
+    .focus {
+      box-shadow: none;
+    }
+  }
+
+  .ts-dropdown,
+  .ts-dropdown.form-control,
+  .ts-dropdown.form-select {
+    border: $form-select-border-width solid $form-select-border-color;
+    @include border-radius($form-select-border-radius, 0);
+    box-shadow: $form-select-box-shadow;
+  }
+
+  .ts-dropdown .create:hover,
+  .ts-dropdown .option:hover,
+  .ts-dropdown .active {
+    color: $select-active-color;
+    background-color: $select-active-bg-color;
+  }
+
+  .ts-dropdown .option,
+  .ts-dropdown .optgroup-header,
+  .ts-dropdown .no-results,
+  .ts-dropdown .create {
+    padding: $select-padding-y $select-padding-x * 2.5 $select-padding-y $select-padding-x;
+  }
+
+  .ts-dropdown .option {
+    position: relative;
+
+    &::after {
+      display: none;
+      position: absolute;
+      top: 50%;
+      right: $select-option-pseudo-right-offset;
+      width: $select-option-pseudo-width;
+      height: $select-option-pseudo-height;
+      background-image: escape-svg($select-option-pseudo-bg);
+      background-repeat: no-repeat;
+      background-position: right center;
+      background-size: $select-option-pseudo-width $select-option-pseudo-height;
+      content: '';
+      transform: translateY(-50%);
+    }
+
+    &.selected::after {
+      display: block;
+    }
+  }
+
+  .ts-input,
+  .ts-control.single .ts-input.input-active {
+    cursor: pointer;
+  }
+
+  .input-group {
+    & > .ts-control,
+    & > .form-select {
+      flex-grow: unset;
+    }
+
+    & > .form-select {
+      width: auto;
+    }
+  }
+
+  .ts-control  {
+    display: inline-block;
+  }
+
+  .ts-dropdown {
+    .optgroup-header {
+      font-weight: bold;
+      color: $black;
+    }
+
+    .optgroup {
+      &:before {
+        display: none;
+      }
+
+      .option {
+        padding-left: $select-padding-x + .5;
+      }
+    }
+  }
+
+  .ts-control {
+    &.multi .ts-input > div {
+      background-color: $select-selection-tag-bg-color;
+      font-size: $select-tag-font-size;
+      padding: $select-selection-tag-padding-y $select-selection-tag-padding-x;
+      border-radius: $select-selection-tag-border-radius;
+    }
+
+    &.plugin-remove_button .item .remove {
+      border-left: none;
+      color: $select-tag-remove-icon-color;
+
+      &:hover {
+        background: transparent;
+        color: $select-tag-remove-icon-hover-color;
+      }
+    }
+  }
+
+  .plugin-dropdown_input .dropdown-input-wrap {
+    padding: $select-dropdown-input-wrap-padding;
+
+    .dropdown-input {
+      border: $select-dropdown-input-wrap-border-width solid $select-dropdown-input-wrap-border-color;
+      border-radius: $select-dropdown-input-wrap-border-radius;
+    }
+  }
+}
+
+.tom-select-custom-with-tags {
+  .ts-control.form-select .ts-input,
+  .tom-select-custom .ts-control.multi .ts-input.has-items.hs-select-single-multiple {
+    padding: calc( 0.375rem - 1px - 0px) 0.75rem calc( 0.375rem - 1px - 4px - 0px);
+  }
+
+  .ts-control.multi .ts-input > .item {
+    color: $select-tag-input-color;
+    background-color: $select-tag-input-bg-color;
+  }  
+}

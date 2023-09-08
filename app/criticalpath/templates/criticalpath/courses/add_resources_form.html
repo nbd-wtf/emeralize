@@ -1,0 +1,210 @@
+{% extends "emeralize/base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}
+{{header_name}}
+{% endblock %}
+
+{% block content %}
+        
+      <div class="container content-space-2 content-space-lg-3">
+      <!-- Page Header -->
+      <div class="page-header">
+        <div class="row align-items-center">
+          <div class="col-sm mb-2">
+
+
+            <h2 class="page-header-title">{{header_name}}</h2>
+          </div>
+
+          <div class="col-sm-auto">
+            {% if course %}
+            <a class="btn btn-outline-primary" href="{% url 'criticalpath:course_delete' course.id %}">Delete</a>
+
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      <!-- End Page Header -->
+      <form action="{% url 'criticalpath:course_add_resources' course.id %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {% if course_resources %}
+
+          {% for course_resource in course_resources %}
+          <div class="row align-items-center" id="row-{{course_resource.order_no}}">
+            <div class="col-sm-6">
+              <!-- Form -->
+              <div class="mb-4">
+                <label class="form-label" for="hireUsFormFirstName">Resource</label>
+                <select id="{{course_resource.order_no}}" name="{{course_resource.order_no}}" class="form-select form-select-lg" aria-label="Tell us about your budget">
+                  <option value="{{course_resource.resource.id}}" selected>{{course_resource.resource.title}}</option>
+                  {% if resources %}
+                  {% for resource in resources %}
+                  <option value="{{resource.id}}">{{resource.title}}</option>
+                  {%endfor%}
+                {% else %}
+                  <option>Please create some resources</option>
+  
+                {% endif %}
+                </select>
+              </div>
+              <!-- End Form -->
+
+            </div>
+
+            <div class="col-sm-3">
+              <!-- Form -->
+              <div class="mb-4">
+                <div>
+                  <label class="form-label" for="hireUsFormLasttName">Action</label>
+                </div>
+              
+                <button type="button" onclick="removeInputs()" class="btn btn-outline-primary" id="del-{{course_resource.order_no}}"><i class="bi bi-trash"></i></button>
+
+              </div>
+              <!-- End Form -->
+            
+            </div>
+
+          <!-- End Form -->
+          </div>
+
+          {%endfor%}
+
+        {% else %}
+          <div class="row align-items-center" id="row-1">
+
+          <div class="col-sm-6">
+            <!-- Form -->
+            <div class="mb-4">
+              <label class="form-label" for="hireUsFormFirstName">Resource</label>
+              <select id="1" name="1" class="form-select form-select-lg" aria-label="Tell us about your budget">
+                <option  selected>Please select a resource.</option>
+                {% if resources %}
+                {% for resource in resources %}
+                <option value="{{resource.id}}">{{resource.title}}</option>
+                {%endfor%}
+              {% else %}
+                <option>Please create some resources</option>
+
+              {% endif %}
+              </select>
+            </div>
+            <!-- End Form -->
+
+          </div>
+
+
+          <div class="col-sm-3">
+            <!-- Form -->
+            <div class="mb-4">
+            </div>
+            <!-- End Form -->
+          
+          </div>    
+        </div>
+
+          {% endif %}
+          <div id="add_resource_list">
+
+          </div>
+          <div class ="row align-items-center">
+            <div class="col-12 mb-3">
+              <button type="button" onclick="addInputs()" class="btn btn-primary" id="add1"><i class="bi bi-plus"></i></button>
+            </div>
+            <div class="col-12">
+              <a class="btn btn-outline-primary" href="{% url 'criticalpath:course_add_splits' course.id %}">
+                <i class="bi-arrow-left "></i> Back
+              </a>
+              <button type="submit" class="btn btn-primary">Next</button>
+            </div>
+          </div>
+        </div>
+  
+        </form>
+        </div>
+    </div>
+{% endblock %}
+
+{% block customjs %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script>
+  start_add_row = {{course_resources|length}};
+  console.log("Start row: ", start_add_row)
+
+  function addInputs () {
+    start_add_row += 1
+
+    console.log("Start add row before: ", start_add_row)
+  
+
+    console.log("Start add row after: ", start_add_row)
+
+    $('#add_resource_list').append(`
+      <div class="row" id="row-${start_add_row}">
+        <div class="col-sm-6">
+
+        <!-- Form -->
+        <div class="mb-4">
+          <label class="form-label" for="hireUsFormFirstName">Resource</label>
+          <select name="${start_add_row}" id="${start_add_row}" class="form-select form-select-lg" aria-label="Tell us about your budget">
+            <option  selected>Please select a resource.</option>
+            {% if resources %}
+            {% for resource in resources %}
+            <option value="{{resource.id}}">{{resource.title}}</option>
+            {%endfor%}
+          {% else %}
+            <option>Please create some resources</option>
+
+          {% endif %}
+          </select>
+        </div>
+        <!-- End Form -->
+
+        </div>
+        <div class="col-sm-3">
+          <!-- Form -->
+          <div class="mb-4">
+            <div>
+              <label class="form-label" for="hireUsFormLasttName">Action</label>
+            </div>
+            <button type="button" class="btn btn-outline-primary" id="del-${start_add_row}"><i class="bi bi-trash"></i></button>
+
+          </div>
+          <!-- End Form -->
+        
+        </div>
+        </div>
+    `);
+
+    row = "row-" + start_add_row;
+    del = "del-" + start_add_row;
+    document.getElementById(del).addEventListener("click", removeInputs);
+    start_add_row += 1
+    };
+
+  function removeInputs (e) {
+    start_add_row = start_add_row - 1
+    let element = e.target.id;
+    element_split = element.split("-");
+    let num = element_split[1];
+    $("div").remove("#row-"+num);
+  }
+
+  {%comment%} add event listeners for all existing rows for deletion / update {%endcomment%}
+  let number_of_course_resources = 1;
+  console.log("Number of resources:", number_of_course_resources)
+
+  {% for course_resource in course_resources %}
+    existing_dels = "del-" + number_of_course_resources;
+    document.getElementById(existing_dels).addEventListener("click", removeInputs);
+    {% if course_resources|length != number_of_course_resources  %}
+      number_of_course_resources += 1;
+
+    {% endif %}
+  {% endfor %}
+  console.log("Number of resources:", number_of_course_resources)
+
+</script>
+
+{% endblock %}

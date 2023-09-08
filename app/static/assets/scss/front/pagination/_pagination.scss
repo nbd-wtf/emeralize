@@ -1,0 +1,16 @@
+/*------------------------------------
+  Pagination
+------------------------------------*/
+
+.page-item {
+  &:not(:last-child) {
+    margin-right: $pagination-item-margin-x;
+  }
+}
+
+.page-link {
+  min-width: $pagination-link-min-width;
+  text-align: center;
+  cursor: pointer;
+  @include border-radius($pagination-border-radius);
+}

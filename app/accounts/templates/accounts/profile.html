@@ -1,0 +1,329 @@
+{% extends "emeralize/base.html" %}
+{% load static %}
+{% block title %}
+{{educator.username}}
+{% endblock %}
+
+{% block content %}
+<!-- Content -->
+<div class="container content-space-1 content-space-sm-1">
+
+
+  <div class="row my-9 ">
+    <div class="col-12 text-center">
+      <h3>About {{educator.username}}</h3>
+      <p>{{educator_profile.bio}}</p>
+    </div>
+    <div class="col-12 text-center">
+      <div class="mb-3">
+        <img class="avatar avatar-xl avatar-circle" src="{{educator_profile.profile_pic.url}}" alt="Image Description">
+      </div>
+      <ul class="list-unstyled list-py-1">        
+        <li>
+          {% if educator_profile.website %}
+          <a class="btn btn-outline-primary"  href="{{educator_profile.website}}">
+            <i class="bi bi-globe"></i>
+          </a>
+          {% endif %}        
+          {% if educator_profile.tiktok_username %}
+          <a target="_blank" class="btn btn-outline-primary"  href="https://tiktok.com/@{{educator_profile.tiktok_username}}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" fill="currentColor" class="bi bi-tiktok" viewBox="0 0 16 16">
+              <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3V0Z"/>
+            </svg>
+          </a>
+          {% endif %}
+          {% if educator_profile.youtube_username %}
+          <a target="_blank" class="btn btn-outline-primary"  href="https://www.youtube.com/channel/{{educator_profile.youtube_username}}">
+            <i class="bi bi-youtube"></i>
+          </a>
+          {% endif %}
+          {% if educator_profile.twitter_username %}
+          <a target="_blank" class="btn btn-outline-primary" href="https://twitter.com/{{educator_profile.twitter_username}}">
+            <i class="bi bi-twitter"></i>
+          </a>
+          
+          {% endif %}
+          {% if educator_profile.twitch_username %}
+          <a target="_blank" class="btn btn-outline-primary"  href="https://twitch.tv/{{educator_profile.twitch_username}}">
+            <i class="bi bi-twitch"></i>
+          </a>
+          
+          {% endif %}
+          {% if educator_profile.bitcointv_username %}
+          <a target="_blank" href="https://bitcointv.com/c/{{educator_profile.bitcointv_username}}/videos">
+            <i class="bi bi-tv"></i>
+          </a>
+          {% endif %}
+
+        </li>
+        {% if request.user == educator %}
+        <li><a class="btn btn-outline-primary btn-transition" href="{% url 'marketplace:account-profile' %}">Edit Profile</a></li>
+        {% else %}
+        <li><a class="btn btn-primary btn-transition" href="{% url 'marketplace:tip-amount' educator.username %}">Tip</a></li>
+        {% endif %}
+
+      </ul>
+    </div>
+    <!-- End Col -->
+
+    <div class="col-sm-8 text-center">
+      <!-- Info -->
+      <div class="mb-2">
+        <h4 class="mb-1">{% if profile.verified %}<i class="bi bi-patch-check-fill"></i>{% endif %}</h4>
+      </div>
+
+      <p>{{profile.bio}}</p>
+      <!-- End Info -->
+    </div>
+    <!-- End Col -->
+    {% if creator_courses %}
+    <div class="col-12">
+      <div class="border-top">
+        <div class="my-4">
+          <h4 class="text-center">Courses by {{educator.username}}</h4>
+        </div>
+        <div class="border-top">
+
+        <div class="row mt-7">
+          {% for course in creator_courses %}
+            <div class="col-md-6 col-lg-3 mb-5">
+              <!-- Card -->
+              <div class="card card-bordered h-100">
+                <!-- Card Pinned -->
+                <div class="card-pinned">
+                  <img class="card-img-top" style="object-fit: cover; overflow:hidden !important; width: 100% !important; max-width: 100% !important; max-height: 100%;" src="{% if course.cover_image %} {{ course.cover_image.url }} {% endif %} " alt="Image Description">
+
+                </div>
+                <!-- End Card Pinned -->
+
+                <!-- Card Body -->
+                <div class="card-body">
+
+                  <div class="mb-3">
+                    <h3 class="card-title">
+                      <a class="text-dark" href="{% url 'criticalpath:course_detail' course.id %}">{{ course.title }}</a>
+                    </h3>
+                  </div>
+
+                </div>
+                <!-- End Card Body -->
+
+                <!-- Card Footer -->
+                <div class="card-footer pt-0">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="me-9">
+                      <span class="d-block small">{{ course.price }} sats</span>
+                    </div>
+                    {% if course.price == 0 %}
+                    <a class="btn btn-primary btn-sm btn-transition" href="{% url 'criticalpath:course_detail' course.id %}">View</a>
+                    {% else %}
+                    <a class="btn btn-primary btn-sm btn-transition" href="{% url 'marketplace:course_purchase_detail' course.id %}">View</a>
+                    {% endif %}
+                  </div>
+                </div>
+                <!-- End Card Footer -->
+              </div>
+              <!-- End Card -->
+            </div>
+            <!-- End Col -->
+          {% endfor %}
+        </div>
+
+        {% comment %} <div class="text-end small">
+          <a class="link" href="../demo-course/courses.html">See all courses <i class="bi-chevron-right small ms-1"></i></a>
+        </div> {% endcomment %}
+      </div>
+    </div>
+    {%endif %}
+
+    {% if creator_workshops %}
+    <div class="col-12">
+      <div class="border-top">
+        <div class="my-4">
+          <h4 class="text-center">Workshops by {{educator.username}}</h4>
+        </div>
+        <div class="border-top">
+
+        <div class="row mt-7">
+          {% for workshop in creator_workshop %}
+            <div class="col-md-6 col-lg-3 mb-5">
+              <!-- Card -->
+              <div class="card card-bordered h-100">
+                <!-- Card Pinned -->
+                <div class="card-pinned">
+                  <img class="card-img-top" style="object-fit: cover; overflow:hidden !important; width: 100% !important; max-width: 100% !important; max-height: 100%;" src="{% if workshop.cover_image %} {{ workshop.cover_image.url }} {% endif %} " alt="Image Description">
+
+                </div>
+                <!-- End Card Pinned -->
+
+                <!-- Card Body -->
+                <div class="card-body">
+
+                  <div class="mb-3">
+                    <h3 class="card-title">
+                      <a class="text-dark" href="{% url 'criticalpath:workshop_detail' workshop.id %}">{{ workshop.title }}</a>
+                    </h3>
+                  </div>
+
+                </div>
+                <!-- End Card Body -->
+
+                <!-- Card Footer -->
+                <div class="card-footer pt-0">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="me-9">
+                      <span class="d-block small">{% if workshop.currency_type.iso_code == "USD" %} ${% endif %}{{ workshop.price }} {% if workshop.currency_type.iso_code == "SAT" %} sats {% else %} {{workshop.currency_type.iso_code}} {% endif %}</span>
+                    </div>
+                    {% if workshop.price == 0 %}
+                    <a class="btn btn-primary btn-sm btn-transition" href="{% url 'criticalpath:workshop_detail' workshop.id %}">View</a>
+                    {% else %}
+                    <a class="btn btn-primary btn-sm btn-transition" href="{% url 'marketplace:workshop_purchase_detail' workshop.id %}">View</a>
+                    {% endif %}
+                  </div>
+                </div>
+                <!-- End Card Footer -->
+              </div>
+              <!-- End Card -->
+            </div>
+            <!-- End Col -->
+          {% endfor %}
+        </div>
+
+        {% comment %} <div class="text-end small">
+          <a class="link" href="../demo-course/courses.html">See all courses <i class="bi-chevron-right small ms-1"></i></a>
+        </div> {% endcomment %}
+      </div>
+    </div>
+    {%endif %}
+
+    {% if creator_ebooks %}
+    <div class="col-12">
+      <div class="border-top">
+        <div class="my-4">
+          <h4 class="text-center">Ebooks by {{educator.username}}</h4>
+        </div>
+        <div class="border-top">
+
+        <div class="row mt-7">
+          {% for ebook in creator_ebooks %}
+            <div class="col-md-6 col-lg-3 mb-5">
+              <!-- Card -->
+              <div class="card card-bordered h-100">
+                <!-- Card Pinned -->
+                <div class="card-pinned">
+                  <img class="card-img-top" style="object-fit: cover; overflow:hidden !important; width: 100% !important; max-width: 100% !important; max-height: 100%;" src="{% if ebook.cover_image %} {{ ebook.cover_image.url }} {% endif %} " alt="Image Description">
+
+                </div>
+                <!-- End Card Pinned -->
+
+                <!-- Card Body -->
+                <div class="card-body">
+
+                  <div class="mb-3">
+                    <h3 class="card-title">
+                      <a class="text-dark" href="{% url 'criticalpath:ebook_detail' ebook.id %}">{{ ebook.title }}</a>
+                    </h3>
+                  </div>
+
+                </div>
+                <!-- End Card Body -->
+
+                <!-- Card Footer -->
+                <div class="card-footer pt-0">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="me-9">
+                      <span class="d-block small">{% if ebook.currency_type.iso_code == "USD" %} ${% endif %}{{ ebook.price }} {% if ebook.currency_type.iso_code == "SAT" %} sats {% else %} {{ebook.currency_type.iso_code}} {% endif %}</span>
+                    </div>
+                    {% if ebook.price == 0 %}
+                    <a class="btn btn-primary btn-sm btn-transition" href="{% url 'criticalpath:ebook_detail' ebook.id %}">View</a>
+                    {% else %}
+                    <a class="btn btn-primary btn-sm btn-transition" href="{% url 'marketplace:ebook_purchase_detail' ebook.id %}">View</a>
+                    {% endif %}
+                  </div>
+                </div>
+                <!-- End Card Footer -->
+              </div>
+              <!-- End Card -->
+            </div>
+            <!-- End Col -->
+          {% endfor %}
+        </div>
+
+        {% comment %} <div class="text-end small">
+          <a class="link" href="../demo-course/courses.html">See all courses <i class="bi-chevron-right small ms-1"></i></a>
+        </div> {% endcomment %}
+      </div>
+    </div>
+    {%endif %}
+
+    {% if creator_resources %}
+    <div class="col-12">
+      <div class="border-top">
+        <div class="my-4">
+          <h4 class="text-center">Resources by {{educator.username}}</h4>
+        </div>
+        <div class="border-top">
+
+        <div class="row mt-7">
+          {% for resource in creator_resources %}
+            <div class="col-md-6 col-lg-3 mb-5">
+              <!-- Card -->
+              <div class="card card-bordered h-100">
+                <!-- Card Pinned -->
+                <div class="card-pinned">
+                  <img class="card-img-top" style="object-fit: cover; overflow:hidden !important; width: 100% !important; max-width: 100% !important; max-height: 100%;" src="{% if resource.cover_image %} {{ resource.cover_image.url }} {% endif %} " alt="Image Description">
+
+                </div>
+                <!-- End Card Pinned -->
+
+                <!-- Card Body -->
+                <div class="card-body">
+
+                  <div class="mb-3">
+                    <h3 class="card-title">
+                      <a class="text-dark" href="{% url 'criticalpath:resource_detail' resource.id %}">{{ resource.title }}</a>
+                    </h3>
+                  </div>
+
+                </div>
+                <!-- End Card Body -->
+
+                <!-- Card Footer -->
+                <div class="card-footer pt-0">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="me-9">
+                      <span class="d-block small">{{ resource.price }} sats</span>
+                    </div>
+                    {% if resource.price == 0 %}
+                    <a class="btn btn-primary btn-sm btn-transition" href="{% url 'criticalpath:resource_detail' resource.id %}">View</a>
+                    {% else %}
+                    <a class="btn btn-primary btn-sm btn-transition" href="{% url 'marketplace:resource_purchase_detail' resource.id %}">View</a>
+                    {% endif %}
+                  </div>
+                </div>
+                <!-- End Card Footer -->
+              </div>
+              <!-- End Card -->
+            </div>
+            <!-- End Col -->
+          {% endfor %}
+        </div>
+
+      </div>
+    </div>
+    {%endif %}
+
+
+  </div>
+  <!-- End Row -->
+
+  
+</div>
+<!-- End Content -->
+
+
+
+
+
+
+{% endblock%}

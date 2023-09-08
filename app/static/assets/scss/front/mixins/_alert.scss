@@ -1,0 +1,27 @@
+//
+// Alerts
+//
+
+@mixin alert-variant($background, $border, $color) {
+  color: color-contrast($color);
+  @include gradient-bg($background);
+  border-color: $border;
+
+  .alert-link {
+    color: color-contrast($color);
+  }
+}
+
+// Soft Alert
+@mixin alert-soft-variant($color, $background) {
+  color: $color;
+  background-color: rgba($background, .15);
+
+  .alert-link {
+    color: $color;
+
+    &:hover {
+      color: darken($color, 7%);
+    }
+  }
+}

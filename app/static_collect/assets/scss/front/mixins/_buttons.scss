@@ -1,0 +1,49 @@
+// Button Variants
+
+@mixin button-soft-variant($color, $background, $border, $hover-background, $active-background) {
+  color: ($color);
+  background-color: rgba($background, .1);
+  border-color: $border;
+
+  &:hover,
+  .btn-check:focus + &,
+  &:focus {
+    color: color-contrast($hover-background);
+    background-color: ($hover-background);
+  }
+
+  .btn-check:checked + &,
+  .btn-check:active + &,
+  &:active,
+  &.active,
+  .show > &.dropdown-toggle {
+    color: color-contrast($active-background);
+    background-color: $background;
+    border-color: $border;
+  }
+
+  &:disabled,
+  &.disabled {
+    color: $color;
+    background-color: $background;
+    border-color: $border;
+  }
+}
+
+// Ghost Buttons Variants
+@mixin button-ghost-variant($color, $hover-background) {
+  color: $color;
+  background-color: $btn-ghost-bg-color;
+
+  &:hover,
+  .btn-check:focus + &,
+  &:focus,
+  .btn-check:checked + &,
+  .btn-check:active + &,
+  &:active,
+  &.active,
+  .show > &.dropdown-toggle {
+    color: $color;
+    background-color: rgba($hover-background, .1);
+  }
+}

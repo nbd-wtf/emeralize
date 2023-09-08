@@ -1,0 +1,62 @@
+/*------------------------------------
+  List Group
+------------------------------------*/
+
+.list-group-item {
+  &:first-child {
+    @include border-top-radius($list-group-border-radius);
+  }
+
+  &:last-child {
+    @include border-bottom-radius($list-group-border-radius);
+  }
+
+  &.active {
+    .list-group-icon {
+      color: $list-group-active-color;
+    }
+  }
+}
+
+// Icon
+.list-group-icon {
+  display: inline-block;
+  color: $list-group-icon-color;
+  width: $list-group-icon-width;
+  text-align: center;
+  margin-right: $list-group-icon-margin-x;
+}
+
+// Striped
+.list-group-striped {
+  > li:nth-of-type(odd) {
+    background-color: $list-group-striped-bg-color;
+  }
+}
+
+// Sizes
+.list-group-sm {
+  .list-group-item {
+    font-size: $list-group-sm-item-font-size;
+    padding: $list-group-item-padding-y / 2 $list-group-item-padding-x / 2;
+  }
+}
+
+.list-group-lg {
+  .list-group-item {
+    padding: $list-group-lg-item-padding-y $list-group-lg-item-padding-x;
+  }
+
+  .list-group-icon {
+    font-size: $list-group-lg-icon-font-size;
+    width: $list-group-lg-icon-width;
+  }
+}
+
+// No Gutters
+.list-group-no-gutters {
+  .list-group-item {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}

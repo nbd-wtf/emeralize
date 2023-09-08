@@ -1,0 +1,21 @@
+//
+// Steps
+//
+
+@mixin step-variant($background) {
+  color: color-contrast($background);
+  background-color: $background;
+
+  &.step-icon-pseudo::before {
+    background-color: color-contrast($background);
+  }
+}
+
+@mixin step-soft-variant($soft-background) {
+  color: ($soft-background);
+  background-color: rgba($soft-background, .1);
+
+  &.step-icon-pseudo::before {
+    background-color: ($soft-background);
+  }
+}

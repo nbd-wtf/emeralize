@@ -1,0 +1,41 @@
+
+
+{% extends "emeralize/base.html" %}
+{% block title %}
+Transaction History
+{% endblock %}
+
+{% block content %}
+<div class="container content-space-1 content-space-sm-1">
+    <div class="row text-center ">
+        <div class="col-sm-12">     
+            <h2 class="mt-9 mb-5">Your Transaction History</h2>
+            <p class="mb-5">If you have made or received any transactions, you'll see them below.</p>
+            {% if user_transactions %}
+            <!-- Table -->
+            <table class="table table-borderless table-thead-bordered" style="background-color: #121421; color: #FFFFFF;">
+                <thead style="background-color: #049070;">
+                    <tr>
+                        <th scope="col" style="color: #ffffff;">ID</th>
+                        <th scope="col" style="color: #ffffff;">Transaction</th>
+                        <th scope="col" style="color: #ffffff;">Amount</th>
+                    </tr>
+                    </thead>
+                <tbody>
+                {% for tx in user_transactions %}
+                <tr style="background-color: #121421;">
+                    <th scope="row" style="color: #ffffff;">{{tx.id}}</th>
+                    <td style="color: #ffffff;">{{tx.transaction_code}}</td>
+                    <td style="color: #ffffff;">{{tx.amount}}</td>
+                </tr>
+                    {% endfor %}
+                <!-- End Table -->
+                </tbody>
+            </table>
+            {% else %}
+            <p>You have no transaction history.</p>
+            {% endif %}      
+        </div>
+    </div>
+</div>
+{% endblock %}

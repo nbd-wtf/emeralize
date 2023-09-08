@@ -1,0 +1,86 @@
+/*------------------------------------
+  Tables
+------------------------------------*/
+
+.table {
+  th {
+    font-weight: $table-th-font-weight;
+  }
+
+  tr {
+    color: $table-body-color;
+  }
+
+  thead th {
+    color: $table-thead-th-color;
+    font-weight: $table-thead-th-font-weight;
+  }
+
+  > :not(:last-child) > :last-child > * {
+    border-bottom-color: $table-thead-border-color;
+  }
+
+  > :not(caption) > *:last-child > * {
+    border-bottom-width: 0;
+  }
+
+  .btn {
+    white-space: nowrap;
+  }
+}
+
+// Nowrap
+.table-nowrap {
+  th, td {
+    white-space: nowrap;
+  }
+}
+
+// Align Middle
+.table-align-middle {
+  tbody tr, th, td {
+    vertical-align: middle;
+  }
+}
+
+// Text Center
+.table-text-center {
+  &, th, td {
+    text-align: center;
+  }
+}
+
+// Text End
+.table-text-end {
+  &, th, td {
+    text-align: right;
+  }
+}
+
+// thead Light
+.thead-light th {
+  background-color: $table-thead-light-bg;
+}
+
+// Small Size
+.table-lg {
+  > :not(caption) > * > * {
+    padding: $table-cell-padding-y-lg $table-cell-padding-x-lg;
+  }
+}
+
+// Thead Bordered
+.table-thead-bordered {
+  > :not(:last-child) > :last-child > * {
+    border-top: $table-border-width solid $table-border-color;
+    border-bottom: $table-border-width solid $table-border-color;
+  }
+}
+
+// Vertical Border Striped
+.table-vertical-border-striped {
+  > thead > tr > th:not(:first-child):not(:last-child),
+  > tbody > tr > td:not(:first-child):not(:last-child) {
+    border-right: $table-border-width solid $table-border-color;
+  }
+}

@@ -1,0 +1,69 @@
+/*------------------------------------
+  Step Avatar
+------------------------------------*/
+
+.step-avatar-xs {
+  .step-avatar,
+  &.step-avatar {
+    font-size: $step-avatar-font-size-xs;
+    width: $step-avatar-width-xs;
+    height: $step-avatar-height-xs;
+
+    &::after {
+      top: $step-avatar-height-xs + $step-padding-x / 2;
+      left: $step-avatar-width-xs / 2 - ($step-border-width / 2);
+      width: $step-border-width + $step-padding-x;
+      height: calc(100% - #{$step-avatar-height-xs + $step-padding-x / 2 - $step-padding-x});
+    }
+  }
+
+  .step-divider {
+    &::after {
+      left: $step-icon-width-xs / 2;
+    }
+  }
+}
+
+.step-avatar-sm {
+  .step-avatar,
+  &.step-avatar {
+    font-size: $step-avatar-font-size-sm;
+    width: $step-avatar-width-sm;
+    height: $step-avatar-height-sm;
+
+    &::after {
+      top: $step-avatar-height-sm + $step-padding-x / 2;
+      left: $step-avatar-width-sm / 2 - ($step-border-width / 2);
+      width: $step-border-width + $step-padding-x;
+      height: calc(100% - #{$step-avatar-height-sm + $step-padding-x / 2 - $step-padding-x});
+    }
+  }
+
+  .step-divider {
+    &::after {
+      left: $step-icon-width-sm / 2;
+    }
+  }
+}
+
+.step-avatar-lg {
+  .step-avatar,
+  &.step-avatar {
+    font-size: $step-avatar-font-size-lg;
+    width: $step-avatar-width-lg;
+    height: $step-avatar-height-lg;
+
+    &::after {
+      top: $step-avatar-height-lg + $step-padding-x / 2;
+      left: $step-avatar-width-lg / 2 - ($step-border-width / 2);
+      width: $step-border-width + $step-padding-x;
+      height: calc(100% - #{$step-avatar-height-lg + $step-padding-x / 2 - $step-padding-x});
+    }
+  }
+
+  .step-divider {
+    &::after {
+      left: $step-icon-width-lg / 2;
+    }
+  }
+}

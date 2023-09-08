@@ -1,0 +1,35 @@
+{% extends "emeralize/base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}
+Profile Details
+{% endblock %}
+
+{% block content %}
+        
+      <div class="container content-space-2 content-space-lg-3">
+      <!-- Page Header -->
+      <div class="page-header">
+        <div class="row align-items-center">
+          <div class="col-sm mb-2">
+
+            <a class="btn btn-primary btn-sm mb-4" href="{% url 'home' %}">
+              <i class="bi-arrow-left"></i> Back
+            </a>
+            <h2 class="page-header-title">{{page_header}}</h2>
+          </div>
+        </div>
+      </div>
+      <!-- End Page Header -->
+      <div class="row ">
+        <div class="col-md-12 col-lg-8">
+        <form action="" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <table>
+            {{ form|crispy }}
+          </table>
+          <input class="btn btn-primary" type="submit" value="Submit">
+        </form>
+        </div>
+      </div>
+    </div>
+{% endblock %}

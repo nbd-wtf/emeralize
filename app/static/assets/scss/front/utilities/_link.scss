@@ -1,0 +1,49 @@
+/*------------------------------------
+  Link
+------------------------------------*/
+
+.link {
+  font-weight: $link-font-weight;
+}
+
+@each $color, $value in $theme-colors {
+  .link-#{$color} {
+    @if $color == "light" {
+      &:hover,
+      &:focus {
+        color: $link-light-hover-color;
+      }
+    } @else {
+      &:hover,
+      &:focus {
+        color: $link-hover-color;
+      }
+    }
+  }
+}
+
+// Size
+.link-sm {
+  font-size: $link-sm-font-size;
+}
+
+// Collapse
+.link-collapse[aria-expanded="false"] {
+  .link-collapse-default {
+    display: inline-block;
+  }
+
+  .link-collapse-active {
+    display: none;
+  }
+}
+
+.link-collapse[aria-expanded="true"] {
+  .link-collapse-default {
+    display: none;
+  }
+
+  .link-collapse-active {
+    display: inline-block;
+  }
+}

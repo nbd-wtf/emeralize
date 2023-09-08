@@ -1,0 +1,45 @@
+/*------------------------------------
+  Input Group Break
+------------------------------------*/
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+  .input-group#{$infix}-down-break {
+    @include media-breakpoint-down($breakpoint) {
+      display: block;
+
+      > .form-control,
+      > .form-select {
+        width: 100%;
+      }
+
+      > .form-control:first-child,
+      > .form-select:first-child {
+        @include border-top-radius($input-border-radius !important);
+        @include border-bottom-radius(0);
+      }
+
+      > .form-select:not(:first-child):not(:last-child),
+      > .form-control:not(:first-child):not(:last-child) {
+        @include border-radius(0);
+      }
+
+      > .form-select:last-child,
+      > .form-control:last-child {
+        @include border-top-radius(0);
+        @include border-bottom-radius($input-border-radius !important);
+      }
+
+      .form-control + .form-control,
+      .form-control + .form-select,
+      .form-control-plaintext + .form-control,
+      .form-control-plaintext + .form-select,
+      .form-select + .form-control,
+      .form-select + .form-select {
+        margin-left: 0 !important;
+        margin-top: -$input-border-width;
+      }
+    }
+  }
+}

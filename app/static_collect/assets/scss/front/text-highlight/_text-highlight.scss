@@ -1,0 +1,14 @@
+/*------------------------------------
+  Text Highlight
+------------------------------------*/
+
+[class*=text-highlight-] {
+  background: $text-highlight-bg-value;
+  background-repeat: repeat-x;
+}
+
+@each $color, $value in $theme-colors {
+  .text-highlight-#{$color} {
+    @include gradient-y($start-color: rgba($value, .5), $end-color: rgba($value, .5));
+  }
+}

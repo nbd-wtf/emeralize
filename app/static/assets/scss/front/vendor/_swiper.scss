@@ -1,0 +1,365 @@
+/*------------------------------------
+  Swiper
+------------------------------------*/
+
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+// Preloader
+.swiper-preloader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $swiper-preloader-bg-color;
+  z-index: 1;
+}
+
+// Arrows
+.swiper-button-next,
+.swiper-button-prev {
+  display: inline-flex;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  color: $swiper-arrow-icon-color;
+  width: $swiper-arrow-icon-width;
+  height: $swiper-arrow-icon-width;
+  background-color: $swiper-arrow-icon-bg-color;
+  box-shadow: $swiper-arrow-icon-box-shadow;
+  @include border-radius($swiper-arrow-icon-border-radius);
+  transition: $swiper-arrow-transition;
+
+  &:after {
+    width: $swiper-arrow-icon-pseudo-width;
+    height: $swiper-arrow-icon-pseudo-height;
+    font-family: inherit;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: 100% 100%;
+    content: '';
+  }
+
+  &.swiper-button-disabled {
+    opacity: $swiper-arrow-icon-disabled-opacity;
+    box-shadow: none;
+  }
+}
+
+.swiper-button-next {
+  &:after {
+    background-image: escape-svg($swiper-arrow-next-icon-bg);
+  }
+
+  &:hover:after {
+    background-image: escape-svg($swiper-arrow-next-icon-hover-bg);
+  }
+}
+
+.swiper-button-prev {
+  &:after {
+    background-image: escape-svg($swiper-arrow-prev-icon-bg);
+  }
+
+  &:hover:after {
+    background-image: escape-svg($swiper-arrow-prev-icon-hover-bg);
+  }
+}
+
+// Soft White Arrows
+.swiper-button-next-soft-white,
+.swiper-button-prev-soft-white {
+  color: $swiper-arrow-soft-white-icon-color;
+  background-color: $swiper-arrow-soft-white-icon-bg-color;
+
+  &:hover {
+    background-color: $swiper-arrow-soft-white-hover-bg-color;
+  }
+}
+
+.swiper-button-next-soft-white {
+  &:after,
+  &:hover:after {
+    background-image: escape-svg($swiper-arrow-next-soft-white-icon-bg);
+  }
+}
+
+.swiper-button-prev-soft-white {
+  &:after,
+  &:hover:after {
+    background-image: escape-svg($swiper-arrow-prev-soft-white-icon-bg);
+  }
+}
+
+// Pagination
+.swiper-pagination {
+  position: static;
+  width: 100% !important;
+  display: flex;
+  justify-content: center;
+  margin-top: $swiper-pagination-margin-y;
+}
+
+.swiper-container-horizontal > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+  left: 0%;
+  transform: translateX(0%);
+}
+
+// Pagination Bullet
+.swiper-pagination-bullets {
+  &.swiper-pagination-bullets-dynamic {
+    transform: translateX(0%);
+  }
+
+  .swiper-pagination-bullet {
+    margin: 0 $swiper-pagination-bullet-margin-x;
+  }
+}
+
+.swiper-pagination-bullet {
+  position: relative;
+  opacity: 1;
+  width: $swiper-pagination-bullet-width;
+  height: $swiper-pagination-bullet-height;
+  border: $swiper-pagination-bullet-border-width solid $swiper-pagination-bullet-border-color;
+  background-color: $swiper-pagination-bullet-bg-color;
+  transition: $transition-timing-sm;
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: $swiper-pagination-bullet-pseudo-width;
+    height: $swiper-pagination-bullet-pseudo-height;
+    background-color: $swiper-pagination-bullet-pseudo-bg-color;
+    @include border-radius($swiper-pagination-bullet-pseudo-border-radius);
+    transform: translate(-50%, -50%);
+    transition: $transition-timing-sm;
+    content: '';
+  }
+
+  &:hover {
+    border-color: $swiper-pagination-bullet-hover-border-color;
+
+    &::before {
+      background-color: $swiper-pagination-bullet-pseudo-hover-bg-color;
+    } 
+  }
+}
+
+.swiper-pagination-bullet-active {
+  &,
+  &:hover {
+    border-color: $swiper-pagination-bullet-active-border-color;
+
+    &::before {
+      background-color: $swiper-pagination-bullet-pseudo-active-bg-color;
+    }
+  }
+}
+
+// Pagination Light
+.swiper-pagination-light {
+  .swiper-pagination-bullet {
+    &::before {
+      background-color: $swiper-pagination-light-bullet-pseudo-bg-color;
+    }
+
+    &:hover {
+      border-color: $swiper-pagination-light-bullet-hover-border-color;
+
+      &::before {
+        background-color: $swiper-pagination-light-bullet-pseudo-hover-bg-color;
+      } 
+    }
+  }
+
+  .swiper-pagination-bullet-active {
+    &,
+    &:hover {
+      border-color: $swiper-pagination-light-bullet-active-border-color;
+
+      &::before {
+        background-color: $swiper-pagination-light-bullet-pseudo-active-bg-color;
+      }
+    }
+  }
+}
+
+// Progress
+.swiper-pagination-progress {
+  cursor: pointer;
+}
+
+.swiper-pagination-progress-body {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: $swiper-pagination-progress-body-height;
+  background-color: $swiper-pagination-progress-body-bg-color;
+}
+
+.swiper-pagination-progress-body-helper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 0;
+  height: 100%;
+  background-color: $swiper-pagination-progress-body-helper-bg-color;
+  transition: none;
+}
+
+.swiper-slide-thumb-active .swiper-pagination-progress-body-helper {
+  transition-property: width;
+  transition-timing-function: linear;
+  width: 100%;
+}
+
+// Light
+.swiper-pagination-progress-light {
+  .swiper-pagination-progress-body {
+    background-color: $swiper-pagination-progress-light-body-bg-color;
+  }
+
+  .swiper-pagination-progress-body-helper {
+    background-color: $swiper-pagination-progress-light-body-helper-bg-color;
+  }
+}
+
+// Progress
+.swiper-pagination-progressbar {
+  background-color: $swiper-pagination-progressbar-bg-color;
+}
+
+.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+  background-color: $swiper-pagination-progressbar-fill-bg-color;
+}
+
+// Fraction
+.swiper-pagination-fraction {
+  display: block;
+  letter-spacing: $swiper-pagination-fraction-letter-spacing;
+  
+  .swiper-pagination-current {
+    font-size: $swiper-pagination-fraction-current-font-size;
+    line-height: $swiper-pagination-fraction-current-font-size;
+  }
+}
+
+// Thumbs
+.swiper-thumbs {
+  box-sizing: border-box;
+}
+
+.swiper-thumbs .swiper-slide {
+  cursor: pointer;
+  opacity: .4;
+}
+
+.swiper-thumbs .swiper-slide-thumb-active {
+  opacity: 1;
+}
+
+// Equal Height
+.swiper-equal-height {
+  .swiper-wrapper {
+    display: flex;
+  }
+  
+  .swiper-slide {
+    display: flex;
+    height: auto;
+  }
+}
+
+// Vertical
+.swiper-pagination-vertical.swiper-pagination-bullets,
+.swiper-container-vertical > .swiper-pagination-bullets {
+  position: absolute;
+  width: auto !important;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin: 0;
+
+  .swiper-pagination-bullet {
+    margin: $swiper-pagination-bullet-margin-y 0;
+  }
+}
+
+// Right Center
+.swiper-container-horizontal > .swiper-pagination-middle-y-end {
+  position: absolute;
+  top: 50%;
+  left: auto;
+  right: 0;
+  bottom: auto;
+  transform: translateY(-50%);
+}
+
+// Center Mode
+.swiper-center-mode-end {
+  margin-right: $swiper-center-mode-end !important;
+}
+
+// Thumb Progress
+.swiper-thumb-progress {
+  width: 110%;
+  height: 110%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+
+.swiper-thumb-progress-avatar {
+  position: relative;
+  display: block;
+  width: $swiper-thumb-progress-avatar-width;
+  height: $swiper-thumb-progress-avatar-height;
+  border: $swiper-thumb-progress-avatar-border-width solid $swiper-thumb-progress-avatar-border-color;
+  padding: $swiper-thumb-progress-avatar-padding;
+  margin: $swiper-thumb-progress-avatar-margin;
+  @include border-radius($swiper-thumb-progress-avatar-border-radius);
+}
+
+.swiper-thumb-progress-avatar-img {
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  @include border-radius($swiper-thumb-progress-avatar-border-radius);
+}
+
+.swiper-thumb-progress .swiper-thumb-progress-path {
+  opacity: 0;
+  fill: transparent;
+  stroke: $swiper-thumb-progress-path-stroke-color;
+  stroke-width: 8;
+  stroke-dashoffset: 477;
+  stroke-dashoffset: 0px;
+}
+
+.swiper-thumb-progress .swiper-thumb-progress-path {
+  opacity: 0;
+  fill: transparent;
+  stroke: $swiper-thumb-progress-path-stroke-color;
+  stroke-width: 8;
+  stroke-dashoffset: 477;
+  stroke-dashoffset: 0px;
+}
+
+@keyframes swiperThumbProgressDash {
+  from {
+    stroke-dasharray: 0 477;
+  }
+  to {
+    stroke-dasharray: 477 477;
+  }
+}

@@ -1,0 +1,67 @@
+/*------------------------------------
+  Form Switch
+------------------------------------*/
+
+.form-switch {
+  position: relative;
+
+  .form-check-input {
+    width: $form-switch-input-width;
+    height: $form-switch-input-height;
+    border-width: $form-switch-input-border-width;
+    background-color: $form-switch-input-bg-color;
+    margin-top: -($line-height-base - $form-check-input-width) / 2;
+    margin-right: $form-switch-margin-x;
+
+    &:active {
+      filter: $form-check-input-active-filter;
+    }
+  }
+}
+
+.form-check-input:checked {
+  background-color: $form-check-input-checked-bg-color;
+}
+
+// Between
+.form-switch-between {
+  align-items: center;
+  padding-left: 0;
+
+  .form-check-input {
+    float: none;
+    align-items: center;
+    margin-left: $form-switch-between-margin-x;
+  }
+
+  .form-check-label {
+    cursor: inherit;
+  }
+}
+
+// Promotion
+.form-switch-promotion {
+  position: relative;
+  min-width: $form-switch-promotion-min-width;
+}
+
+.form-switch-promotion-container {
+  position: absolute;
+  top: -$form-switch-promotion-container-position-top-offset;
+  left: $form-switch-promotion-container-position-left-offset;
+}
+
+.form-switch-promotion-body {
+  display: flex;
+  align-items: center;
+  margin-top: -$form-switch-promotion-body-margin-y;
+}
+
+.form-switch-promotion-arrow {
+  margin-right: -$form-switch-promotion-arrow-margin-x;
+}
+
+.form-switch-promotion-text {
+  display: block;
+  margin-top: $form-switch-promotion-text-margin-y;
+}

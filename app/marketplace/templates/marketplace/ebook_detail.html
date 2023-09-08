@@ -1,0 +1,120 @@
+{% extends "emeralize/base.html" %}
+{% load static %}
+{% block title %}
+{{ebook.title}}
+{% endblock %}
+
+{% block content %}
+    <div class="position-relative">
+      <!-- Hero -->
+      <div class="content-space-5" >
+        <div class="container">
+          <div class="row mb-3">
+            <div class="col-md-7 col-lg-8 zi-2">
+              <div class="row my-3">
+                <div class="col-3">
+                  <a class="btn-primary btn" href="{% url 'marketplace:discover' %}">Back</a>
+                </div>
+                
+              </div>
+
+              {% if messages %}
+              <ul class="messages">
+                  {% for message in messages %}
+                  <div class="alert alert-info" role="alert">{{ message }}</div>
+                  {% endfor %}
+              </ul>
+            {% endif %}
+              <h1>{{ ebook.title }}</h1>
+              {% if ebook.excerpt %}<p>{{ ebook.excerpt }}</p>{% endif %}
+
+              <div class="d-flex align-items-center flex-wrap">
+                <!-- Media -->
+                <div class="d-flex align-items-center me-4">
+                  <div class="flex-shrink-0 avatar-group avatar-group-xs">
+                    <span class="avatar avatar-xs avatar-circle">
+                      <img class="avatar-img" src="{{ebook.creator.user_profile.profile_pic.url}}" alt="Image Description">
+                    </span>
+                  </div>
+                  <div class="flex-grow-1">
+                    <span class="ps-2">Created by <a class="link" href="{% url 'marketplace:user-profile' ebook.creator.username %}">{{ebook.creator.username}}</a></span>
+                  </div>
+
+                </div>
+                <!-- End Media -->
+
+              </div>
+            </div>
+            <!-- End Col -->
+          </div>
+          <!-- End Row -->
+
+        </div>
+      </div>
+      <!-- End Hero -->
+
+      <!-- Sidebar -->
+      <div class="container content-space-t-md-1 position-md-absolute top-0 start-0 end-0">
+        <div class="row justify-content-end">
+          <div class="col-md-5 col-lg-4 position-relative zi-2 mb-2 mb-md-0">
+            <!-- Sticky Block -->
+            <div id="stickyBlockStartPoint">
+              <div class="js-sticky-block"
+                   data-hs-sticky-block-options='{
+                     "parentSelector": "#stickyBlockStartPoint",
+                     "breakpoint": "md",
+                     "startPoint": "#stickyBlockStartPoint",
+                     "endPoint": "#stickyBlockEndPoint",
+                     "stickyOffsetTop": 12,
+                     "stickyOffsetBottom": 12
+                   }'>
+                <!-- Card -->
+                <div class="card my-9">
+                  <div class="p-1">
+                    <!-- Fancybox -->
+                    <div class="bg-img-start text-center rounded-2 py-10 px-5" style="background-image: url({{ebook.cover_image.url}});">
+
+                    </div>
+                    <!-- End Fancybox -->
+                  </div>
+                  
+                  <!-- Card Body -->
+                  <div class="card-body">
+                    <div class="mb-3">
+                      <span class="card-title h2">{% if ebook.currency_type.iso_code == "USD"  %} ${% endif %}{{ ebook.price }} {% if ebook.currency_type.iso_code == "SAT" %} sats {% else %} {{ebook.currency_type.iso_code}} {% endif %}</span>
+                      {% comment %} <span class="text-muted"><del>$114.99</del></span> {% endcomment %}
+                    </div>
+
+                    <div class="d-grid mb-2">
+                      {% if purchased or ebook.creator == request.user %}
+                      <a class="btn btn-primary btn-transition" href="{% url 'criticalpath:ebook_detail' ebook.id %}">View</a>
+
+                      {% else %}
+                      <a class="btn btn-primary btn-transition" href="{% url 'marketplace:ebook_buy' ebook.id %}">Buy now</a>
+                      {% endif %}
+                    </div>
+                  </div>
+                  <!-- End Card Body -->
+                </div>
+                <!-- End Card -->
+              </div>
+            </div>
+            <!-- End Sticky Block -->
+          </div>
+        </div>
+      </div>
+      <!-- End Sidebar -->
+    </div>
+
+    <!-- Content -->
+    <div class="container content-space-t-1 content-space-t-md-1">
+      
+        </div>
+      </div>
+    </div>
+    <!-- End Content -->
+
+    <!-- Sticky Block End Point -->
+    <div id="stickyBlockEndPoint"></div>
+
+{% endblock %}

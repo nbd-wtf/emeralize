@@ -1,0 +1,99 @@
+/*------------------------------------
+  Fullscreen
+------------------------------------*/
+
+.navbar-fullscreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.navbar-fullscreen .navbar-collapse {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+
+  &.show {
+    opacity: 1;
+    visibility: visible;
+    background-color: $navbar-fullscreen-overlay-bg-color;
+  }
+}
+
+// Toggler
+.navbar-fullscreen .navbar-toggler {
+  display: block;
+  z-index: $navbar-fullscreen-toggler-z-index;
+}
+
+// Collapse
+.navbar-fullscreen .navbar-collapse {
+  .container {
+    &, > *, > * > * {
+      height: 100%;
+    }
+  }
+}
+
+// Nav
+.navbar-fullscreen .navbar-nav {
+  display: block;
+  flex-direction: column;
+  padding: 0;
+
+  .nav-item .nav-item .nav-link {
+    font-size: $navbar-fullscreen-dropdown-menu-item-font-size;
+  }
+
+  .navbar-fullscreen-collapse {
+    border-left: $navbar-fullscreen-collapse-border-width solid $navbar-fullscreen-collapse-border-color;
+
+    & {
+      padding-left: $navbar-fullscreen-collapse-padding-x;
+    }
+  }
+
+  .nav-link {
+    color: $navbar-fullscreen-nav-link-color;
+    font-size: $navbar-fullscreen-nav-link-font-size;
+  }
+
+  > .nav-item .nav-link {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .dropdown-item {
+    &, &.active {
+      color: $navbar-fullscreen-nav-link-color;
+    }
+  }
+}
+
+// Scroller
+.navbar-fullscreen .navbar-fullscreen-scroller {
+  max-height: $navbar-fullscreen-height;
+  overflow: hidden;
+  overflow-y: auto;
+  margin-top: $navbar-fullscreen-height / 6;
+
+  &::-webkit-scrollbar {
+    width: $navbar-fullscreen-scrollbar-width;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $navbar-fullscreen-scrollbar-bg-color;
+    visibility: hidden;
+  }
+
+  &:hover {
+    &::-webkit-scrollbar-thumb {
+      visibility: visible;
+    }
+  }
+}

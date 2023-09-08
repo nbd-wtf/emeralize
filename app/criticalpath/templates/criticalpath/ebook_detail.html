@@ -1,0 +1,103 @@
+{% extends "emeralize/base.html" %}
+{% load static %}
+{% block title %}
+{{ ebook.title }} 
+{% endblock %}
+{% block customhead %}
+<style>
+
+  .ql-video {
+    width: 100%;
+    height: 30em;
+  }
+
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Content -->
+<div class="container content-space-1 content-space-sm-1">
+
+    <div class="row my-6">
+        <div class="col-9 ">
+            <h2>{{ebook.title}}</h2>
+            <p>{{ebook.excerpt}}</p>
+            <div class="d-flex align-items-center flex-wrap">
+                <!-- Media -->
+                <div class="d-flex align-items-center me-4">
+                  <div class="flex-shrink-0 avatar-group avatar-group-xs">
+                    <a class="link" href="{% url 'marketplace:user-profile' ebook.creator.username %}">
+                    <span class="avatar avatar-xs avatar-circle">
+                      <img class="avatar-img" src="{{ebook.creator.user_profile.profile_pic.url}}" alt="Image Description">
+                    </span>
+                  </div>
+                  <div class="flex-grow-1">
+                    <span class="ps-2">{{ebook.creator.username}}</span></a>
+                    {% if course %} {{ebook_sequence.order_no}} out of {{max_sequence_number.order_no__max}} {% endif %}
+                  </div>
+
+                </div>
+                <!-- End Media -->
+
+            </div>
+            <!-- End Col -->
+            </div>
+            <div class="col-3 my-3">
+                {% if request.user == ebook.creator %}
+                <a class="btn btn-primary" href="{% url 'criticalpath:ebook_update' ebook.id %}">Edit</a>
+                <a class="btn btn-outline-primary" href="{% url 'criticalpath:ebook_delete' ebook.id %}">Delete</a>
+                {% else %}
+                <a class="btn btn-primary" href="{% url 'marketplace:tip-amount' ebook.creator.username %}">Tip</a>
+                {% endif %}
+            </div>
+          </div>
+          <!-- End Row -->
+        <div class="row">
+            <div class="col-12">
+                <div class="border-top"></div>
+            </div>
+        </div>
+
+        <div class="row my-5">
+            <div class="col">
+                {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-success my-2" role="alert">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+                <div class="mx-auto mt-5 mb-5 d-inline">
+                    <div class="p-4 border" style="border-radius: .3em; border-color: #049070 !important;">
+                      {% if ebook.video %}
+                      <video class="ratio ratio-16x9" controls>
+                        <source src="{{ebook.video.url}}" type="video/mp4">
+                        Your browser does not support the video tag.
+                      </video>
+                      {% endif %}
+                        {{ ebook.content.html|safe }}
+                    </div>
+                </div>
+                {% if ebook.file %}  
+                <a class="btn btn-primary my-3" href="{{ebook.file.url}} " target="_blank">Download</a>
+                {% endif %}
+
+                {% if course %}
+                  {% if prev_back_to_course %}
+                    <a class="btn btn-outline-primary my-3" href="{% url 'criticalpath:course_detail' course.id  %}">Back</a>
+                  {% else %}
+                    <a class="btn btn-outline-primary my-3" href="{% url 'criticalpath:course_ebook_detail' course.id prev_ebook.id %}">Back</a>
+                  {% endif %}
+                  {% if next_back_to_course %}
+                    <a class="btn btn-primary my-3" href="{% url 'criticalpath:course_detail' course.id  %}">Next</a>
+                  {% else %}
+                    <a class="btn btn-primary my-3" href="{% url 'criticalpath:course_ebook_detail' course.id next_ebook.id %}">Next</a>
+                  {% endif %}
+                {% endif %}
+            </div>
+
+    </div>
+  </div>
+
+
+<!-- End Content -->
+
+{% endblock %}

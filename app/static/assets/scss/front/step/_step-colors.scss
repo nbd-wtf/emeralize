@@ -1,0 +1,15 @@
+/*------------------------------------
+  Step Colors
+------------------------------------*/
+
+@each $color, $value in $theme-colors {
+  .step-icon-#{$color} {
+    @include step-variant($value);
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .step-icon-soft-#{$color} {
+    @include step-soft-variant($value);
+  }
+}

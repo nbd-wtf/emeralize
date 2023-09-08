@@ -1,0 +1,279 @@
+{% extends "emeralize/base.html" %}
+{% load static %}
+{% block title %}
+Marketplace
+{% endblock %}
+
+{% block content %}
+
+    <!-- Resource Grid -->
+    <div class="container content-space-1 content-space-sm-1">
+      <!-- Title -->
+      <div class="w-md-75 mb-3 mt-5">
+        <div class="mb-5 mt-9">
+          <h1>🔥 Marketplace</h1>
+          <p>Find paid and value 4 value creations below that you'll love</p>
+          {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-info" role="alert">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+      <!-- Start Courses -->
+      <h2>Discover Courses</h2>
+      <p>Course are sets of resources to help you learn a new skill or topic. </p>
+       <!-- Title -->
+
+      <div class="row mb-5">
+        {% if courses|length > 0 %}
+          {% for course in courses %}
+          <div class="col-md-6 col-lg-4 mb-3">
+            <!-- Card -->
+            <div class="card card-bordered h-100">
+              <!-- Card Pinned -->
+              <div class="card-pinned">
+                <img class="card-img-top" style="object-fit: cover; overflow:hidden !important; width: 100% !important; max-width: 100% !important; max-height: 100%;" src="{% if course.course.cover_image %} {{ course.course.cover_image.url }} {% endif %} " alt="Image Description">
+
+              </div>
+              <!-- End Card Pinned -->
+
+              <!-- Card Body -->
+              <div class="card-body">
+
+                <div class="mb-3">
+                  <h3 class="card-title">
+                    <a class="text-dark" href="{% url 'marketplace:course_purchase_detail' course.course.id %}">{{ course.course.title }}</a>
+                  </h3>
+                </div>
+
+                <div class="row">
+                  <div class="d-flex align-items-center me-4">
+                    <div class="flex-shrink-0 avatar-group avatar-group-xs">
+                      <a class="link" href="{% url 'marketplace:user-profile' course.course.creator.username %}">
+                      <span class="avatar avatar-xs avatar-circle">
+                        <img class="avatar-img" src="{{course.course.creator.user_profile.profile_pic.url}}" alt="Image Description">
+                      </span>
+                    </div>
+                    <div class="flex-grow-1">
+                      <span class="ps-2">{{course.course.creator.username}}</span></a>
+                    </div>
+
+                  </div>
+                  <!-- End Media -->
+                  <!-- End Col --> 
+                  
+
+                </div>
+                <!-- End Row --> 
+              </div>
+              <!-- End Card Body -->
+
+              <!-- Card Footer -->
+              <div class="card-footer pt-0">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="me-9">
+                    <span class="d-block small">{{ course.course.price }} sats</span>
+                  </div>
+                  <a class="btn btn-primary btn-sm btn-transition" href="{% url 'marketplace:course_purchase_detail' course.course.id %}">View</a>
+
+                </div>
+              </div>
+              <!-- End Card Footer -->
+            </div>
+            <!-- End Card -->
+          </div>
+          <!-- End Col -->
+          {% endfor %}
+          {% else %}
+          <div class="col">
+            <p>There are currently no other courses available by other creators.</p>
+          </div>
+          {% endif %}
+
+      </div>
+
+      <h2>Discover Workshops</h2>
+      <p>Learn and do something awesome.</p>
+       <!-- Title -->
+
+      <div class="row mb-5">
+        {% if workshops|length > 0 %}
+          {% for workshop in workshops %}
+          <div class="col-md-6 col-lg-4 mb-3">
+            <!-- Card -->
+            <div class="card card-bordered h-100">
+              <!-- Card Pinned -->
+              <div class="card-pinned">
+                <img class="card-img-top" style="object-fit: cover; overflow:hidden !important; width: 100% !important; max-width: 100% !important; max-height: 100%;" src="{% if workshop.workshop.cover_image %} {{ workshop.workshop.cover_image.url }} {% endif %} " alt="Image Description">
+
+              </div>
+              <!-- End Card Pinned -->
+
+              <!-- Card Body -->
+              <div class="card-body">
+
+                <div class="mb-3">
+                  <h3 class="card-title">
+                    <a class="text-dark" href="{% url 'marketplace:workshop_purchase_detail' workshop.workshop.id %}">{{ workshop.workshop.title }}</a>
+                  </h3>
+                </div>
+
+                <div class="row">
+
+                  <!-- Media -->
+                  <div class="d-flex align-items-center me-4">
+                    <div class="flex-shrink-0 avatar-group avatar-group-xs">
+                      <a class="link" href="{% url 'marketplace:user-profile' workshop.workshop.creator.username %}">
+                      <span class="avatar avatar-xs avatar-circle">
+                        <img class="avatar-img" src="{{workshop.workshop.creator.user_profile.profile_pic.url}}" alt="Image Description">
+                      </span>
+                    </div>
+                    <div class="flex-grow-1">
+                      <span class="ps-2">{{workshop.workshop.creator.username}}</span></a>
+                    </div>
+
+                  </div>
+                  <!-- End Media -->
+                  <!-- End Col --> 
+                  
+
+                </div>
+                <!-- End Row --> 
+              </div>
+              <!-- End Card Body -->
+
+              <!-- Card Footer -->
+              <div class="card-footer pt-0">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="me-9">
+                    <span class="d-block small">{% if workshop.workshop.currency_type.iso_code == "USD"  %} ${% endif %}{{ workshop.workshop.price }} {% if workshop.workshop.currency_type.iso_code == "SAT" %} sats {% else %} {{workshop.workshop.currency_type.iso_code}} {% endif %}</span>
+                  </div>
+                  <a class="btn btn-primary btn-sm btn-transition" href="{% url 'marketplace:workshop_purchase_detail' workshop.workshop.id %}">View</a>
+
+                </div>
+              </div>
+              <!-- End Card Footer -->
+            </div>
+            <!-- End Card -->
+          </div>
+          <!-- End Col -->
+          {% endfor %}
+          {% else %}
+          <div class="col">
+            <p>There are currently no other workshops available by other creators.</p>
+          </div>
+          {% endif %}
+
+      </div>
+
+
+      <h2>Discover Ebooks</h2>
+      <p>Get something new to read.</p>
+       <!-- Title -->
+
+      <div class="row mb-5">
+        {% if ebooks|length > 0 %}
+          {% for ebook in ebooks %}
+          <div class="col-md-6 col-lg-4 mb-3">
+            <!-- Card -->
+            <div class="card card-bordered h-100">
+              <!-- Card Pinned -->
+              <div class="card-pinned">
+                <img class="card-img-top" style="object-fit: cover; overflow:hidden !important; width: 100% !important; max-width: 100% !important; max-height: 100%;" src="{% if ebook.ebook.cover_image %} {{ ebook.ebook.cover_image.url }} {% endif %} " alt="Image Description">
+
+              </div>
+              <!-- End Card Pinned -->
+
+              <!-- Card Body -->
+              <div class="card-body">
+
+                <div class="mb-3">
+                  <h3 class="card-title">
+                    <a class="text-dark" href="{% url 'marketplace:ebook_purchase_detail' ebook.ebook.id %}">{{ ebook.ebook.title }}</a>
+                  </h3>
+                </div>
+
+                <div class="row">
+
+                  <!-- Media -->
+                  <div class="d-flex align-items-center me-4">
+                    <div class="flex-shrink-0 avatar-group avatar-group-xs">
+                      <a class="link" href="{% url 'marketplace:user-profile' ebook.ebook.creator.username %}">
+                      <span class="avatar avatar-xs avatar-circle">
+                        <img class="avatar-img" src="{{ebook.ebook.creator.user_profile.profile_pic.url}}" alt="Image Description">
+                      </span>
+                    </div>
+                    <div class="flex-grow-1">
+                      <span class="ps-2">{{ebook.ebook.creator.username}}</span></a>
+                    </div>
+
+                  </div>
+                  <!-- End Media -->
+                  <!-- End Col --> 
+                  
+
+                </div>
+                <!-- End Row --> 
+              </div>
+              <!-- End Card Body -->
+
+              <!-- Card Footer -->
+              <div class="card-footer pt-0">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="me-9">
+                    <span class="d-block small">{% if ebook.ebook.currency_type.iso_code == "USD"  %} ${% endif %}{{ ebook.ebook.price }} {% if ebook.ebook.currency_type.iso_code == "SAT" %} sats {% else %} {{ebook.ebook.currency_type.iso_code}} {% endif %}</span>
+                  </div>
+                  <a class="btn btn-primary btn-sm btn-transition" href="{% url 'marketplace:ebook_purchase_detail' ebook.ebook.id %}">View</a>
+
+                </div>
+              </div>
+              <!-- End Card Footer -->
+            </div>
+            <!-- End Card -->
+          </div>
+          <!-- End Col -->
+          {% endfor %}
+          {% else %}
+          <div class="col">
+            <p>There are currently no other ebooks available by other creators.</p>
+          </div>
+          {% endif %}
+
+      </div>
+
+
+
+      <!-- Featured Creators -->
+
+      <div class="row gx-3 mb-5">
+        <h2>Featured Creators</h2>
+        <p>Meet our top creators</p>
+
+        {% for featured_creator in featured_creators %}
+        <div class="col-sm-6 col-lg-4 mb-3">
+          <!-- Card -->
+          <a class="link" href="{% url 'marketplace:user-profile' featured_creator.user.username %}">
+          <div class="card card-transition h-100">
+            <div class="card-body">
+              <div class="avatar avatar-lg avatar-circle mb-4">
+                <img class="avatar-img" src="{{featured_creator.profile_pic.url}}" alt="Image Description">
+              </div>
+
+              <h4 class="card-title">{{featured_creator.user.username}}</h4>
+              <p class="card-text">{{featured_creator.bio}}</p>
+            </div>
+          </div>
+          </a>
+          <!-- End Card -->
+        </div>
+        <!-- End Col -->
+        {% endfor %}
+      </div>
+      <!-- End Row -->
+    </div>
+    <!-- End course Grid -->
+
+
+
+{% endblock %}

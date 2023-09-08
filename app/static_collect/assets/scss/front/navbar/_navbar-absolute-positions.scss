@@ -1,0 +1,94 @@
+/*------------------------------------
+  Absolute Positions
+------------------------------------*/
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  $next: breakpoint-next($breakpoint, $grid-breakpoints);
+  $infix: breakpoint-infix($next, $grid-breakpoints);
+
+  .navbar-absolute#{$infix}-top {
+    @include media-breakpoint-up($next) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+}
+
+// Medium Devices
+@include media-breakpoint-down(sm) {
+  .navbar-absolute-md-top .navbar-absolute-top-scroller {
+    max-height: $navbar-absolute-height;
+    background-color: $navbar-bg-color;
+    overflow: hidden;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: $scrollbar-width;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $scrollbar-bg-color;
+      visibility: hidden;
+    }
+
+    &:hover {
+      &::-webkit-scrollbar-thumb {
+        visibility: visible;
+      }
+    }
+  }
+}
+
+// Extra Large Devices
+@include media-breakpoint-down(md) {
+  .navbar-absolute-top .navbar-absolute-top-scroller,
+  .navbar-absolute-sm-top .navbar-absolute-top-scroller,
+  .navbar-absolute-lg-top .navbar-absolute-top-scroller {
+    max-height: $navbar-absolute-height;
+    background-color: $navbar-bg-color;
+    overflow: hidden;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: $scrollbar-width;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $scrollbar-bg-color;
+      visibility: hidden;
+    }
+
+    &:hover {
+      &::-webkit-scrollbar-thumb {
+        visibility: visible;
+      }
+    }
+  }
+}
+
+// Extra Large Devices
+@include media-breakpoint-down(lg) {
+  .navbar-absolute-xl-top .navbar-absolute-top-scroller {
+    max-height: $navbar-absolute-height;
+    background-color: $navbar-bg-color;
+    overflow: hidden;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: $scrollbar-width;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $scrollbar-bg-color;
+      visibility: hidden;
+    }
+
+    &:hover {
+      &::-webkit-scrollbar-thumb {
+        visibility: visible;
+      }
+    }
+  }
+}

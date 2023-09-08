@@ -1,0 +1,130 @@
+{% load static %}
+<!-- ========== HEADER ========== -->
+<header id="header" class="navbar navbar-expand-lg navbar-end navbar-sticky-top bg-primary navbar-dark mb-3">
+
+
+  <div class="container">
+    <nav class="js-mega-menu navbar-nav-wrap">
+      <!-- Default Logo -->
+      <a class="navbar-brand" href="{% url 'home' %}" aria-label="emeralize">
+        <img class="navbar-brand-logo" src="{% static 'assets/svg/logos/logo.svg' %}" alt="Logo">
+      </a>
+      <!-- End Default Logo -->
+
+      <!-- Secondary Content -->
+      <div class="navbar-nav-wrap-secondary-content">
+
+        {% if user.is_authenticated %}
+        <!-- Account -->
+        <div class="dropdown mx-2">
+          
+          <a href="#" id="accountSettings" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-dropdown-animation>
+
+            <img class="avatar avatar-xs avatar-circle" src="{{user.user_profile.profile_pic.url}}" alt="Image Description">
+          </a>
+
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="accountSettings" style="min-width: 16rem;">
+            <a class="d-flex align-items-center p-2" href="{% url 'marketplace:user-profile' user.username %}">
+              <div class="flex-shrink-0">
+                <img class="avatar" src="{{user.user_profile.profile_pic.url}}" alt="Image Description">
+              </div>
+              <div class="flex-grow-1 ms-3">
+                <span class="d-block fw-semi-bold">{{user.username}} </span>
+              </div>
+            </a>
+
+            <div class="dropdown-divider my-3"></div>
+
+            <a class="dropdown-item" href="{% url 'change_password' %}">
+              <span class="dropdown-item-icon">
+                <i class="bi-asterisk"></i>
+              </span> Change Password
+            </a>
+
+            <a class="dropdown-item" href="{% url 'marketplace:account-profile' %}">
+              <span class="dropdown-item-icon">
+                <i class="bi-person"></i>
+              </span> Edit Profile
+            </a>
+
+
+            <a class="dropdown-item" href="{% url 'help' %}">
+              <span class="dropdown-item-icon">
+                <i class="bi bi-question-circle"></i>
+              </span> Help and Support
+            </a>
+
+            <div class="dropdown-divider"></div>
+
+            <a class="dropdown-item" href="{% url 'logout' %}">
+              <span class="dropdown-item-icon">
+                <i class="bi-box-arrow-right"></i>
+              </span> Log out
+            </a> 
+          </div>
+        </div>
+        <!-- End Account -->
+        {% endif %}
+      </div>
+      <!-- End Secondary Content -->
+
+      <!-- Toggler -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-default">
+          <i class="bi-list"></i>
+        </span>
+        <span class="navbar-toggler-toggled">
+          <i class="bi-x"></i>
+        </span>
+      </button>
+      <!-- End Toggler -->
+
+      <!-- Collapse -->
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav mr-5">
+
+
+
+
+          {% if user.is_authenticated %}
+          <li data-bs-toggle="tooltip" data-bs-placement="bottom" title="Home" class="nav-item">
+            <a class="nav-link {% if request.path == '/' %} active {% endif %}" href="{% url 'home' %}"><i class="bi bi-house" style="font-size: 1.2em;"></i><div class="d-lg-none d-inline-block mx-2">Home</div></a>
+          </li>
+          <!-- Dropdown -->
+          <li data-bs-toggle="tooltip" data-bs-placement="bottom" title="Marketplace" class="nav-item">
+            <a class="nav-link {% if request.path == '/marketplace/' %} active {% endif %}" href="{% url 'marketplace:discover' %}"><i class="bi bi-shop" style="font-size: 1.2em;"></i><div class="d-lg-none d-inline-block mx-2">Marketplace</div></a>
+          </li>
+          <!-- End Dropdown -->
+          <!-- Critical Path -->
+          {% comment %} {% if user.user_profile.verified %} {% endcomment %}
+          <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Creator">
+            <a class="nav-link {% if request.path == '/creator/' %} active {% endif %}" href="{% url 'criticalpath:my-creations' %}"><i class="bi bi-vector-pen" style="font-size: 1.2em;"></i><div class="d-lg-none d-inline-block mx-2">Creator</div></a>
+          </li>
+          {% comment %} {% endif %} {% endcomment %}
+          <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Wallet">
+            <a class="nav-link {% if request.path == '/wallet/' %} active {% endif %}" href="{% url 'marketplace:wallet' %}"><i class="bi bi-wallet" style="font-size: 1.2em;"></i><div class="d-lg-none d-inline-block mx-2">Wallet</div></a>
+          </li>
+          <!-- End Critical Path -->
+          {% else %}
+          <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Home">
+            <a class="nav-link {% if request.path == '/' %} active {% endif %}" href="{% url 'home' %}"><i class="bi bi-house" style="font-size: 1.2em;"></i><div class="d-lg-none d-inline-block mx-2">Home</div></a>
+          </li>
+          <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Marketplace">
+            <a class="nav-link {% if request.path == '/marketplace/' %} active {% endif %}" href="{% url 'marketplace:discover' %}"><i class="bi bi-shop" style="font-size: 1.2em;"></i><div class="d-lg-none d-inline-block mx-2">Marketplace</div></a>
+          </li>
+          <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Sign In">
+            <a class="nav-link {% if request.path == '/accounts/login/' %} active {% endif %}" href="{% url 'signin' %}"><i class="bi bi bi-box-arrow-in-right" style="font-size: 1.2em;"></i><div class="d-lg-none d-inline-block mx-2">Sign In</div></a>
+          </li>
+          <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Sign Up">
+            <a class="nav-link {% if request.path == '/accounts/register_user/' %} active {% endif %}" href="{% url 'register' %}"><i class="bi bi-person-plus" style="font-size: 1.2em;"></i><div class="d-lg-none d-inline-block mx-2">Sign Up</div></a>
+          </li>
+
+          {% endif %}
+
+        </ul>
+      </div>
+      <!-- End Collapse -->
+    </nav>
+  </div>
+</header>
+<!-- ========== END HEADER ========== -->

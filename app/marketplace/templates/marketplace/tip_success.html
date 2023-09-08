@@ -1,0 +1,37 @@
+{% extends "emeralize/base.html" %}
+{% load static %}
+{% block title %}
+Success!
+{% endblock %}
+
+{% block content %}
+        
+      <div class="container content-space-2 content-space-sm-2">
+        <!-- Page Header -->
+        <div class="page-header">
+          <div class="row align-items-center mt-2">
+            <div class="col-sm mb-2 mb-sm-0">
+
+
+              <h2 class="page-header-title">Success!</h2>
+            </div>
+
+            <div class="col-sm-auto">
+              <a class="btn btn-primary btn-sm" href="{% url 'marketplace:user-profile' creator  %}">
+                <i class="bi-lightning me-1"></i> Back
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- End Page Header -->
+      
+        <div class="row">
+            <div class="col">
+              <img class="img-fluid rounded-top-2 my-2" src="{% static 'assets/emeralize-2.png' %}" style="max-width: 350px;" alt="Success Image">
+
+                <p class="lead">{{status}}</p>
+            </div>
+        </div>
+
+      </div>
+{% endblock%}

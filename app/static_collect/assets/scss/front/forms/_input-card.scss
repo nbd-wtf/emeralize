@@ -1,0 +1,87 @@
+/*------------------------------------
+  Input Card
+------------------------------------*/
+
+.input-card {
+  display: flex;
+  background-color: $input-card-bg-color;
+  padding: $input-card-padding-y $input-card-padding-x;
+  box-shadow: $input-card-box-shadow;
+  @include border-radius($inpu-card-border-radius);
+
+  .input-card-form {
+    flex: 1 0 0%;
+  }
+
+  .btn {
+    flex: 0 0 auto;
+  }
+
+  .form-control {
+    border-width: $input-card-border-width;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  .input-group {
+    border-width: 0;
+  }
+
+  .input-card-form {
+    position: relative;
+
+    &:not(:first-child) {
+      padding-left: $input-card-form-padding;
+
+      &::before {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: $input-card-form-width;
+        height: $input-card-form-height;
+        background-color: $input-card-form-bg-color;
+        content: '';
+        transform: translateY(-50%);
+      }
+    }
+
+    &:not(:last-child) {
+      padding-right: $input-card-form-padding;
+    }
+  }
+}
+
+// Small Devices
+@include media-breakpoint-up(sm) {
+  // Pill
+  .input-card-pill {
+    @include border-radius($input-card-border-radius);
+  }
+}
+
+// Small Devices
+@include media-breakpoint-down(sm) {
+  .input-card-sm {
+    display: grid;
+
+    .btn,
+    .input-card-form {
+      flex: 0 0 auto;
+    }
+
+    .input-card-form {
+      padding: $input-card-form-padding 0 !important;
+      border-bottom: $input-border-width solid $input-border-color;
+
+      &:first-child {
+        padding-top: 0 !important;
+      }
+
+      &:not(:first-child)::before {
+        display: none;
+      }
+    }
+  }
+}

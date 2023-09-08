@@ -1,0 +1,76 @@
+/*------------------------------------
+  Devices
+------------------------------------*/
+
+.devices {
+  max-width: $devices-max-width;
+  position: relative;
+  overflow: hidden;
+  padding: 0 $devices-margin-x $devices-padding-y;
+  margin-right: -$devices-margin-x;
+  margin-left: -$devices-margin-x;
+
+  .device-mobile {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    margin-left: $devices-margin-x-offset;
+    margin-bottom: $devices-margin-y;
+
+    @include media-breakpoint-down(lg) {
+      display: none;
+    }
+  }
+
+  .device-browser {
+    margin-left: auto;
+    margin-right: $devices-margin-x-offset;
+  }
+  
+  @include media-breakpoint-down(lg) {
+    .device-mobile {
+      margin-right: $devices-mobile-margin-x;
+    }
+
+    .device-browser {
+      margin-right: auto;
+    }
+  }
+}
+
+// Shadow None
+.devices-shadow-none {
+  .device-mobile-frame,
+  .device-browser-frame {
+    box-shadow: none;
+  }
+}
+
+// Wrap
+.devices-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  grid-gap: $devices-rotated-gap;
+
+  @include media-breakpoint-down(lg) {
+    display: none;
+  }
+}
+
+// Rotated
+.devices-rotated {
+  transform: rotate($devices-rotated-deg);
+
+  .devices-rotated-body {
+    transform: translate3d($devices-rotated-translate3d);
+  }
+}
+
+// Positions
+.devices-top-start-50 {
+  position: absolute;
+  top: 0;
+  left: 50%;
+}

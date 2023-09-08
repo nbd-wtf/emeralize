@@ -1,0 +1,45 @@
+{% extends "emeralize/base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}
+{{header_name}}
+{% endblock %}
+
+{% block content %}
+        
+      <div class="container content-space-2 content-space-lg-3">
+      <!-- Page Header -->
+      <div class="page-header">
+        <div class="row align-items-center">
+          <div class="col-sm mb-2">
+
+
+            <h2 class="page-header-title">{{header_name}}</h2>
+          </div>
+
+          <div class="col-sm-auto">
+            {% if course %}
+            <a class="btn btn-outline-primary" href="{% url 'criticalpath:course_delete' course.id %}">Delete</a>
+
+            {% endif %}
+
+          </div>
+        </div>
+      </div>
+      <!-- End Page Header -->
+      <div class="row align-items-center">
+        <div class="col-sm-12 col-md-8">
+        <form action="" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <table>
+            {{ form.media }}
+            {{ form|crispy }}
+          </table>
+          <a class="btn btn-outline-primary" href="{% url 'criticalpath:my-creations' %}">
+            <i class="bi-arrow-left "></i> Back
+          </a>
+          <input class="btn btn-primary" type="submit" value="Next">
+        </form>
+        </div>
+      </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,52 @@
+/*------------------------------------
+  List Separator
+------------------------------------*/
+
+.list-separator {
+  margin-bottom: 0;
+
+  .list-inline-item {
+    position: relative;
+    margin-left: 0;
+    margin-right: -$list-separator-item-margin-x;
+
+    &:not(:last-child) {
+      padding-right: $list-separator-padding-x;
+
+      &::after {
+        position: absolute;
+        top: 50%;
+        right: #{$list-separator-padding-x / 2.5};
+        transform: translateY(-50%);
+        content: $list-separator-pseudo-content;
+        opacity: $list-separator-pseudo-opacity;
+      }
+    }
+  }
+
+  .list-separator-link {
+    color: $list-separator-link-color;
+
+    &:hover {
+      color: $list-separator-link-hover-color;
+    }
+  }
+}
+
+// Light
+.list-separator-light {
+  .list-inline-item::after {
+    color: $list-separator-light-link-color;
+  }
+
+  .list-separator-link {
+    &,
+    &:hover {
+      color: $list-separator-light-link-color;
+    }
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

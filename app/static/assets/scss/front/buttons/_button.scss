@@ -1,0 +1,63 @@
+/*------------------------------------
+  Buttons
+------------------------------------*/
+
+.btn-link {
+  font-weight: $btn-font-weight;
+  
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+.btn-check:focus + .btn,
+.btn:focus {
+  box-shadow: none;
+}
+
+.btn.dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+}
+
+// Transition
+.btn-transition {
+  transition: $btn-transition;
+
+  &:hover,
+  &:focus {
+    transform: translateY($btn-transition-translateY);
+  }
+}
+
+// Add box-shadow on hover
+@each $color, $value in $theme-colors {
+  .btn-#{$color} {
+    .btn-check:focus + &,
+    &:hover,
+    &:focus {
+      box-shadow: $btn-box-shadow-value rgba($value, 0.35);
+    }
+  }
+}
+
+// Toggle
+.btn-toggle {
+  .btn-toggle-default {
+    display: inline-block;
+  }
+
+  .btn-toggle-toggled {
+    display: none;
+  }
+
+  &.toggled {
+    .btn-toggle-default {
+      display: none;
+    }
+
+    .btn-toggle-toggled {
+      display: inline-block;
+    }
+  }
+}

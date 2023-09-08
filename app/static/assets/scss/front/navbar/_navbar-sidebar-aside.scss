@@ -1,0 +1,81 @@
+/*------------------------------------
+  Navbar Sidebar
+------------------------------------*/
+
+.navbar-sidebar-aside-content {
+  padding-left: $navbar-sidebar-aside-content-padding-x;
+  padding-right: $navbar-sidebar-aside-content-padding-x;
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  $next: breakpoint-next($breakpoint, $grid-breakpoints);
+  $infix: breakpoint-infix($next, $grid-breakpoints);
+
+  @include media-breakpoint-up($next) {
+    .navbar-sidebar-aside#{$infix} {
+      .navbar-sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: $navbar-sidebar-aside-width;
+        padding: 0;
+        
+        .navbar-collapse {
+          width: 100%;
+        }
+
+        .navbar-brand-wrapper {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: $navbar-sidebar-aside-width;
+          height: $navbar-sidebar-aside-brand-height;
+          background-color: $navbar-bg-color;
+          z-index: $navbar-sidebar-aside-z-index;
+          padding: $navbar-sidebar-aside-brand-padding-y $navbar-sidebar-aside-brand-padding-x;
+          border-bottom: $navbar-sidebar-aside-brand-wrapper-border-width solid $navbar-sidebar-aside-brand-wrapper-border-color;
+        }
+
+        .navbar-brand {
+          display: flex;
+          flex-shrink: 0;
+          align-items: center;
+          margin-right: 0;
+        }
+
+        .navbar-nav {
+          padding-top: $navbar-sidebar-aside-brand-padding-y;
+          padding-bottom: $navbar-sidebar-aside-brand-padding-y;
+        }
+
+        .navbar-sidebar-aside-body {
+          padding-top: $navbar-sidebar-aside-brand-height + $navbar-sidebar-aside-brand-padding-y;
+        }
+      }
+
+      .navbar-sidebar-aside-content {
+        margin-left: $navbar-sidebar-aside-width;
+      }
+    }
+  }
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+  @include media-breakpoint-down($breakpoint) {
+    .navbar-sidebar-aside#{$infix} {
+      .navbar-sidebar {
+        .navbar-brand,
+        .navbar-brand-badge {
+          display: none;
+        }
+      }
+
+      .nav-segment {
+        margin: $navbar-sidebar-aside-brand-padding-y $navbar-vertical-nav-link-padding-x;
+      }
+    }
+  }
+}

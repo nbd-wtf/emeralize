@@ -1,0 +1,50 @@
+/*------------------------------------
+  Media Viewer
+------------------------------------*/
+
+.media-viewer {
+	position: relative;
+	display: block;
+
+	&:hover {
+		.media-viewer-icon {
+			opacity: 1;
+			transform: scale($media-viewer-icon-active-transform-scale);
+		}
+	}
+}
+
+.media-viewer-container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%)
+}
+
+.media-viewer-icon {
+	display: inline-flex;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  text-align: center;
+  width: $media-viewer-icon-width;
+  height: $media-viewer-icon-height;
+  font-size: $media-viewer-icon-font-size;
+  color: $media-viewer-icon-color;
+  background-color: $media-viewer-icon-bg-color;
+  @include border-radius($media-viewer-border-radius);
+	opacity: 0;
+	transform: scale($media-viewer-icon-transform-scale);
+	transition: $media-viewer-icon-transition;
+
+  &:hover,
+  &:focus {
+  	color: $media-viewer-icon-hover-color;
+  }
+}
+
+.media-viewer-icon-active {
+	opacity: 1;
+	transform: scale($media-viewer-icon-active-transform-scale);
+}

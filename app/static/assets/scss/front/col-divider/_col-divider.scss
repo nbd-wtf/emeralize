@@ -1,0 +1,98 @@
+/*------------------------------------
+  Col Divider
+------------------------------------*/
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  $next: breakpoint-next($breakpoint, $grid-breakpoints);
+  $infix: breakpoint-infix($next, $grid-breakpoints);
+
+  .col#{$infix}-divider {
+    @include media-breakpoint-up($next) {
+      > *:not(:first-child) {
+        position: relative;
+        
+        &::before {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: $col-divider-width;
+          height: 100%;
+          background-color: $col-divider-bg-color;
+          content: '';
+        }
+      }
+    }
+  }
+
+  .col-divider-rotated {
+    > *:not(:first-child)::before {
+      transform: rotate(20deg);
+    }
+  }
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+  .col#{$infix}-divider {
+    @include media-breakpoint-down($breakpoint) {
+      > *:not(:first-child) {
+        position: relative;
+        
+        &::before {
+          position: absolute;
+          top: 0;
+          left: 50%;
+          width: calc(100% - 1.5rem);
+          height: $col-divider-width;
+          background-color: $col-divider-bg-color;
+          content: '';
+          transform: translateX(-50%);
+        }
+      }
+
+      > * {
+        padding-top: $col-divider-padding-y;
+        padding-bottom: $col-divider-padding-y;
+      }
+
+      > *:first-child {
+        padding-top: 0;
+      }
+
+      > *:last-child {
+        padding-bottom: 0;
+      }
+    }
+  }
+}
+
+.col-divider {
+  > *:not(:first-child) {
+    position: relative;
+    
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: $col-divider-width;
+      height: 100%;
+      background-color: $col-divider-bg-color;
+      content: '';
+    }
+  }
+
+  > *,
+  > *:first-child,
+  > *:last-child {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+// Light
+.col-divider-light {
+  > *:not(:first-child)::before {
+    background-color: $col-divider-light-bg-color;
+  }
+}

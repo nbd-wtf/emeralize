@@ -1,0 +1,81 @@
+/*------------------------------------
+  Avatar Group Sizes
+------------------------------------*/
+
+.avatar-group .avatar {
+  width: $avatar-width;
+  height: $avatar-height;
+
+  .avatar-initials {
+    font-size: $avatar-font-size;
+  }
+
+  + .avatar {
+    margin-left: $avatar-group-margin-x;
+  }
+}
+
+.avatar-group-xs .avatar {
+  width: $avatar-width-xs;
+  height: $avatar-height-xs;
+
+  .avatar-initials {
+    font-size: $avatar-font-size-xs;
+  }
+
+  + .avatar {
+    margin-left: $avatar-group-margin-x-xs;
+  }
+}
+
+.avatar-group-sm .avatar {
+  width: $avatar-width-sm;
+  height: $avatar-height-sm;
+
+  .avatar-initials {
+    font-size: $avatar-font-size-sm;
+  }
+
+  + .avatar {
+    margin-left: $avatar-group-margin-x-sm;
+  }
+}
+
+.avatar-group-lg .avatar {
+  width: $avatar-width-lg;
+  height: $avatar-height-lg;
+
+  .avatar-initials {
+    font-size: $avatar-font-size-lg;
+  }
+
+  + .avatar {
+    margin-left: $avatar-group-margin-x-lg;
+  }
+}
+
+.avatar-group-xl .avatar {
+  width: $avatar-width-xl;
+  height: $avatar-height-xl;
+
+  .avatar-initials {
+    font-size: $avatar-font-size-xl;
+  }
+
+  + .avatar {
+    margin-left: $avatar-group-margin-x-lg;
+  }
+}
+
+.avatar-group-xxl .avatar {
+  width: $avatar-width-xxl;
+  height: $avatar-height-xxl;
+
+  .avatar-initials {
+    font-size: $avatar-font-size-xxl;
+  }
+
+  + .avatar {
+    margin-left: $avatar-group-margin-x-xl;
+  }
+}

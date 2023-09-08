@@ -1,0 +1,86 @@
+/*------------------------------------
+  Input Group Merge
+------------------------------------*/
+
+.input-group-merge {
+  position: relative;
+  overflow: hidden;
+  border: $input-border-width solid $input-border-color;
+  @include border-radius($input-border-radius);
+
+  .input-group-prepend,
+  .input-group-append {
+    position: absolute;
+    top: 1px;
+    bottom: 1px;
+    z-index: 4;
+    background-color: transparent;
+
+    &.input-group-text {
+      border-width: $input-group-text-border-width;
+    }
+  }
+
+  .input-group-prepend {
+    left: 1px;
+  }
+
+  .input-group-append {
+    right: 1px;
+  }
+
+  .form-select,
+  .form-control {
+    border-width: 0;
+
+    &:not(:first-child) {
+      padding-left: $input-group-addon-padding-x + $input-font-size + $input-group-addon-padding-x + ($input-padding-x / 2) - ($input-border-width * 2);
+      @include border-start-radius($input-border-radius);
+    }
+
+    &:not(:last-child) {
+      padding-right: $input-group-addon-padding-x + $input-font-size + $input-group-addon-padding-x + ($input-padding-x / 2) - ($input-border-width * 2);
+      @include border-end-radius($input-border-radius);
+    }
+  }
+}
+
+// Sizes
+.input-group-merge {
+  .form-select-sm,
+  .form-control-sm {
+    min-height: $input-group-merge-height-sm;
+
+    &:not(:first-child) {
+      padding-left: $input-group-addon-padding-x + $input-font-size + $input-group-addon-padding-x + ($input-padding-x-sm / 2) - ($input-border-width * 2);
+    }
+
+    &:not(:last-child) {
+      padding-right: $input-group-addon-padding-x + $input-font-size + $input-group-addon-padding-x + ($input-padding-x-sm / 2) - ($input-border-width * 2);
+    }
+  }
+}
+
+.input-group-merge {
+  .form-select-lg,
+  .form-control-lg {
+    min-height: $input-group-merge-height-lg;
+  }
+}
+
+// Validation
+.was-validated .input-group-merge.is-valid {
+  border-color: $form-feedback-valid-color;
+
+  &.focus {
+    box-shadow: 0 0 $input-btn-focus-blur $input-btn-focus-width rgba($form-feedback-valid-color, $input-btn-focus-color-opacity);
+  }
+}
+
+.was-validated .input-group-merge.is-invalid {
+  border-color: $form-feedback-invalid-color;
+
+  &.focus {
+    box-shadow: 0 0 $input-btn-focus-blur $input-btn-focus-width rgba($form-feedback-invalid-color, $input-btn-focus-color-opacity);
+  }
+}

@@ -1,0 +1,72 @@
+/*------------------------------------
+  Browser Device
+------------------------------------*/
+
+.device-browser {
+  position: relative;
+  z-index: 1;
+  display: block;
+  max-width: 100%;
+  width: $device-browser-width;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.device-browser-frame {
+  background: $device-browser-bg-color;
+  box-shadow: $device-browser-box-shadow;
+  @include border-bottom-radius($device-browser-border-radius);
+}
+
+.device-browser-img {
+  max-width: 100%;
+  height: auto;
+  @include border-bottom-radius($device-browser-border-radius);
+}
+
+.device-browser-header {
+  position: relative;
+  display: flex;
+  max-width: $device-browser-width;
+  background: $device-browser-header-bg-color;
+  border-bottom: $device-browser-header-border-width solid $device-browser-header-border-color;
+  @include border-top-radius($device-browser-border-radius);
+  padding: $device-browser-header-padding-y $device-browser-header-padding-x;
+}
+
+.device-browser-header-btn-list {
+  display: flex;
+  grid-gap: $device-browser-header-btn-list-btn-gap;
+  position: absolute;
+  top: calc(50% - #{$device-browser-header-btn-list-btn-height / 2});
+  left: $device-browser-header-btn-list-btn-start-offset;
+}
+
+.device-browser-header-btn-list-btn {
+  width: $device-browser-header-btn-list-btn-width;
+  height: $device-browser-header-btn-list-btn-height;
+  background-color: $device-browser-header-btn-list-btn-bg-color;
+  @include border-radius($device-browser-header-btn-list-btn-border-radius);
+}
+
+.device-browser-header-browser-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  color: $device-browser-header-browser-bar-color;
+  background-color: $device-browser-header-browser-bar-bg-color;
+  font-size: $device-browser-header-browser-bar-font-size;
+  @include border-radius($device-browser-header-browser-bar-border-radius);
+}
+
+// Sizes
+.device-browser-lg {
+  width: $device-browser-lg-width;
+
+  .device-browser-header {
+    max-width: $device-browser-lg-width;
+  }
+}

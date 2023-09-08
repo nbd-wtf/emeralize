@@ -1,0 +1,41 @@
+/*------------------------------------
+  Button Sizes
+------------------------------------*/
+
+.btn-xs:not(.btn-icon) {
+  font-size: $input-btn-font-size-xs;
+  padding: $input-btn-padding-y-xs $input-btn-padding-x-xs;
+}
+
+.btn-icon.btn-xs {
+  font-size: $btn-icon-font-size-xs;
+  width: $btn-icon-width-xs;
+  height: $btn-icon-height-xs;
+
+  > svg {
+    width: $btn-icon-font-size-xs;
+    height: auto;
+  }
+}
+
+.btn-icon.btn-sm {
+  font-size: $btn-icon-font-size-sm;
+  width: $btn-icon-width-sm;
+  height: $btn-icon-height-sm;
+
+  > svg {
+    width: $btn-icon-font-size-sm;
+    height: auto;
+  }
+}
+
+.btn-icon.btn-lg {
+  font-size: $btn-icon-font-size-lg;
+  width: $btn-icon-width-lg;
+  height: $btn-icon-height-lg;
+
+  > svg {
+    width: $btn-icon-font-size-lg;
+    height: auto;
+  }
+}

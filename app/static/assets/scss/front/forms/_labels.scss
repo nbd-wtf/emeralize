@@ -1,0 +1,18 @@
+/*------------------------------------
+  Labels
+------------------------------------*/
+
+.col-form-label {
+  font-size: $col-form-label-font-size;
+}
+
+.form-label-secondary {
+  font-size: $form-label-secondary-font-size;
+  color: $form-label-secondary-color;
+}
+
+.form-label-link {
+  font-weight: $form-label-link-font-weight;
+  font-size: $form-label-font-size;
+  margin-bottom: $form-label-margin-bottom;
+}

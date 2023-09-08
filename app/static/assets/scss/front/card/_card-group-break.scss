@@ -1,0 +1,174 @@
+/*------------------------------------
+  Card Group Break
+------------------------------------*/
+
+// Below Small Devices
+@include media-breakpoint-down(sm) {
+  .card-group-sm-break {
+    display: block;
+
+    > .card {
+      margin-bottom: 0;
+
+      &:not(:last-child) {
+        border-bottom: $card-border-width solid $card-border-color;
+      }
+
+      + .card {
+        border-left: none;
+      }
+
+      &:not(:first-child):not(:last-child) {
+        &,
+        .card-header,
+        .card-img-top,
+        .card-footer,
+        .card-img-bottom {
+          @include border-radius(0);
+        }
+      }
+
+      &:first-child {
+        @include border-top-radius($card-border-radius);
+        @include border-bottom-radius(0);
+
+        .card-header,
+        .card-img-top {
+          @include border-top-radius($card-border-radius);
+        }
+        .card-footer,
+        .card-img-bottom {
+          @include border-bottom-radius(0);
+        }
+      }
+
+      &:last-child {
+        @include border-bottom-radius($card-border-radius);
+        @include border-top-radius(0);
+
+        .card-header,
+        .card-img-top {
+          @include border-top-radius(0);
+        }
+        .card-footer,
+        .card-img-bottom {
+          @include border-bottom-radius($card-border-radius);
+        }
+      }
+    }
+  }
+}
+
+// Below Medium Devices
+@include media-breakpoint-down(md) {
+  .card-group-md-break {
+    display: block;
+
+    > .card {
+      margin-bottom: 0;
+
+      &:not(:last-child) {
+        border-bottom: $card-border-width solid $card-border-color;
+      }
+
+      + .card {
+        border-left: none;
+      }
+
+      &:not(:first-child):not(:last-child) {
+        &,
+        .card-header,
+        .card-img-top,
+        .card-footer,
+        .card-img-bottom {
+          @include border-radius(0);
+        }
+      }
+
+      &:first-child {
+        @include border-top-radius($card-border-radius);
+        @include border-bottom-radius(0);
+
+        .card-header,
+        .card-img-top {
+          @include border-top-radius($card-border-radius);
+        }
+        .card-footer,
+        .card-img-bottom {
+          @include border-bottom-radius(0);
+        }
+      }
+
+      &:last-child {
+        @include border-bottom-radius($card-border-radius);
+        @include border-top-radius(0);
+
+        .card-header,
+        .card-img-top {
+          @include border-top-radius(0);
+        }
+        .card-footer,
+        .card-img-bottom {
+          @include border-bottom-radius($card-border-radius);
+        }
+      }
+    }
+  }
+}
+
+// Below Large Devices
+@include media-breakpoint-down(lg) {
+  .card-group-lg-break {
+    display: block;
+
+    > .card {
+      margin-bottom: 0;
+
+      &:not(:last-child) {
+        border-bottom: $card-border-width solid $card-border-color;
+      }
+
+      + .card {
+        border-left: none;
+      }
+
+      &:not(:first-child):not(:last-child) {
+        &,
+        .card-header,
+        .card-img-top,
+        .card-footer,
+        .card-img-bottom {
+          @include border-radius(0);
+        }
+      }
+
+      &:first-child {
+        @include border-top-radius($card-border-radius);
+        @include border-bottom-radius(0);
+
+        .card-header,
+        .card-img-top {
+          @include border-top-radius($card-border-radius);
+        }
+        .card-footer,
+        .card-img-bottom {
+          @include border-bottom-radius(0);
+        }
+      }
+
+      &:last-child {
+        @include border-bottom-radius($card-border-radius);
+        @include border-top-radius(0);
+
+        .card-header,
+        .card-img-top {
+          @include border-top-radius(0);
+        }
+        .card-footer,
+        .card-img-bottom {
+          @include border-bottom-radius($card-border-radius);
+        }
+      }
+    }
+  }
+}

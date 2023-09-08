@@ -1,0 +1,25 @@
+/*------------------------------------
+  Quantity Counter
+------------------------------------*/
+
+.quantity-counter {
+  padding: $quantity-counter-padding-y $quantity-counter-padding-x;
+  border: $quantity-counter-border-width solid $quantity-counter-border-color;
+  @include border-radius($quantity-counter-border-radius);
+}
+
+.quantity-counter-btn.btn {
+  & > svg {
+    width: $quantity-counter-btn-font-size;
+  }
+}
+
+.form-control-quantity-counter {
+  border-width: 0;
+  height: auto;
+  padding: 0;
+
+  &:focus {
+    box-shadow: none;
+  }
+}

@@ -1,0 +1,12 @@
+/*------------------------------------
+  Vertical Progress Bar
+------------------------------------*/
+
+.progress-vertical {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-end;
+  background-color: $progress-vertical-bg-color;
+  width: $progress-vertical-width;
+  height: $progress-vertical-height;
+}

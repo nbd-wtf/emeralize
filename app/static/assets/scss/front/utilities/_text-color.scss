@@ -1,0 +1,26 @@
+/*------------------------------------
+  Text Colors
+------------------------------------*/
+
+.text-dark {
+  color: $gray-900 !important;
+
+  &[href]:hover {
+    color: $link-hover-color !important;
+  }
+}
+
+.link-secondary,
+.text-secondary,
+.text-muted,
+.text-body {
+  &[href]:hover {
+    color: $link-hover-color !important;
+  }
+}
+
+a:hover {
+  .text-inherit {
+    color: $link-hover-color !important;
+  }
+}

@@ -1,0 +1,167 @@
+/*------------------------------------
+  Step Centered
+------------------------------------*/
+
+// Small Devices
+@include media-breakpoint-up(sm) {
+  .step-sm.step-centered {
+    text-align: center;
+
+    .step-item:last-child {
+      .step-icon::after {
+        display: none;
+      }
+    }
+
+    .step-icon {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .step-icon::after {
+      width: calc(100% - #{$step-icon-width + $step-padding-x});
+      left: calc(50% + #{$step-icon-width / 2 + $step-padding-x});
+    }
+
+    &.step-icon-xs .step-icon::after,
+    .step-icon.step-icon-xs::after {
+      width: calc(100% - #{$step-icon-width-xs + $step-padding-x});
+      left: calc(50% + #{$step-icon-width-xs / 2 + $step-padding-x});
+    }
+
+    &.step-icon-sm .step-icon::after,
+    .step-icon.step-icon-sm::after {
+      width: calc(100% - #{$step-icon-width-sm + $step-padding-x});
+      left: calc(50% + #{$step-icon-width-sm / 2 + $step-padding-x});
+    }
+
+    &.step-icon-lg .step-icon::after,
+    .step-icon.step-icon-lg::after {
+      width: calc(100% - #{$step-icon-width-lg + $step-padding-x});
+      left: calc(50% + #{$step-icon-width-lg / 2 + $step-padding-x});
+    }
+  }
+}
+
+// Medium Devices
+@include media-breakpoint-up(md) {
+  .step-md.step-centered {
+    text-align: center;
+
+    .step-item:last-child {
+      .step-icon::after {
+        display: none;
+      }
+    }
+
+    .step-icon {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .step-icon::after {
+      width: calc(100% - #{$step-icon-width + $step-padding-x});
+      left: calc(50% + #{$step-icon-width / 2 + $step-padding-x});
+    }
+
+    &.step-icon-xs .step-icon::after,
+    .step-icon.step-icon-xs::after {
+      width: calc(100% - #{$step-icon-width-xs + $step-padding-x});
+      left: calc(50% + #{$step-icon-width-xs / 2 + $step-padding-x});
+    }
+
+    &.step-icon-sm .step-icon::after,
+    .step-icon.step-icon-sm::after {
+      width: calc(100% - #{$step-icon-width-sm + $step-padding-x});
+      left: calc(50% + #{$step-icon-width-sm / 2 + $step-padding-x});
+    }
+
+    &.step-icon-lg .step-icon::after,
+    .step-icon.step-icon-lg::after {
+      width: calc(100% - #{$step-icon-width-lg + $step-padding-x});
+      left: calc(50% + #{$step-icon-width-lg / 2 + $step-padding-x});
+    }
+  }
+}
+
+// Large Devices
+@include media-breakpoint-up(lg) {
+  .step-lg.step-centered {
+    text-align: center;
+
+    .step-item:last-child {
+      .step-icon::after {
+        display: none;
+      }
+    }
+
+    .step-icon {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .step-icon::after {
+      width: calc(100% - #{$step-icon-width + $step-padding-x});
+      left: calc(50% + #{$step-icon-width / 2 + $step-padding-x});
+    }
+
+    &.step-icon-xs .step-icon::after,
+    .step-icon.step-icon-xs::after {
+      width: calc(100% - #{$step-icon-width-xs + $step-padding-x});
+      left: calc(50% + #{$step-icon-width-xs / 2 + $step-padding-x});
+    }
+
+    &.step-icon-sm .step-icon::after,
+    .step-icon.step-icon-sm::after {
+      width: calc(100% - #{$step-icon-width-sm + $step-padding-x});
+      left: calc(50% + #{$step-icon-width-sm / 2 + $step-padding-x});
+    }
+
+    &.step-icon-lg .step-icon::after,
+    .step-icon.step-icon-lg::after {
+      width: calc(100% - #{$step-icon-width-lg + $step-padding-x});
+      left: calc(50% + #{$step-icon-width-lg / 2 + $step-padding-x});
+    }
+  }
+}
+
+// Extra Large Devices
+@include media-breakpoint-up(lg) {
+  .step-lg.step-centered {
+    text-align: center;
+
+    .step-item:last-child {
+      .step-icon::after {
+        display: none;
+      }
+    }
+
+    .step-icon {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .step-icon::after {
+      width: calc(100% - #{$step-icon-width + $step-padding-x});
+      left: calc(50% + #{$step-icon-width / 2 + $step-padding-x});
+    }
+
+    &.step-icon-xs .step-icon::after,
+    .step-icon.step-icon-xs::after {
+      width: calc(100% - #{$step-icon-width-xs + $step-padding-x});
+      left: calc(50% + #{$step-icon-width-xs / 2 + $step-padding-x});
+    }
+
+    &.step-icon-sm .step-icon::after,
+    .step-icon.step-icon-sm::after {
+      width: calc(100% - #{$step-icon-width-sm + $step-padding-x});
+      left: calc(50% + #{$step-icon-width-sm / 2 + $step-padding-x});
+    }
+
+    &.step-icon-lg .step-icon::after,
+    .step-icon.step-icon-lg::after {
+      width: calc(100% - #{$step-icon-width-lg + $step-padding-x});
+      left: calc(50% + #{$step-icon-width-lg / 2 + $step-padding-x});
+    }
+  }
+}

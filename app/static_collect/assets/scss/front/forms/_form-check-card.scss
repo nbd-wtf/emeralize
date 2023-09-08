@@ -1,0 +1,17 @@
+/*------------------------------------
+  Form Check Card
+------------------------------------*/
+
+.form-check-card {
+  position: relative;
+  padding: $form-check-card-padding-y $form-check-card-padding-x;
+  border: $form-check-card-border-width solid $form-check-card-border-color;
+  @include border-radius($form-check-card-border-radius);
+
+  .form-check-input {
+    position: absolute;
+    top: $form-check-card-top-offset;
+    right: $form-check-card-right-offset;
+    margin: 0;
+  }
+}

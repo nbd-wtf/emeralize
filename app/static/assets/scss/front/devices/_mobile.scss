@@ -1,0 +1,25 @@
+/*------------------------------------
+  Mobile Device
+------------------------------------*/
+
+.device-mobile {
+  position: relative;
+  z-index: 1;
+  display: block;
+  max-width: 100%;
+  width: $device-mobile-width;
+  height: auto;
+}
+
+.device-mobile-frame {
+  background: $device-mobile-bg-color;
+  box-shadow: $device-mobile-box-shadow;
+  @include border-radius($device-mobile-border-radius);
+  padding: $device-mobile-padding;
+}
+
+.device-mobile-img {
+  max-width: 100%;
+  height: auto;
+  @include border-radius($device-mobile-border-radius / 1.25);
+}

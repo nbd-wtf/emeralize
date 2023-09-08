@@ -1,0 +1,2124 @@
+// Bootstrap Customs
+// =========================================================
+
+$font-family-base:                                          "Inter", sans-serif;
+
+$font-size-base:                                            1rem; // Assumes the browser default, typically `16px`
+$font-size-xs:                                              $font-size-base * .75 !default;
+$font-size-sm:                                              .875rem;
+$font-size-lg:                                              1.25rem;
+
+$font-weight-normal:                                        400;
+$font-weight-semi-bold:                                     600 !default;
+
+$h1-font-size:                                              $font-size-base * 2.5;
+$h2-font-size:                                              $font-size-base * 1.75;
+$h3-font-size:                                              $font-size-base * 1.3125;
+$h4-font-size:                                              $font-size-base * 1.125;
+$h5-font-size:                                              $font-size-base;
+$h6-font-size:                                              $font-size-base * .875;
+
+$headings-font-weight:                                      $font-weight-semi-bold;
+$headings-color:                                            $gray-900;
+
+$display-font-weight:                                       $font-weight-semi-bold;
+
+$lead-font-size:                                            $font-size-base * 1.3125;
+$lead-font-weight:                                          400;
+
+// Colors
+$body-color:                                                $gray-700;
+$link-color:                                                $primary;
+$link-hover-color:                                          darken($primary, 7%);
+$active-color:                                              $link-color !default;
+$disabled-color:                                            $gray-400 !default;
+$text-muted:                                                $gray-600 !default;
+$white-10:                                                  rgba($white, .1) !default;
+$white-70:                                                  rgba($white, .7) !default;
+$link-light-hover-color:                                    $white-70 !default;
+
+// Links
+$link-decoration:                                           none;
+$link-darker:                                               darken($primary, 7%) !default;
+$link-hover-opacity:                                        .7 !default;
+$link-sm-font-size:                                         $font-size-base * .875 !default;
+$stretched-link-z-index:                                    1;
+
+// Backgrounds
+$light-bg-color:                                            $gray-300 !default;
+$overlay-soft-bg-color:                                     rgba($dark, .25) !default;
+$secondary-bg-color:                                        transparent !default;
+$active-bg-color:                                           $primary !default;
+$disabled-bg-color:                                         rgba($gray-300, .5) !default;
+$primary-soft-bg-color:                                     rgba(lighten($primary, 12%), .1) !default;
+
+// Shadows
+$box-shadow:                                                0rem .375rem 1.5rem 0rem rgba($gray-600, .125);
+$box-shadow-sm:                                             0rem .1875rem .375rem rgba($gray-600, .25);
+$box-shadow-lg:                                             0rem .6125rem 2.5rem .6125rem rgba($gray-600, .175);
+$box-shadow-xl:                                             0rem 3.75rem 5rem 0rem rgba($gray-600, .3) !default;
+
+// Borders
+$border-width:                                              .0625rem;
+$border-color:                                              rgba($dark, .1);
+
+// Border Radius
+$border-radius:                                             .5rem;
+$border-radius-sm:                                          .3125rem;
+$border-radius-lg:                                          .75rem;
+$border-radius-pill:                                        50rem !default;
+$border-radius-rounded:                                     50% !default;
+
+// Transitions
+$transition-timing:                                         .3s !default;
+$transition-timing-sm:                                      .2s !default;
+$transition-timing-md:                                      .4s !default;
+$transition-function:                                       ease-in-out !default;
+
+// Others
+$list-inline-padding:                                       .25rem;
+
+$link-font-weight:                                          $font-weight-semi-bold !default;
+
+$letter-spacing:                                            .03125rem !default;
+
+$hr-color:                                                  $border-color;
+$hr-opacity:                                                1;
+
+$code-font-size:                                            1em;
+
+$kbd-color:                                                 $headings-color;
+$kbd-bg:                                                    $light-bg-color;
+
+$dt-color:                                                  $headings-color !default;
+$dd-margin-y:                                               .75rem !default;
+
+// Spacing
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer / 4,
+  2: $spacer / 2,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 2,
+  6: $spacer * 2.5,
+  7: $spacer * 3,
+  8: $spacer * 3.5,
+  9: $spacer * 4,
+  10: $spacer * 4.5,
+);
+
+// Content Spacer
+$content-spacer: 1rem !default;
+$content-spacers: (
+  0: 0,
+  1: ($content-spacer * 3),
+  2: ($content-spacer * 5),
+  3: ($content-spacer * 7.5),
+  4: ($content-spacer * 10),
+  5: ($content-spacer * 12.5)
+) !default;
+
+// Number of horizontally stacked cards in one line
+$card-group-number-of-cards: 4 !default;
+
+// Z-index
+$z-indexes: (
+  n1: -1,
+  0: 0,
+  1: 1,
+  2: 2,
+  3: 3,
+  999: 999
+) !default;
+
+// Grid containers
+$container-max-widths: (
+  xxl: 1140px
+);
+
+// Theme Colors
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $gray-100,
+  "dark":       $dark
+);
+
+// Color system
+$theme-soft-colors: (
+  "primary":    $primary-soft,
+  "secondary":  $secondary-soft,
+  "success":    $success-soft,
+  "info":       $info-soft,
+  "warning":    $warning-soft,
+  "danger":     $danger-soft,
+  "light":      $light-soft,
+  "dark":       $dark-soft
+) !default;
+
+$min-contrast-ratio:                                        2.1;
+
+
+
+// Options
+// Quickly modify global styling by enabling or disabling optional features.
+// =========================================================
+
+$enable-caret:                                              false;
+$enable-shadows:                                            false;
+$enable-rounded:                                            true;
+$enable-rfs:                                                true;
+$enable-validation-icons:                                   false;
+$enable-negative-margins:                                   true;
+$enable-smooth-scroll:                                      false;
+
+
+
+// Gradients
+// =========================================================
+
+$gradient-transparent:                                      rgba($white, 0) !default;
+$gradient-white:                                            $white !default;
+$gradient-dark:                                             $dark !default;
+$gradient-primary:                                          $primary !default;
+$gradient-info:                                             $info !default;
+$gradient-success:                                          $success !default;
+$gradient-danger:                                           $danger !default;
+$gradient-warning:                                          $warning !default;
+$gradient-gray-300:                                         $gray-300 !default;
+$gradient-gray-900:                                         $gray-900 !default;
+
+
+
+// Scrollbar
+// =========================================================
+
+// Width & Heights
+$scrollbar-width:                                           .6125rem !default;
+$scrollbar-horizontal-height:                               $scrollbar-width !default;
+
+// Background Colors
+$scrollbar-bg-color:                                        rgba($gray-400, .6) !default;
+$scrollbar-horizontal-bg-color:                             $scrollbar-bg-color !default;
+
+
+
+// Button + Forms
+// Shared variables that are reassigned to `$input-` and `$btn-` specific variables.
+// =========================================================
+
+$input-btn-focus-width:                                     0;
+$input-btn-focus-color-opacity:                             .25;
+$input-btn-focus-color:                                     rgba($gray-600, $input-btn-focus-color-opacity);
+$input-btn-focus-blur:                                      1rem;
+$input-btn-focus-box-shadow:                                0 0 $input-btn-focus-blur $input-btn-focus-width $input-btn-focus-color;
+
+$input-btn-padding-y:                                       .6125rem;
+$input-btn-padding-x:                                       1rem;
+
+$input-btn-padding-y-xs:                                    .3125rem !default;
+$input-btn-padding-x-xs:                                    .75rem !default;
+$input-btn-padding-y-sm:                                    .5rem;
+$input-btn-padding-x-sm:                                    1rem;
+$input-btn-font-size-xs:                                    $font-size-xs !default;
+$input-btn-font-size-sm:                                    $font-size-sm;
+
+$input-btn-padding-y-lg:                                    .75rem;
+$input-btn-padding-x-lg:                                    1rem;
+$input-btn-font-size-lg:                                    $font-size-base;
+
+
+
+// Card
+// =========================================================
+
+// Backgrounds
+$card-cap-bg:                                               transparent;
+$card-bg:                                                   $white;
+
+// Borders
+$card-border-color:                                         $border-color;
+$card-border-radius:                                        $border-radius;
+$card-info-link-border-radius:                              $border-radius-pill !default;
+
+// Shadows
+$card-box-shadow:                                           $box-shadow !default;
+
+// Padding
+$card-spacer-y:                                             2rem;
+$card-spacer-x:                                             $card-spacer-y;
+$card-spacer-y-sm:                                          1.25rem;
+$card-spacer-x-sm:                                          $card-spacer-y-sm;
+$card-spacer-y-lg:                                          2.75rem;
+$card-spacer-x-lg:                                          $card-spacer-y-lg;
+$card-cap-padding-y:                                        $card-spacer-y;
+$card-cap-padding-x:                                        $card-cap-padding-y;
+$card-info-link-padding-y:                                  .8125rem !default;
+$card-info-link-padding-x:                                  1.25rem !default;
+
+// Type
+$card-subtitle-font-size:                                   $font-size-base * .8125 !default;
+$card-link-font-weight:                                     $font-weight-semi-bold !default;
+$card-table-tbody-th-font-weight:                           $font-weight-normal !default;
+
+// Positions
+$card-pinned-top-offset:                                    1rem !default;
+$card-pinned-bottom-offset:                                 $card-pinned-top-offset !default;
+$card-pinned-left-offset:                                   $card-pinned-top-offset !default;
+$card-pinned-right-offset:                                  $card-pinned-top-offset !default;
+
+// Margins
+$card-title-spacer-y:                                       .25rem;
+$card-title-margin-y:                                       .5rem !default;
+$card-subtitle-margin-y:                                    .25rem !default;
+
+// Transitions
+$card-transition:                                           all $transition-timing-sm $transition-function !default;
+$card-transition-translateY:                                -.1875rem !default;
+
+// Z-index
+$card-pinned-z-index:                                       $stretched-link-z-index + 1 !default;
+
+
+
+// Forms
+// =========================================================
+
+// Colors
+$input-color:                                               $gray-900;
+$input-placeholder-color:                                   $gray-600;
+$input-focus-color:                                         $input-color;
+$input-focus-border-color:                                  $input-btn-focus-color;
+$input-group-addon-color:                                   $gray-600;
+$form-label-color:                                          $gray-900 !default;
+$form-label-secondary-color:                                $gray-600 !default;
+$form-check-label-color:                                    $body-color;
+$form-select-indicator-color:                               $gray-800;
+$form-check-bookmark-active-color:                          $warning !default;
+
+// Background
+$input-group-addon-bg:                                      $white;
+$form-switch-input-bg-color:                                $light-bg-color !default;
+$form-switch-bg-image:                                      url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$white}'/></svg>");
+$form-check-input-checked-bg-color:                         $primary;
+$input-card-bg-color:                                       $card-bg !default;
+$input-card-form-bg-color:                                  $border-color !default;
+
+// Borders
+$input-border-color:                                        $border-color;
+$input-border-width:                                        $border-width;
+$input-group-text-border-width:                             0 !default;
+$inpu-card-border-radius:                                   $card-border-radius !default;
+$input-card-border-width:                                   0 !default;
+$input-card-border-radius:                                  $border-radius-pill!default;
+$form-check-input-border:                                   1px solid $input-border-color;
+$form-switch-input-border-width:                            0 !default;
+
+// Allows for customizing button radius independently from global border radius
+$input-border-radius:                                       $border-radius-sm;
+$input-border-radius-sm:                                    $border-radius-sm;
+$input-border-radius-lg:                                    $border-radius-sm;
+$form-select-border-radius:                                 $input-border-radius;
+
+// Type
+$form-check-font-size:                                      $font-size-sm !default;
+$form-link-font-weight:                                     $link-font-weight !default;
+$form-link-font-size:                                       $font-size-sm !default;
+$col-form-label-font-size:                                  $font-size-sm !default;
+$form-label-secondary-font-size:                            $font-size-sm !default;
+$form-label-link-font-weight:                               $font-weight-semi-bold !default;
+$form-label-font-size:                                      $font-size-base * .875 !default;
+$input-line-height:                                         1.5;
+
+// Width & Heights
+$input-group-merge-height-sm:                               add($input-line-height * 1em, subtract($input-btn-padding-y-sm * 2, $border-width * 2, false));
+$input-group-merge-height-lg:                               add($input-line-height * 1em, subtract($input-btn-padding-y-lg * 2, $border-width * 2, false));
+$form-switch-input-width:                                   2.8125em !default;
+$form-switch-input-height:                                  1.8125em !default;
+$input-card-form-width:                                     $border-width !default;
+$input-card-form-height:                                    2rem !default;
+$form-switch-promotion-min-width:                           5rem !default;
+
+// Positions
+$form-switch-promotion-container-position-top-offset:       1.75rem !default;
+$form-switch-promotion-container-position-left-offset:      1.25rem !default;
+
+// Padding
+$input-card-padding-y:                                      .6125rem !default;
+$input-card-padding-x:                                      $input-card-padding-y !default;
+$input-card-form-padding:                                   1rem !default;
+
+// Margin
+$form-check-margin-y:                                       .125rem !default;
+$form-label-margin-bottom:                                  .5rem;
+$form-text-margin-top:                                      1rem;
+$form-link-margin-y:                                        $form-text-margin-top !default;
+$form-switch-margin-x:                                      .75rem !default;
+$form-switch-between-margin-x:                              .5rem !default;
+$form-feedback-margin-top:                                  .25rem;
+$form-switch-promotion-body-margin-y:                       1rem;
+$form-switch-promotion-arrow-margin-x:                      1.75rem;
+$form-switch-promotion-text-margin-y:                       .3125rem;
+
+// Shadows
+$input-card-box-shadow:                                     $card-box-shadow !default;
+
+$input-focus-width:                                         $input-btn-focus-width;
+$form-select-focus-width:                                   $input-focus-width;
+$form-select-focus-box-shadow:                              0 0 $input-btn-focus-blur $form-select-focus-width $input-btn-focus-color;
+
+// Others
+$form-check-input-active-filter:                            100%;
+
+
+
+// Form Check Card
+// =========================================================
+
+// Borders
+$form-check-card-border-width:                              $border-width !default;
+$form-check-card-border-color:                              $border-color !default;
+$form-check-card-border-active-color:                       $active-color !default;
+$form-check-card-border-radius:                             $card-border-radius !default;
+
+// Positions
+$form-check-card-top-offset:                                .75rem !default;
+$form-check-card-right-offset:                              $form-check-card-top-offset !default;
+
+// Padding
+$form-check-card-padding-y:                                 1rem !default;
+$form-check-card-padding-x:                                 $form-check-card-padding-y !default;
+
+
+
+// Add Field
+// =========================================================
+
+// Colors
+$input-group-add-field-delete-color:                        $danger !default;
+$input-group-add-field-delete-hover-color:                  darken($danger, 7%) !default;
+
+// Positions
+$input-group-add-field-top-offset:                          .75rem !default;
+$input-group-add-field-right-offset:                        1.25rem !default;
+
+// Margins
+$input-group-add-field-margin-y:                            1rem !default;
+
+
+// Buttons
+// =========================================================
+
+// Color
+$btn-white-hover-color:                                     $link-hover-color !default;
+$btn-white-disabled-color:                                  $disabled-color !default;
+$btn-group-segment-link-color:                              $gray-700 !default;
+$btn-group-segment-link-active-color:                       $gray-900 !default;
+$btn-group-segment-link-hover-color:                        $primary !default;
+
+// Backgrounds
+$btn-ghost-bg-color:                                        $secondary-bg-color !default;
+$btn-white-bg-color:                                        $white !default;
+$btn-white-bg-disabled-color:                               $disabled-bg-color !default;
+$btn-group-segment-bg-color:                                $gray-200 !default;
+$btn-group-segment-link-active-bg-color:                    $white !default;
+
+// Allows for customizing button radius independently from global border radius
+$btn-border-radius:                                         $input-border-radius;
+$btn-border-radius-sm:                                      $input-border-radius-sm;
+$btn-border-radius-lg:                                      $input-border-radius-lg;
+
+// Borders
+$btn-outline-secondary-color:                               $input-border-color !default;
+$btn-white-border-color:                                    $btn-outline-secondary-color !default;
+$btn-group-segment-border-radius:                           $border-radius !default;
+$btn-group-segment-link-border-radius:                      $btn-group-segment-border-radius !default;
+$btn-group-pills-segment-border-radius:                     $border-radius-pill !default;
+$btn-group-pills-segment-link-border-radius:                $btn-group-pills-segment-border-radius !default;
+
+// Shadows
+$btn-box-shadow-value:                                      0 4px 11px !default;
+$btn-white-box-shadow-hover:                                0px 3px 6px -2px rgba($gray-600, .25) !default;
+$btn-group-segment-link-active-box-shadow:                  $box-shadow-sm !default;
+
+// Padding
+$btn-group-segment-padding-y:                               .25rem !default;
+$btn-group-segment-padding-x:                               $btn-group-segment-padding-y !default;
+$btn-group-segment-link-padding-y:                          $input-btn-padding-y-sm !default;
+$btn-group-segment-link-padding-x:                          $input-btn-padding-x-sm !default;
+
+// Margins
+$btn-group-segment-link-margin-x:                           .25rem !default;
+
+// Transitions
+$btn-transition:                                            $card-transition !default;
+$btn-transition-translateY:                                 $card-transition-translateY !default;
+
+
+
+// Button Icon
+// =========================================================
+
+// Type
+$btn-icon-font-weight:                                      $font-weight-semi-bold !default;
+$btn-icon-font-size:                                        $font-size-base !default;
+$btn-icon-font-size-xs:                                     $font-size-xs !default;
+$btn-icon-font-size-sm:                                     $font-size-base * .8125 !default;
+$btn-icon-font-size-lg:                                     $font-size-lg !default;
+$btn-status-font-size:                                      $font-size-base * .625 !default;
+$btn-status-line-height:                                    1 !default;
+
+// Width & Heights
+$btn-icon-width:                                            $font-size-base * 3.125 !default;
+$btn-icon-width-xs:                                         $font-size-base * 1.75 !default;
+$btn-icon-width-sm:                                         $font-size-base * 2.5 !default;
+$btn-icon-width-lg:                                         $font-size-base * 4.25 !default;
+$btn-status-width:                                          $font-size-base * 1.3125 !default;
+
+$btn-icon-height:                                           $btn-icon-width !default;
+$btn-icon-height-xs:                                        $btn-icon-width-xs !default;
+$btn-icon-height-sm:                                        $btn-icon-width-sm !default;
+$btn-icon-height-lg:                                        $btn-icon-width-lg !default;
+$btn-status-height:                                         $btn-status-width !default;
+
+
+
+// Icon
+// =========================================================
+
+// Type
+$icon-font-weight:                                          $btn-icon-font-weight !default;
+$icon-font-size:                                            $btn-icon-font-size !default;
+$icon-font-size-xs:                                         $btn-icon-font-size-xs !default;
+$icon-font-size-sm:                                         $btn-icon-font-size-sm !default;
+$icon-font-size-lg:                                         $btn-icon-font-size-lg !default;
+
+// Width & Heights
+$icon-width:                                                $btn-icon-width !default;
+$icon-width-xs:                                             $btn-icon-width-xs !default;
+$icon-width-sm:                                             $btn-icon-width-sm !default;
+$icon-width-lg:                                             $btn-icon-width-lg !default;
+
+$icon-height:                                               $icon-width !default;
+$icon-height-xs:                                            $icon-width-xs !default;
+$icon-height-sm:                                            $icon-width-sm !default;
+$icon-height-lg:                                            $icon-width-lg !default;
+
+// Borders
+$icon-border-radius:                                        $input-border-radius !default;
+$icon-circle-border-radius:                                 $border-radius-rounded !default;
+
+
+
+// Avatar
+// =========================================================
+
+// Width & Heights
+$avatar-width:                                              $btn-icon-width !default;
+$avatar-width-xss:                                          1rem !default;
+$avatar-width-xs:                                           $btn-icon-width-xs !default;
+$avatar-width-sm:                                           $btn-icon-width-sm !default;
+$avatar-width-lg:                                           $btn-icon-width-lg !default;
+$avatar-width-xl:                                           $font-size-base * 5.625 !default;
+$avatar-width-xxl:                                          $font-size-base * 7 !default;
+$avatar-status-width:                                       $btn-status-width !default;
+$avatar-status-width-sm:                                    $font-size-base * .9375 !default;
+$avatar-status-width-lg:                                    $font-size-base * 1.625 !default;
+
+$avatar-height:                                             $btn-icon-width !default;
+$avatar-height-xss:                                         $avatar-width-xss !default;
+$avatar-height-xs:                                          $avatar-width-xs !default;
+$avatar-height-sm:                                          $avatar-width-sm !default;
+$avatar-height-lg:                                          $avatar-width-lg !default;
+$avatar-height-xl:                                          $avatar-width-xl !default;
+$avatar-height-xxl:                                         $avatar-width-xxl !default;
+$avatar-status-height:                                      $avatar-status-width !default;
+$avatar-status-height-sm:                                   $avatar-status-width-sm !default;
+$avatar-status-height-lg:                                   $avatar-status-width-lg !default;
+
+// Backgrounds
+$avatar-bg-color:                                           $white !default;
+
+// Border
+$avatar-img-border-radius:                                  $border-radius !default;
+$avatar-circle-border-radius:                               $border-radius-rounded !default;
+$avatar-border-width:                                       2px !default;
+$avatar-border-color:                                       $white !default;
+$avatar-border-width-lg:                                    5px !default;
+$avatar-border-color-lg:                                    $white !default;
+$avatar-border-width-xl:                                    7px !default;
+$avatar-border-color-xl:                                    $white !default;
+$avatar-status-border-radius:                               $avatar-circle-border-radius !default;
+$avatar-status-border-width:                                .125rem !default;
+$avatar-status-border-color:                                $white !default;
+
+// Z-index
+$avatar-group-z-index:                                      2 !default;
+
+// Type
+$avatar-font-size-xss:                                      $btn-icon-font-size-xs !default;
+$avatar-font-size-xs:                                       $btn-icon-font-size-xs !default;
+$avatar-font-size:                                          $btn-icon-font-size !default;
+$avatar-font-size-sm:                                       $btn-icon-font-size-sm !default;
+$avatar-font-size-lg:                                       $btn-icon-font-size-lg !default;
+$avatar-font-size-xl:                                       $font-size-base * 2 !default;
+$avatar-font-size-xxl:                                      $font-size-base * 3 !default;
+$avatar-font-weight:                                        $btn-icon-font-weight !default;
+$avatar-status-font-size:                                   $btn-status-font-size !default;
+$avatar-status-line-height:                                 $btn-status-line-height !default;
+$avatar-status-font-size-sm:                                $font-size-base * .5 !default;
+$avatar-status-font-size-lg:                                $font-size-base * .75 !default;
+
+// Margins
+$avatar-group-margin-x-xs:                                  -.6125rem !default;
+$avatar-group-margin-x:                                     -1rem !default;
+$avatar-group-margin-x-sm:                                  -.875rem !default;
+$avatar-group-margin-x-lg:                                  -1.5rem !default;
+$avatar-group-margin-x-xl:                                  -2rem !default;
+
+
+
+// Nav
+// =========================================================
+
+// Colors
+$nav-link-color:                                            $dark;
+$nav-link-active-color:                                     $active-color !default;
+$nav-link-hover-color:                                      $link-hover-color;
+$nav-subtitle-color:                                        $text-muted !default;
+$nav-light-link-color:                                      $white-70 !default;
+$nav-light-link-hover-color:                                $white !default;
+$nav-tabs-link-active-color:                                $active-color;
+$nav-pills-link-active-color:                               initial !default;
+$nav-vertical-pills-link-active-color:                      $active-color !default;
+$nav-pills-link-hover-color:                                $white !default;
+$nav-segment-link-color:                                    $body-color !default;
+$nav-segment-link-active-color:                             $headings-color !default;
+$nav-segment-link-active-hover-color:                       $white !default;
+$nav-segment-link-hover-color:                              $primary !default;
+$nav-gray-link-color:                                       $body-color !default;
+$nav-gray-link-active-color:                                $active-color !default;
+$nav-gray-link-disabled-color:                              $disabled-color !default;
+
+// Backgrounds
+$nav-tabs-link-active-bg:                                   transparent;
+$nav-pills-link-active-bg:                                  rgba($gray-400, .2);
+$nav-pills-light-link-hover-bg-color:                       rgba($gray-400, .2) !default;
+$nav-segment-bg-color:                                      $gray-200 !default;
+$nav-segment-link-active-bg-color:                          $white !default;
+$nav-collapse-pseudo-bg-color:                              $border-color !default;
+
+// Width & Heights
+$nav-collapse-pseudo-width:                                 .125rem !default;
+$nav-collapse-pseudo-height:                                calc(100% - .25rem}) !default;
+
+// Type
+$nav-subtitle-font-size:                                    $font-size-xs !default;
+$nav-subtitle-letter-spacing:                               $letter-spacing !default;
+$nav-icon-opacity:                                          .7 !default;
+$nav-tabs-font-weight:                                      $font-weight-semi-bold !default;
+$nav-segment-font-size:                                     $font-size-sm !default;
+$nav-sm-link-font-size:                                     .9375rem !default;
+$nav-lg-link-font-size:                                     $h5-font-size !default;
+$nav-vertical-pills-link-font-size:                         $font-size-sm !default;
+
+// Borders
+$nav-tabs-border-width:                                     .1875rem;
+$nav-tabs-border-color:                                     $border-color;
+$nav-tabs-link-hover-border-color:                          $border-color;
+$nav-tabs-link-active-border-color:                         $active-color;
+$nav-tabs-border-radius:                                    0;
+$nav-segment-border-radius:                                 $border-radius !default;
+$nav-break-segment-border-radius:                           2rem !default;
+$nav-segment-link-border-radius:                            $nav-segment-border-radius !default;
+$nav-pills-segment-border-radius:                           $border-radius-pill !default;
+$nav-pills-segment-link-border-radius:                      $nav-pills-segment-border-radius !default;
+
+// Shadows
+$nav-segment-link-active-box-shadow:                        0rem .1875rem .375rem 0rem rgba($gray-600, .25) !default;
+$nav-pills-link-shadow:                                     $box-shadow-sm !default;
+
+// Positions
+$nav-collapse-pseudo-left-offset:                           1.3125rem !default;
+
+// Padding
+$nav-link-padding-x:                                        1rem;
+$nav-pills-padding-y:                                       1rem !default;
+$nav-pills-padding-x:                                       $nav-pills-padding-y !default;
+$nav-sm-pills-padding-y:                                    .75rem !default;
+$nav-sm-pills-padding-x:                                    $nav-sm-pills-padding-y !default;
+$nav-lg-pills-padding-y:                                    1.5rem !default;
+$nav-lg-pills-padding-x:                                    $nav-lg-pills-padding-y !default;
+$nav-pills-item-margin-y:                                   .25rem !default;
+$nav-pills-item-margin-x:                                   .25rem !default;
+$nav-tabs-link-padding-y:                                   1.25rem !default;
+$nav-segment-padding-y:                                     .25rem !default;
+$nav-segment-padding-x:                                     $nav-segment-padding-y !default;
+$nav-segment-link-padding-y:                                $input-btn-padding-y-sm !default;
+$nav-segment-link-padding-x:                                $input-btn-padding-x-sm !default;
+$nav-sm-padding-x:                                          .75rem !default;
+$nav-collapse-collapsed-padding-x:                          1.9375rem !default;
+
+// Margin
+$nav-icon-margin-x:                                         1.9375rem !default;
+$nav-vertical-pills-link-margin-y:                          .25rem !default;
+
+
+
+// Nav Scroller
+// =========================================================
+
+// Colors
+$nav-scroller-arrow-link-color:                             $body-color !default;
+$nav-scroller-arrow-link-hover-color:                       $link-hover-color !default;
+$nav-scroller-arrow-light-link-color:                       $white-70 !default;
+$nav-scroller-arrow-light-link-hover-color:                 $white !default;
+
+// Width & Heights
+$nav-scroller-arrow-link-width:                             $btn-icon-width !default;
+
+// Z-index
+$nav-scroller-arrow-z-index:                                1 !default;
+
+// Type
+$nav-scroller-arrow-font-size:                              $font-size-base * 1.5 !default;
+
+// Margins
+$nav-scroller-arrow-margin-x:                               .125rem !default;
+
+
+
+// Navbar
+// =========================================================
+
+// Colors
+$navbar-light-brand-color:                                  $body-color;
+$navbar-light-toggle-color:                                 $gray-600 !default;
+$navbar-light-color:                                        $nav-gray-link-color;
+$navbar-light-active-color:                                 $navbar-light-color;
+$navbar-light-hover-color:                                  $active-color;
+$navbar-toggler-text-color:                                 $dark !default;
+$navbar-dark-toggler-text-color:                            $white !default;
+$navbar-dark-hover-color:                                   $white;
+$navbar-dark-divider-color:                                 rgba($white, .2) !default;
+$navbar-dropdown-menu-media-title-color:                    $gray-900 !default;
+$navbar-dropdown-menu-media-desc-color:                     $gray-700 !default;
+$navbar-dropdown-menu-media-title-hover-color:              $link-color !default;
+$navbar-dropdown-menu-promo-link-title-active-color:        $navbar-dropdown-menu-media-title-hover-color !default;
+
+// Backgrounds
+$navbar-bg-color:                                           $white !default;
+$navbar-dark-bg-color:                                      $dark !default;
+$navbar-toggle-bg-hover-color:                              darken($gray-200, 2%) !default;
+$navbar-light-scrolled-bg-color:                            $white !default;
+$navbar-dark-scrolled-bg-color:                             $dark !default;
+$navbar-dropdown-menu-media-link-bg-hover-color:            rgba($gray-400, .2) !default;
+$navbar-dropdown-menu-promo-link-bg-active-color:           $navbar-dropdown-menu-media-link-bg-hover-color !default;
+$navbar-dropdown-menu-shop-banner-bg-color:                 $gray-100 !default;
+$navbar-floating-section-bg-color:                          $white !default;
+$navbar-dropdown-pseudo-bg-color:                           $border-color !default;
+
+// Borders
+$navbar-dropdown-menu-link-border-radius:                   $border-radius !default;
+$navbar-vertical-nav-tabs-border-color:                     transparent !default;
+$navbar-light-toggle-border-color:                          $border-color !default;
+$navbar-dropdown-menu-border-width:                         .1875rem !default;
+$navbar-dropdown-menu-border-color:                         $primary !default;
+$navbar-collapsed-dropdown-menu-border-color:               $gray-300 !default;
+$navbar-dropdown-menu-promo-item-border-width:              $border-width !default;
+$navbar-dropdown-menu-promo-item-border-color:              $border-color !default;
+$navbar-dropdown-menu-banner-border-radius:                 $border-radius !default;
+$navbar-floating-border-radius:                             $border-radius !default;
+$navbar-sidebar-aside-brand-wrapper-border-width:           $border-width !default;
+$navbar-sidebar-aside-brand-wrapper-border-color:           $border-color !default;
+$navbar-topbar-collapse-border-radius:                      $border-radius !default;
+$navbar-topbar-toggler-border-width:                        $border-width !default;
+$navbar-topbar-toggler-border-color:                        $border-color !default;
+$navbar-topbar-toggler-dark-border-color:                   rgba($white, .1) !default;
+
+// Positions
+$navbar-dropdown-menu-pseudo-top-offset:                    .625rem !default;
+$navbar-dropdown-pseudo-left-offset:                        .4375rem !default;
+$navbar-topbar-collapse-top-offset:                         .5rem !default;
+$navbar-topbar-collapse-right-offset:                       $navbar-topbar-collapse-top-offset !default;
+
+// Width & Heights
+$navbar-height:                                             3.875rem !default;
+$navbar-brand-default-width:                                7.5rem !default;
+$navbar-absolute-height:                                    75vh !default;
+$navbar-sticky-height:                                      75vh !default;
+$navbar-sidebar-aside-width:                                17rem !default;
+$navbar-sidebar-aside-brand-height:                         5rem !default;
+$navbar-dropdown-menu-shop-banner-img-width:                10rem !default;
+$navbar-floating-height:                                    $navbar-absolute-height !default;
+$navbar-dropdown-pseudo-width:                              .125rem !default;
+$navbar-dropdown-pseudo-height:                             calc(100% - .25rem) !default;
+$navbar-topbar-collapse-width:                              calc(100% - #{$navbar-topbar-collapse-top-offset * 2}) !default;
+$navbar-topbar-collapse-max-height:                         calc(100% - 3rem) !default;
+
+// Type
+$navbar-topbar-toggler-font-size:                           $font-size-sm !default;
+$navbar-dropdown-menu-media-title-font-weight:              $font-weight-semi-bold !default;
+$navbar-dropdown-menu-media-desc-font-size:                 $font-size-base * .875 !default;
+
+// Z-index
+$navbar-z-index:                                            99 !default;
+$navbar-topbar-z-index:                                     11 !default;
+$navbar-sidebar-aside-z-index:                              $navbar-z-index !default;
+
+// Box Shadows
+$navbar-box-shadow:                                         $box-shadow !default;
+$navbar-light-scrolled-box-shadow:                          $box-shadow !default;
+$navbar-topbar-collapse-box-shadow:                         $box-shadow-lg !default;
+
+// Padding
+$navbar-toggler-padding-y:                                  .5rem;
+$navbar-toggler-padding-x:                                  $navbar-toggler-padding-y;
+$navbar-nav-padding-y:                                      1rem !default;
+$navbar-nav-padding-x:                                      $navbar-nav-padding-y !default;
+$navbar-nav-link-padding-y:                                 1rem !default;
+$navbar-nav-link-padding-x:                                 .75rem !default;
+$navbar-vertical-nav-link-padding-y:                        .3125rem !default;
+$navbar-vertical-nav-link-padding-x:                        $nav-link-padding-x * 1.5 !default;
+$navbar-dropdown-menu-inner-padding-y:                      .75rem !default;
+$navbar-dropdown-menu-inner-padding-x:                      $navbar-dropdown-menu-inner-padding-y !default;
+$navbar-dropdown-menu-media-link-padding-y:                 1rem !default;
+$navbar-dropdown-menu-media-link-padding-x:                 $navbar-dropdown-menu-media-link-padding-y !default;
+$navbar-dropdown-menu-promo-link-padding-y:                 $navbar-dropdown-menu-media-link-padding-y !default;
+$navbar-dropdown-menu-promo-link-padding-x:                 $navbar-dropdown-menu-promo-link-padding-y !default;
+$navbar-dropdown-menu-banner-content-padding-y:             2rem !default;
+$navbar-dropdown-menu-banner-content-padding-x:             2rem !default;
+$navbar-dropdown-collapsed-padding-x:                       1rem !default;
+$navbar-floating-nav-padding-x:                             1rem !default;
+$navbar-sidebar-aside-content-padding-x:                    .75rem !default;
+$navbar-sidebar-aside-brand-padding-y:                      1.25rem !default;
+$navbar-sidebar-aside-brand-padding-x:                      1.5rem !default;
+$navbar-topbar-toggler-padding-y:                           .75rem !default;
+
+// Margins
+$navbar-topbar-margin-y:                                    .4375rem !default;
+$navbar-dropdown-margin-y:                                  .5rem !default;
+$navbar-dropdown-menu-link-margin-y:                        .5rem !default;
+$navbar-nav-item-margin-x:                                  .5rem !default;
+$navbar-dropdown-menu-promo-item-margin-y:                  $navbar-dropdown-menu-inner-padding-y !default;
+$navbar-dropdown-menu-promo-item-margin-x:                  $navbar-dropdown-menu-promo-item-margin-y !default;
+$navbar-dropdown-menu-inner-menu-margin-y:                  .6875rem !default;
+$navbar-dropdown-menu-inner-menu-margin-x:                  .5rem !default;
+$navbar-floating-margin-y:                                  2.5rem !default;
+$navbar-floating-dropdown-menu-margin-y:                    .5rem !default;
+$navbar-topbar-toggler-margin-y:                            .75rem !default;
+$navbar-topbar-toggler-margin-x:                            .75rem !default;
+
+// Gap
+$navbar-nav-wrap-secondary-content-gap:                     .5rem !default;
+
+// Others
+$navbar-fix-effect-transition:                              $transition-timing ease !default;
+$navbar-topbar-collapse-animation:                          navbar-topbar-collapse-scale-up $transition-timing cubic-bezier(0.390, 0.575, 0.565, 1.000) both !default;
+
+
+
+// Fullscreen
+// =========================================================
+
+// Colors
+$navbar-fullscreen-nav-link-color:                          $white !default;
+$navbar-fullscreen-nav-link-hover-color:                    $white-70 !default;
+
+// Backgrounds
+$navbar-fullscreen-overlay-bg-color:                        rgba($dark, .9) !default;
+$navbar-fullscreen-scrollbar-bg-color:                      $scrollbar-bg-color !default;
+
+// Borders
+$navbar-fullscreen-collapse-border-width:                   .1875rem !default;
+$navbar-fullscreen-collapse-border-color:                   rgba($white, .4) !default;
+
+// Width & Heights
+$navbar-fullscreen-navbar-nav-width:                        50% !default;
+$navbar-fullscreen-height:                                  $navbar-absolute-height !default;
+$navbar-fullscreen-scrollbar-width:                         $scrollbar-width !default;
+
+// Type
+$navbar-fullscreen-nav-link-font-size:                      $font-size-base * 1.5 !default;
+$navbar-fullscreen-dropdown-menu-item-font-size:            $font-size-base !default;
+
+// Padding
+$navbar-fullscreen-collapse-padding-x:                      1rem !default;
+
+// Margin
+$navbar-fullscreen-secondary-content-margin-x:              2rem !default;
+
+// Z-index
+$navbar-fullscreen-toggler-z-index:                         999 !default;
+
+// Transitions
+$navbar-fullscreen-overlay-transition-delay:                .5s !default;
+
+
+
+// Drop Down
+// =========================================================
+
+// Colors
+$dropdown-color:                                            $body-color;
+$dropdown-link-active-color:                                $gray-900;
+$dropdown-icon-color:                                       $body-color !default;
+
+// Backgrounds
+$dropdown-link-hover-bg:                                    $nav-pills-link-active-bg;
+$dropdown-link-active-bg:                                   $dropdown-link-hover-bg;
+$dropdown-overlay-bg-color:                                 $overlay-soft-bg-color !default;
+$dropdown-divider-bg:                                       $light-bg-color;
+
+// Width & Heights
+$dropdown-icon-width:                                       1.5rem !default;
+$dropdown-toggle-pseudo-width:                              1rem !default;
+$dropdown-toggle-pseudo-height:                             1rem !default;
+$navbar-dropdown-menu-pseudo-height:                        1.75rem !default;
+
+// Type
+$dropdown-item-font-size:                                   $font-size-sm !default;
+$dropdown-header-font-size:                                 $nav-subtitle-font-size !default;
+$dropdown-header-font-weight:                               $font-weight-semi-bold !default;
+$dropdown-toggle-pseudo-bg:                                 url("data:image/svg+xml,<svg width='24' height='24' viewBox='0 0 24 24' fill='#{$dropdown-color}' xmlns='http://www.w3.org/2000/svg'><path d='M12.72,15.78a.75.75,0,0,1-.53.22h-.38a.77.77,0,0,1-.53-.22L6.15,10.64a.5.5,0,0,1,0-.71l.71-.71a.49.49,0,0,1,.7,0L12,13.67l4.44-4.45a.5.5,0,0,1,.71,0l.7.71a.5.5,0,0,1,0,.71Z'/></svg>") !default;
+$dropdown-toggle-pseudo-light-bg:                           url("data:image/svg+xml,<svg width='24' height='24' viewBox='0 0 24 24' fill='#{rgba($white, .55)}' xmlns='http://www.w3.org/2000/svg'><path d='M12.72,15.78a.75.75,0,0,1-.53.22h-.38a.77.77,0,0,1-.53-.22L6.15,10.64a.5.5,0,0,1,0-.71l.71-.71a.49.49,0,0,1,.7,0L12,13.67l4.44-4.45a.5.5,0,0,1,.71,0l.7.71a.5.5,0,0,1,0,.71Z'/></svg>") !default;
+
+// Borders
+$dropdown-border-width:                                     0;
+$dropdown-item-border-radius:                               $border-radius-sm !default;
+
+// Z-index
+$dropdown-overlay-z-index:                                  $navbar-z-index + 1 !default;
+
+// Padding
+$dropdown-padding-x:                                        .5rem;
+$dropdown-padding-y:                                        .5rem;
+$dropdown-item-padding-y:                                   .5rem;
+$dropdown-item-padding-x:                                   1rem;
+$dropdown-header-padding:                                   .5rem 1rem;
+$dropdown-toggle-padding-x:                                 1.25rem !default;
+
+// Margin
+$dropdown-spacer:                                           .625rem !default;
+$dropdown-item-margin-y:                                    .25rem !default;
+$dropdown-margin-y:                                         .3125rem !default;
+
+// Shadows
+$dropdown-box-shadow:                                       0 .75rem 1rem rgba($gray-400, .3);
+
+// Transition
+$dropdown-overlay-transition:                               $transition-timing-sm ease !default;
+$dropdown-toggle-psuedo-transition:                         $transition-timing !default;
+$dropdown-toggle-psuedo-collapse-rotation:                  rotate(-180deg) !default;
+
+// Others
+$dropdown-icon-opacity:                                     .7 !default;
+
+
+
+// Accordion
+// =========================================================
+
+// Colors
+$accordion-button-color:                                    $dark !default;
+$accordion-icon-color:                                      $dark;
+$accordion-icon-active-color:                               $active-color;
+
+// Backgrounds
+$accordion-button-active-bg:                                $white;
+$accordion-border-color:                                    $border-color;
+$accordion-button-icon:                                     url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='#{$accordion-icon-color}'><path d='M19,11.5v1a.5.5,0,0,1-.5.5H13v5.5a.5.5,0,0,1-.5.5h-1a.5.5,0,0,1-.5-.5V13H5.5a.5.5,0,0,1-.5-.5v-1a.5.5,0,0,1,.5-.5H11V5.5a.5.5,0,0,1,.5-.5h1a.5.5,0,0,1,.5.5V11h5.5A.5.5,0,0,1,19,11.5Z'/></svg>");
+$accordion-button-active-icon:                              url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='#{$accordion-icon-active-color}'><path d='M5.5,13a.5.5,0,0,1-.5-.5v-1a.5.5,0,0,1,.5-.5h13a.5.5,0,0,1,.5.5v1a.5.5,0,0,1-.5.5Z'/></svg>");
+
+// Borders
+$accordion-border-color:                                    $border-color;
+
+// Width & Heights
+$accordion-icon-width:                                      1rem;
+
+// Type
+$accordion-button-font-size:                                $font-size-base !default;
+$accordion-lg-button-font-size:                             $font-size-base * 1.125 !default;
+$accordion-button-font-weight:                              $font-weight-semi-bold !default;
+
+// Padding
+$accordion-padding-y:                                       .75rem;
+$accordion-padding-x:                                       1.25rem;
+$accordion-lg-padding-y:                                    1.5rem;
+
+// Transition
+$accordion-icon-transform:                                  rotate(0deg);
+
+
+
+// Alert
+// =========================================================
+
+// Backgrounds
+$alert-white-bg-color:                                      $white !default;
+
+// Borders
+$alert-white-border-width:                                  $border-width !default;
+$alert-white-border-color:                                  $border-color !default;
+
+// Padding
+$alert-padding-y:                                           .75rem;
+$alert-padding-x:                                           .75rem;
+
+
+
+// Badge
+// =========================================================
+
+// Borders
+$badge-border-radius:                                       $border-radius-sm;
+
+
+
+// Text
+// =========================================================
+
+// Colors
+$text-cap-color:                                            $headings-color !default;
+
+// Type
+$text-cap-font-size:                                        $card-subtitle-font-size !default;
+$text-cap-font-weight:                                      $font-weight-semi-bold !default;
+$text-cap-letter-spacing:                                   $letter-spacing !default;
+
+// Margin
+$text-cap-margin-y:                                         1rem !default;
+
+
+
+// Blockquote
+// =========================================================
+
+// Color
+$blockquote-color:                                          $headings-color !default;
+$blockquote-left-border-color:                              $body-color !default;
+$blockquote-footer-color:                                   $headings-color;
+$blockquote-footer-source-color:                            $gray-700 !default;
+$blockquote-light-color:                                    $white !default;
+$blockquote-light-footer-color:                             $white !default;
+$blockquote-light-footer-source-color:                      $white-70 !default;
+
+// Type
+$blockquote-font-size:                                      1.25rem;
+$blockquote-sm-font-size:                                   $font-size-base !default;
+$blockquote-lg-font-size:                                   1.75rem !default;
+$blockquote-footer-font-size:                               1.25rem;
+$blockquote-footer-font-weight:                             $font-weight-semi-bold !default;
+$blockquote-footer-source-font-size:                        $font-size-sm !default;
+$blockquote-footer-source-font-weight:                      $font-weight-normal !default;
+$blockquote-border-left-width:                              .1875rem !default;
+$blockquote-border-left-color:                              $border-color !default;
+
+// Padding
+$blockquote-padding-x:                                      .75rem !default;
+
+// Margin
+$blockquote-margin-y:                                       0;
+$blockquote-footer-margin-y:                                1.5rem !default;
+$blockquote-footer-source-margin-y:                         .25rem !default;
+
+
+
+// Lists
+// =========================================================
+
+// Color
+$list-separator-link-color:                                 $body-color !default;
+$list-separator-link-hover-color:                           $link-hover-color !default;
+$list-separator-light-link-color:                           $white !default;
+$list-group-icon-color:                                     $dropdown-icon-color !default;
+
+// Backgrounds
+$list-group-striped-bg-color:                               rgba($primary, .1) !default;
+
+// Borders
+$list-group-border-color:                                   $gray-300;
+$list-comment-item-border-left-width:                       .1875rem !default;
+$list-comment-item-border-left-color:                       $border-color !default;
+$list-comment-divider-item-border-width:                    .0625rem !default;
+$list-comment-divider-item-border-color:                    $border-color !default;
+
+// Width & Heights
+$list-group-icon-width:                                     2rem !default;
+$list-group-lg-icon-width:                                  2.5rem !default;
+
+// Type
+$list-group-sm-item-font-size:                              $font-size-sm !default;
+$list-group-lg-icon-font-size:                              $font-size-base * 1.5 !default;
+
+// Padding
+$list-group-item-padding-y:                                 1rem !default;
+$list-group-item-padding-x:                                 1rem !default;
+$list-group-lg-item-padding-y:                              1.5rem !default;
+$list-group-lg-item-padding-x:                              1.5rem !default;
+$list-padding-y-1:                                          .25rem !default;
+$list-padding-y-2:                                          .5rem !default;
+$list-padding-y-3:                                          1rem !default;
+$list-separator-padding-x:                                  2rem !default;
+$list-comment-item-padding-x:                               1rem !default;
+
+// Margin
+$list-group-icon-margin-x:                                  .5rem !default;
+$list-group-lg-icon-margin-x:                               .5rem !default;
+$list-separator-item-margin-x:                              .25rem !default;
+$list-comment-margin-y:                                     2.5rem !default;
+
+// Others
+$list-separator-pseudo-content:                             '/' !default;
+$list-separator-pseudo-opacity:                             .4 !default;
+
+
+
+// List Checked
+// =========================================================
+
+// Colors
+$list-checked-item-color:                                   $body-color !default;
+$list-checked-item-hover-color:                             $link-color !default;
+
+// Width & Heights
+$list-checked-pseudo-width:                                 1.25rem !default;
+$list-checked-pseudo-height:                                1.25rem !default;
+$list-checked-sm-pseudo-width:                              1rem !default;
+$list-checked-sm-pseudo-height:                             1rem !default;
+$list-checked-lg-pseudo-width:                              1.75rem !default;
+$list-checked-lg-pseudo-height:                             1.75rem !default;
+
+// Others
+$list-checked-pseudo-soft-bg-opacity-value:                 .1 !default;
+
+// Type
+$list-checked-pseudo:                                       url("data:image/svg+xml,<svg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M13.3035 4.76425C13.5718 4.44865 14.0451 4.41027 14.3607 4.67853C14.6763 4.9468 14.7147 5.42012 14.4464 5.73572L8.07144 13.2357C7.79896 13.5563 7.31616 13.5901 7.00171 13.3105L3.62671 10.3105C3.31713 10.0354 3.28924 9.5613 3.56443 9.25172C3.83962 8.94213 4.31367 8.91424 4.62326 9.18943L7.42515 11.68L13.3035 4.76425Z' fill='#{$form-select-indicator-color}'/></svg>") !default;
+
+// Padding
+$list-checked-item-padding-x:                               $list-checked-pseudo-width + .75rem !default;
+$list-checked-sm-item-padding-x:                            $list-checked-sm-pseudo-width + .5rem !default;
+$list-checked-lg-item-padding-x:                            $list-checked-lg-pseudo-width + 1rem !default;
+
+// Margins
+$list-checked-item-margin-y:                                .5rem !default;
+$list-checked-lg-item-margin-y:                             1.25rem !default;
+$list-checked-pseudo-margin-y:                              .125rem !default;
+$list-checked-bg-pseudo-margin-y:                           .25rem !default;
+$list-checked-sm-pseudo-margin-y:                           .3125rem !default;
+$list-checked-sm-bg-pseudo-margin-y:                        .25rem !default;
+$list-checked-lg-pseudo-margin-y:                           0 !default;
+$list-checked-lg-bg-pseudo-margin-y:                        .0625rem !default;
+
+
+
+// List Pointer
+// =========================================================
+
+// Colors
+$list-pointer-item-color:                                   $body-color !default;
+$list-pointer-item-hover-color:                             $link-color !default;
+
+// Width & Heights
+$list-pointer-pseudo-width:                                 1.25rem !default;
+$list-pointer-pseudo-height:                                1.25rem !default;
+$list-pointer-sm-pseudo-width:                              1rem !default;
+$list-pointer-sm-pseudo-height:                             1rem !default;
+$list-pointer-lg-pseudo-width:                              1.75rem !default;
+$list-pointer-lg-pseudo-height:                             1.75rem !default;
+
+// Others
+$list-pointer-pseudo-soft-bg-opacity-value:                 .1 !default;
+
+// Type
+$list-pointer-pseudo:                                       url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='#{$form-select-indicator-color}' d='M15.78,11.28a.75.75,0,0,1,.22.53v.38a.77.77,0,0,1-.22.53l-5.14,5.13a.5.5,0,0,1-.71,0l-.71-.71a.49.49,0,0,1,0-.7L13.67,12,9.22,7.56a.5.5,0,0,1,0-.71l.71-.7a.5.5,0,0,1,.71,0Z'/></svg>") !default;
+
+// Padding
+$list-pointer-item-padding-x:                               $list-pointer-pseudo-width + .5rem !default;
+$list-pointer-sm-item-padding-x:                            $list-pointer-sm-pseudo-width + .5rem !default;
+$list-pointer-lg-item-padding-x:                            $list-pointer-lg-pseudo-width + 1rem !default;
+
+// Margins
+$list-pointer-item-margin-y:                                .5rem !default;
+$list-pointer-lg-item-margin-y:                             1.25rem !default;
+$list-pointer-pseudo-margin-y:                              .1875rem !default;
+$list-pointer-bg-pseudo-margin-y:                           .25rem !default;
+$list-pointer-sm-pseudo-margin-y:                           .3125rem !default;
+$list-pointer-sm-bg-pseudo-margin-y:                        .25rem !default;
+$list-pointer-lg-pseudo-margin-y:                           0 !default;
+$list-pointer-lg-bg-pseudo-margin-y:                        .0625rem !default;
+
+
+
+// Modals
+// =========================================================
+
+// Backgrounds
+$modal-backdrop-bg:                                         $overlay-soft-bg-color;
+
+// Borders
+$modal-content-border-color:                                transparent;
+$modal-header-border-width:                                 0;
+$modal-footer-border-width:                                 $border-width !default;
+
+// Padding
+$modal-inner-padding:                                       2rem;
+$modal-header-padding-y:                                    1rem;
+$modal-header-padding-x:                                    $modal-inner-padding;
+$modal-footer-padding-y:                                    $modal-header-padding-y !default;
+$modal-footer-padding-x:                                    $modal-header-padding-x !default;
+$modal-close-padding-y:                                     .25rem !default;
+$modal-close-padding-x:                                     $modal-close-padding-y !default;
+
+// Width & Heights
+$modal-md:                                                  550px;
+$modal-sm:                                                  400px;
+$modal-top-cover-min-height:                                8rem !default;
+
+// Z-index
+$zindex-modal-backdrop:                                     $navbar-z-index + 1;
+$zindex-modal:                                              $zindex-modal-backdrop + 1;
+
+// Position Spaces
+$modal-top-cover-close-top-offset:                          .75rem !default;
+$modal-top-cover-close-right-offset:                        $modal-top-cover-close-top-offset !default;
+
+// Type
+$modal-footer-text-font-size:                               $font-size-sm !default;
+
+// Margins
+$modal-top-cover-avatar-margin-y:                           -3rem !default;
+
+// Others
+$modal-backdrop-opacity:                                    1;
+$modal-top-cover-close-z-index:                             2 !default;
+
+
+
+// Close
+// =========================================================
+
+// Color
+$btn-close-light-color:                                     $white !default;
+
+// Type
+$btn-close-light-bg:                                        url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$btn-close-light-color}'><path d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/></svg>") !default;
+
+
+
+// Offcanvas
+// =========================================================
+
+// Borders
+$offcanvas-header-border-bottom-color:                      $border-color !default;
+
+// Padding
+$offcanvas-header-padding-y:                                1.5rem !default;
+$offcanvas-padding-y:                                       2.5rem;
+$offcanvas-padding-x:                                       2.5rem;
+
+
+
+// Step
+// =========================================================
+
+// Colors
+$step-title-color:                                          $headings-color !default;
+$step-text-color:                                           $body-color !default;
+$step-active-icon-color:                                    $white !default;
+$step-is-valid-color:                                       $primary !default;
+$step-is-valid-icon-color:                                  $white !default;
+$step-is-invalid-color:                                     $danger !default;
+$step-is-invalid-icon-color:                                $white !default;
+
+// Background
+$step-icon-pseudo-bg-color:                                 $gray-500 !default;
+$step-active-icon-bg-color:                                 $active-bg-color !default;
+$step-is-valid-icon-bg-color:                               $step-is-valid-color !default;
+$step-is-invalid-icon-bg-color:                             $step-is-invalid-color !default;
+
+// Borders
+$step-border-width:                                         .125rem !default;
+$step-border-color:                                         $border-color !default;
+$step-icon-border-radius:                                   $border-radius-rounded !default;
+$step-icon-pseudo-border-radius:                            $border-radius-rounded !default;
+$step-avatar-border-radius:                                 $step-icon-border-radius !default;
+
+// Width & Height
+$step-icon-width:                                           $btn-icon-width !default;
+$step-icon-height:                                          $step-icon-width !default;
+$step-icon-width-xs:                                        $btn-icon-width-xs !default;
+$step-icon-height-xs:                                       $step-icon-width-xs !default;
+$step-icon-width-sm:                                        $btn-icon-width-sm !default;
+$step-icon-height-sm:                                       $step-icon-width-sm !default;
+$step-icon-width-lg:                                        $font-size-base * 5.5 !default;
+$step-icon-height-lg:                                       $step-icon-width-lg !default;
+
+$step-avatar-width:                                         $step-icon-width !default;
+$step-avatar-height:                                        $step-avatar-width !default;
+$step-avatar-width-xs:                                      $step-icon-width-xs !default;
+$step-avatar-height-xs:                                     $step-avatar-width-xs !default;
+$step-avatar-width-sm:                                      $step-icon-width-sm !default;
+$step-avatar-height-sm:                                     $step-avatar-width-sm !default;
+$step-avatar-width-lg:                                      $step-icon-width-lg !default;
+$step-avatar-height-lg:                                     $step-avatar-width-lg !default;
+
+$step-icon-pseudo-width:                                    .25rem !default;
+$step-icon-pseudo-height:                                   $step-icon-pseudo-width !default;
+
+$step-divider-height:                                       1rem !default;
+
+// Type
+$step-icon-font-size:                                       $btn-icon-font-size !default;
+$step-icon-font-weight:                                     $font-weight-semi-bold !default;
+
+$step-icon-font-size-xs:                                    $btn-icon-font-size-xs !default;
+$step-icon-font-size-sm:                                    $btn-icon-font-size-sm !default;
+$step-icon-font-size-lg:                                    $btn-icon-font-size-lg !default;
+
+$step-title-font-weight:                                    $font-weight-semi-bold !default;
+
+$step-avatar-font-weight:                                   $step-icon-font-weight !default;
+$step-avatar-font-size:                                     $step-icon-font-size !default;
+$step-avatar-font-size-xs:                                  $step-icon-font-size-xs !default;
+$step-avatar-font-size-sm:                                  $step-icon-font-size-sm !default;
+$step-avatar-font-size-lg:                                  $step-icon-font-size-lg !default;
+
+$step-divider-font-size:                                    $font-size-base * .8125 !default;
+$step-divider-font-weight:                                  $font-weight-semi-bold !default;
+
+// Padding
+$step-padding-x:                                            1.5rem !default;
+$step-padding-y:                                            $step-padding-x !default;
+
+// Margins
+$step-item-margin-y:                                        2.25rem !default;
+$step-icon-margin-y:                                        1rem !default;
+$step-icon-margin-x:                                        1rem !default;
+$step-avatar-margin-x:                                      $step-icon-margin-x !default;
+$step-timeline-content-margin-x:                            1.5rem !default;
+$step-timeline-icon-margin-x:                               $step-icon-width / 2 !default;
+$step-timeline-icon-xs-margin-x:                            $step-icon-width-xs / 2 !default;
+$step-timeline-icon-sm-margin-x:                            $step-icon-width-sm / 2 !default;
+$step-timeline-icon-lg-margin-x:                            $step-icon-width-lg / 2 !default;
+
+
+
+// SVG Icon
+// =========================================================
+
+// Width & Heights
+$svg-icon-width:                                            2.75rem !default;
+$svg-icon-height:                                           $svg-icon-width !default;
+$svg-icon-xs-width:                                         1.25rem !default;
+$svg-icon-xs-height:                                        $svg-icon-xs-width !default;
+$svg-icon-sm-width:                                         1.75rem !default;
+$svg-icon-sm-height:                                        $svg-icon-sm-width !default;
+$svg-icon-lg-width:                                         3.5rem !default;
+$svg-icon-lg-height:                                        $svg-icon-lg-width !default;
+
+// Margins
+$svg-icon-margin-y:                                         .125rem !default;
+
+
+
+// Breadcrumbs
+// =========================================================
+
+// Colors
+$breadcrumb-item-color:                                     $headings-color !default;
+$breadcrumb-light-item-color:                               $white !default;
+$breadcrumb-light-link-color:                               rgba($white, .5) !default;
+$breadcrumb-light-link-hover-color:                         $white !default;
+$breadcrumb-light-divider-color:                            rgba($white, .5) !default;
+
+// Backgrounds
+$breadcrumb-bg:                                             transparent;
+
+// Borders
+$breadcrumb-divider-color:                                  $gray-500;
+
+
+
+// Brand
+// =========================================================
+
+// Width & Heights
+$brand-max-width:                                           7.5rem !default;
+
+
+
+// Page Header
+// =========================================================
+
+// Borders
+$page-header-border-width:                                  $border-width !default;
+$page-header-border-color:                                  $border-color !default;
+
+// Padding
+$page-header-padding-y:                                     2rem !default;
+
+// Margins
+$page-header-margin-y:                                      1rem !default;
+$page-header-title-margin-y:                                .25rem !default;
+$page-header-text-margin-y:                                 .25rem !default;
+$page-header-breadcrumb-margin-y:                           .25rem !default;
+
+
+
+// Page Preloader
+// =========================================================
+
+// Background
+$page-preloader-bg-color:                                   $white !default;
+
+// Others
+$page-preloader-z-index:                                    $navbar-z-index + 1;
+
+
+
+// Pagination
+// =========================================================
+
+// Colors
+$pagination-color:                                          $gray-700;
+
+// Borders
+$pagination-border-width:                                   0;
+$pagination-border-radius:                                  $border-radius-sm;
+
+// Width & Heights
+$pagination-link-min-width:                                 2.25rem !default;
+
+// Padding
+$pagination-padding-x-lg:                                   1.25rem;
+
+// Margin
+$pagination-item-margin-x:                                  .25rem !default;
+
+
+
+// Popover
+// =========================================================
+
+// Background
+$popover-header-bg:                                         $gray-200;
+
+// Border
+$popover-border-color:                                      transparent;
+$popover-arrow-color:                                       $white;
+$popover-arrow-outer-color:                                 $popover-border-color;
+
+// Type
+$popover-font-size:                                         $font-size-base;
+$popover-header-font-weight:                                $font-weight-semi-bold !default;
+
+// Box Shadow
+$popover-box-shadow:                                        $box-shadow-lg;
+
+// Padding
+$popover-body-padding-y:                                    1.5rem;
+$popover-body-padding-x:                                    $popover-body-padding-y;
+$popover-header-padding-x:                                  $popover-body-padding-x;
+$popover-header-padding-y:                                  1rem;
+
+
+
+// Profile
+// =========================================================
+
+// Backgrounds
+$profile-cover-bg-color:                                    $gray-300 !default;
+$profile-cover-avatar-bg-color:                             $white !default;
+
+// Borders
+$profile-cover-border-radius:                               $card-border-radius !default;
+
+// Width & Heights
+$profile-cover-height:                                      7.5rem !default;
+$profile-cover-lg-height:                                   10rem !default;
+
+// Padding
+$profile-cover-content-padding-y:                           1rem !default;
+$profile-cover-content-padding-x:                           1rem !default;
+$profile-cover-avatar-padding-y:                            .75rem !default;
+$profile-cover-avatar-padding-x:                            $profile-cover-avatar-padding-y !default;
+
+// Margins
+$profile-cover-padding-y:                                   1rem !default;
+$profile-cover-padding-x:                                   1rem !default;
+$profile-cover-avatar-margin-y:                             1.75rem !default;
+
+
+
+// Progress
+// =========================================================
+
+// Background
+$progress-bg:                                               $gray-300;
+$progress-vertical-bg-color:                                $progress-bg !default;
+
+// Width & Heights
+$progress-height:                                           .5rem;
+$progress-vertical-width:                                   .5rem !default;
+$progress-vertical-height:                                  12.5rem !default;
+
+
+
+// Legend Indicator
+// =========================================================
+
+// Backgrounds
+$legend-indicator-bg-color:                                 $gray-400 !default;
+
+// Borders
+$legend-indicator-border-radius:                            $border-radius-rounded !default;
+
+// Width & Heights
+$legend-indicator-width:                                    .5rem !default;
+$legend-indicator-height:                                   $legend-indicator-width !default;
+
+// Margins
+$legend-indicator-margin-y:                                 .5rem !default;
+$legend-indicator-margin-x:                                 .4375rem !default;
+
+
+
+// Table
+// =========================================================
+
+// Colors
+$table-thead-th-color:                                      $headings-color !default;
+$table-body-color:                                          $dark !default;
+
+// Background
+$table-thead-light-bg:                                      $gray-200;
+$table-striped-bg:                                          $gray-100;
+$table-hover-bg:                                            rgba($gray-300, .4);
+
+// Borders
+$table-border-width:                                        $border-width;
+$table-border-color:                                        $border-color;
+$table-thead-border-color:                                  $table-border-color !default;
+
+// Type
+$table-th-font-weight:                                      $font-weight-normal !default;
+$table-thead-th-font-weight:                                $font-weight-semi-bold !default;
+$table-sm-font-size:                                        $font-size-sm !default;
+
+// Padding
+$table-cell-padding-y:                                      .75rem;
+$table-cell-padding-x:                                      .75rem;
+$table-cell-padding-y-sm:                                   .5rem;
+$table-cell-padding-x-sm:                                   .5rem;
+$table-cell-padding-y-lg:                                   1rem;
+$table-cell-padding-x-lg:                                   1.5rem;
+
+
+
+// Toast State
+// =========================================================
+
+// Borders
+$toast-border-color:                                        $border-color;
+$toast-border-radius:                                       $card-border-radius;
+
+// Box Shadow
+$toast-box-shadow:                                          $box-shadow-sm;
+
+// Padding
+$toast-padding-y:                                           1rem;
+$toast-padding-x:                                           $toast-padding-y;
+
+
+
+// Tooltips
+// =========================================================
+
+// Backgrounds
+$tooltip-bg:                                                $dark;
+
+// Others
+$tooltip-opacity:                                           1;
+
+
+
+// Text Highlight
+// =========================================================
+
+$text-highlight-bg-value:                                   left 1em/1em .2em !default;
+
+
+
+// Column Divider
+// =========================================================
+
+// Borders
+$col-divider-width:                                         $border-width !default;
+$col-divider-bg-color:                                      $border-color !default;
+$col-divider-light-bg-color:                                rgba($white, .1) !default;
+
+// Padding
+$col-divider-padding-y:                                     1.5rem !default;
+
+
+
+// Divider
+// =========================================================
+
+// Colors
+$divider-color:                                             $text-muted !default;
+
+// Borders
+$divider-border-width:                                      $border-width !default;
+$divider-border-color:                                      $border-color !default;
+
+// Margins
+$divider-margin-x:                                          1.5rem !default;
+
+
+
+// Devices
+// =========================================================
+
+// Colors
+$device-browser-header-browser-bar-color:                   $body-color !default;
+
+// Backgrounds
+$device-mobile-bg-color:                                    $gray-200 !default;
+$device-tablet-bg-color:                                    $device-mobile-bg-color !default;
+$device-browser-bg-color:                                   $white !default;
+$device-browser-header-bg-color:                            $white !default;
+$device-browser-header-btn-list-btn-bg-color:               $gray-300 !default;
+$device-browser-header-browser-bar-bg-color:                $gray-300 !default;
+
+// Borders
+$device-mobile-border-radius:                               2rem !default;
+$device-tablet-border-radius:                               1rem !default;
+$device-browser-border-radius:                              .5rem !default
+$device-browser-header-border-width:                        $border-width !default;
+$device-browser-header-border-color:                        lighten($gray-300, 3%) !default;;
+$device-browser-header-btn-list-btn-border-radius:          $border-radius-rounded !default;
+$device-browser-header-browser-bar-border-radius:           .125rem !default;
+
+// Width & Heights
+$devices-max-width:                                         1140px !default;
+$device-mobile-width:                                       15rem !default;
+$device-tablet-width:                                       50rem !default;
+$device-vertical-tablet-width:                              30rem !default;
+$device-browser-width:                                      50rem !default;
+$device-browser-lg-width:                                   60rem !default;
+$device-browser-header-btn-list-btn-width:                  .5rem !default;
+$device-browser-header-btn-list-btn-height:                 $device-browser-header-btn-list-btn-width !default;
+
+// Shadows
+$device-mobile-box-shadow:                                  0 2.75rem 5.5rem -3.5rem rgba($gray-400, .5), 0 2rem 4rem -2rem rgba($dark, .3), inset 0 -.1875rem .3125rem 0 rgba($gray-500, .5) !default;
+$device-tablet-box-shadow:                                  $device-mobile-box-shadow !default;
+$device-browser-box-shadow:                                 0 2.75rem 5.5rem -3.5rem rgba($gray-400, .5), 0 2rem 4rem -2rem rgba($dark, .3) !default;
+
+// Type
+$device-browser-header-browser-bar-font-size:               $font-size-base * .5 !default;
+
+// Positions
+$device-browser-header-btn-list-btn-start-offset:           1rem !default;
+
+// Margins
+$devices-margin-y:                                          5rem !default;
+$devices-margin-x:                                          .75rem !default;
+$devices-margin-x-offset:                                   5rem !default;
+
+// Padding
+$devices-padding-y:                                         $devices-margin-y + 2rem !default;
+$device-mobile-padding:                                     .3125rem !default;
+$device-tablet-padding:                                     $device-mobile-padding !default;
+$device-browser-header-padding-y:                           .5rem !default;
+$device-browser-header-padding-x:                           6.5rem !default;
+
+// Margins
+$devices-mobile-margin-x:                                   .5rem !default;
+
+// Gap
+$devices-rotated-gap:                                       1rem !default;
+$device-browser-header-btn-list-btn-gap:                    .25rem !default;
+
+// Transitions
+$devices-rotated-deg:                                       -22deg !default;
+$devices-rotated-translate3d:                               15%,0,0 !default;
+
+
+
+// Circles
+// =========================================================
+
+// Width & Heights
+$circles-chart-width:                                       13.75rem !default;
+$circles-chart-height:                                      $circles-chart-width !default;
+
+// Borders
+$circles-chart-border-radius:                               $border-radius-rounded !default;
+
+// Box Shadow
+$circles-chart-box-shadow:                                  $box-shadow !default;
+
+// Padding
+$circles-chart-content-padding-y:                           2rem !default;
+$circles-chart-content-padding-x:                           $circles-chart-content-padding-y !default;
+
+
+
+// Media Player
+// =========================================================
+
+// Colors
+$media-viewer-icon-color:                                   $white !default;
+$media-viewer-icon-hover-color:                             $white !default;
+
+// Backgrounds
+$media-viewer-icon-bg-color:                                $primary !default;
+
+// Borders
+$media-viewer-border-radius:                                $border-radius-rounded !default;
+
+// Width & Heights
+$media-viewer-icon-width:                                   $btn-icon-width-xs !default;
+$media-viewer-icon-height:                                  $media-viewer-icon-width !default;
+
+// Type
+$media-viewer-icon-font-size:                               $btn-icon-font-size-xs !default;
+
+// Transition
+$media-viewer-icon-active-transform-scale:                  1 !default;
+$media-viewer-icon-transform-scale:                         .7 !default;
+$media-viewer-icon-transition:                              $transition-timing !default;
+
+
+
+// Video Background
+// =========================================================
+
+// Width & Heights
+$video-bg-min-height:                                       75vh !default;
+
+
+
+// Video Player
+// =========================================================
+
+// Colors
+$video-player-btn-color:                                    $headings-color !default;
+$video-player-icon-color:                                   $gray-900 !default;
+$video-player-icon-hover-color:                             $link-color !default;
+
+// Backgrounds
+$video-player-bg-color:                                     #000 !default;
+$video-player-icon-bg-color:                                $white !default;
+
+// Width & Heights
+$video-player-icon-width:                                   $btn-icon-width-lg !default;
+$video-player-icon-height:                                  $video-player-icon-width !default;
+
+// Type
+$video-player-icon-font-size:                               $btn-icon-font-size-lg !default;
+
+// Borders
+$video-player-icon-border-radius:                           $border-radius-rounded !default;
+
+// Margins
+$video-player-icon-inner-margin-x:                          .125rem !default;
+
+// Transition
+$video-player-icon-transition:                              $transition-timing !default;
+$video-player-preview-transition:                           opacity $transition-timing $transition-function !default;
+$video-player-btn-transition:                               transform $transition-timing $transition-function !default;
+$video-player-btn-played-animateion:                        videoPlayerButton $transition-timing $transition-function forwards !default;
+$video-player-icon-hover-scale:                             1.1 !default;
+
+
+
+// Dropzone
+// =========================================================
+
+// Color
+$dropzone-size-color:                                       $gray-700 !default;
+$dropzone-initials-color:                                   $primary !default;
+$dropzone-error-color:                                      $danger !default;
+$dropzone-success-color:                                    $success !default;
+
+// Background
+$dropzone-card-bg-color:                                    $gray-200 !default;
+$dropzone-filepreview-bg-color:                             $white !default;
+$dropzone-initials-bg-color:                                rgba($primary, .1) !default;
+
+// Box Shadow
+$dropzone-filepreview-shadow:                               $box-shadow-sm !default;
+
+// Width & Heights
+$dropzone-img-max-width:                                    $avatar-width !default;
+$dropzone-initials-width:                                   $btn-icon-width !default;
+$dropzone-initials-height:                                  $dropzone-initials-width !default;
+
+// Type
+$dropzone-title-font-size:                                  $font-size-xs !default;
+$dropzone-title-font-weight:                                $font-weight-semi-bold !default;
+$dropzone-size-font-size:                                   80% !default;
+$dropzone-initials-font-size:                               $btn-icon-font-size !default;
+$dropzone-initials-font-weight:                             $font-weight-semi-bold !default;
+$dropzone-initials-line-height:                             $dropzone-initials-height !default;
+
+// Borders
+$dropzone-card-border-width:                                $border-width * 2 !default;
+$dropzone-card-border-type:                                 dashed !default;
+$dropzone-card-border-color:                                $border-color !default;
+$dropzone-card-border-radius:                               $border-radius !default;
+$dropzone-filepreview-border-radius:                        $border-radius !default;
+$dropzone-img-border-radius:                                $border-radius !default;
+$dropzone-initials-border-radius:                           $border-radius !default;
+
+// Padding
+$dropzone-card-padding-y:                                   3rem !default;
+$dropzone-card-padding-x:                                   $dropzone-card-padding-y !default;
+$dropzone-filepreview-padding-y:                            1rem !default;
+$dropzone-filepreview-padding-x:                            $dropzone-filepreview-padding-y !default;
+
+// Margins
+$dropzone-details-margin-y:                                 1rem !default;
+$dropzone-filename-margin-y:                                .25rem !default;
+$dropzone-progress-margin-y:                                1rem !default;
+$dropzone-img-margin-x:                                     .75rem !default;
+$dropzone-initials-margin-x:                                $dropzone-img-margin-x !default;
+
+
+
+// Go To
+// =========================================================
+
+// Colors
+$go-to-color:                                               $gray-700 !default;
+$go-to-hover-color:                                         $white !default;
+
+// Backgrounds
+$go-to-bg-color:                                            rgba($secondary, .1) !default;
+$go-to-bg-hover-color:                                      $primary !default;
+
+// Borders
+$go-to-border-radius:                                       $border-radius-rounded !default;
+
+// Type
+$go-to-font-size:                                           $btn-icon-font-size !default;
+
+// Width & Heights
+$go-to-width:                                               $btn-icon-width !default;
+$go-to-height:                                              $go-to-width !default;
+$go-to-wave-width:                                          13.125rem !default;
+
+// Z-Index
+$go-to-z-index:                                             9999 !default;
+
+// Opacity
+$go-to-opacity:                                             .5 !default;
+$go-to-opacity-on-hover:                                    1 !default;
+
+// Transitions
+$go-to-transition:                                          $transition-timing ease-out !default;
+
+
+
+// Swiper
+// =========================================================
+
+// Colors
+$swiper-arrow-icon-color:                                   $gray-700 !default;
+$swiper-arrow-hover-color:                                  $primary !default;
+$swiper-arrow-soft-white-icon-color:                        $white !default;
+$swiper-thumb-progress-path-stroke-color:                   $primary !default;
+
+// Backgrounds
+$swiper-preloader-bg-color:                                 $white !default;
+$swiper-arrow-icon-bg-color:                                $white !default;
+$swiper-arrow-soft-white-icon-bg-color:                     rgba($white, .1) !default;
+$swiper-arrow-soft-white-hover-bg-color:                    $primary !default;
+$swiper-pagination-bullet-bg-color:                         transparent !default;
+$swiper-pagination-bullet-pseudo-bg-color:                  $gray-400 !default;
+$swiper-pagination-bullet-pseudo-active-bg-color:           $primary !default;
+$swiper-pagination-bullet-pseudo-hover-bg-color:            rgba($primary, .5) !default;
+$swiper-pagination-light-bullet-pseudo-bg-color:            rgba($white, .5) !default;
+$swiper-pagination-light-bullet-pseudo-hover-bg-color:      rgba($white, .5) !default;
+$swiper-pagination-light-bullet-pseudo-active-bg-color:     $white !default;
+$swiper-pagination-progressbar-bg-color:                    rgba($primary, .1) !default;
+$swiper-pagination-progressbar-fill-bg-color:               $primary !default;
+$swiper-pagination-progress-body-bg-color:                  $swiper-pagination-progressbar-bg-color !default;
+$swiper-pagination-progress-body-helper-bg-color:           $swiper-pagination-progressbar-fill-bg-color !default;
+$swiper-pagination-progress-light-body-bg-color:            rgba($white, .5) !default;
+$swiper-pagination-progress-light-body-helper-bg-color:     $white !default;
+
+// Borders
+$swiper-arrow-icon-border-radius:                           $border-radius-rounded !default;
+$swiper-pagination-bullet-border-width:                     $border-width !default;
+$swiper-pagination-bullet-border-color:                     transparent !default;
+$swiper-pagination-bullet-active-border-color:              $primary !default;
+$swiper-pagination-bullet-hover-border-color:               rgba($primary, .5) !default;
+$swiper-pagination-light-bullet-hover-border-color:         $white !default;
+$swiper-pagination-light-bullet-active-border-color:        $white !default;
+$swiper-pagination-bullet-pseudo-border-radius:             $border-radius-rounded !default;
+$swiper-thumb-progress-avatar-border-width:                 $border-width !default;
+$swiper-thumb-progress-avatar-border-color:                 $border-color !default;
+$swiper-thumb-progress-avatar-border-radius:                $avatar-circle-border-radius !default;
+
+// Width & Heights
+$swiper-arrow-icon-width:                                   $btn-icon-width !default;
+$swiper-arrow-icon-pseudo-width:                            1rem !default;
+$swiper-arrow-icon-pseudo-height:                           $swiper-arrow-icon-pseudo-width !default;
+$swiper-pagination-bullet-width:                            1.5rem !default;
+$swiper-pagination-bullet-height:                           $swiper-pagination-bullet-width !default;
+$swiper-pagination-bullet-pseudo-width:                     .25rem !default;
+$swiper-pagination-bullet-pseudo-height:                    $swiper-pagination-bullet-pseudo-width !default;
+$swiper-pagination-progress-body-height:                    .25rem !default;
+$swiper-thumb-progress-avatar-width:                        $avatar-width !default;
+$swiper-thumb-progress-avatar-height:                       $swiper-thumb-progress-avatar-width !default;
+
+// Type
+$swiper-arrow-prev-icon-bg:                                 url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$swiper-arrow-icon-color}'><path d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/></svg>") !default;
+$swiper-arrow-next-icon-bg:                                 url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$swiper-arrow-icon-color}'><path d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/></svg>") !default;
+$swiper-arrow-prev-icon-hover-bg:                           url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$swiper-arrow-hover-color}'><path d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/></svg>") !default;
+$swiper-arrow-next-icon-hover-bg:                           url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$swiper-arrow-hover-color}'><path d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/></svg>") !default;
+$swiper-arrow-prev-soft-white-icon-bg:                      url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$swiper-arrow-soft-white-icon-color}'><path d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/></svg>") !default;
+$swiper-arrow-next-soft-white-icon-bg:                      url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$swiper-arrow-soft-white-icon-color}'><path d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/></svg>") !default;
+$swiper-pagination-fraction-current-font-size:              $font-size-base * 4 !default;
+$swiper-pagination-fraction-letter-spacing:                 .125rem !default;
+
+// Shadows
+$swiper-arrow-icon-box-shadow:                              0rem .1875rem .4375rem 0rem rgba($gray-600, .4) !default;
+
+// Padding
+$swiper-thumb-progress-avatar-padding:                      .25rem !default;
+
+// Margins
+$swiper-pagination-margin-y:                                2rem !default;
+$swiper-pagination-bullet-margin-x:                         .25rem !default;
+$swiper-pagination-bullet-margin-y:                         .25rem !default;
+$swiper-center-mode-end:                                    calc(-1px - ((100vw - 100%) / 2) + 15px) !default;
+$swiper-thumb-progress-avatar-margin:                       .25rem !default;
+
+// Transitions
+$swiper-arrow-transition:                                   $btn-transition !default;
+
+// Others
+$swiper-arrow-icon-disabled-opacity:                        .5 !default;
+
+
+
+// Fancybox
+// =========================================================
+
+// Backgrounds
+$fancybox-bg-color:                                         $gray-900 !default;
+$fancybox-progress-bg-color:                                $primary !default;
+
+// Others
+$fancybox-blur:                                             blur(30px) !default;
+
+
+
+// Select
+// =========================================================
+
+// Colors
+$select-active-color:                                       $headings-color !default;
+$select-tag-remove-icon-color:                              #71869d !default;
+$select-tag-remove-icon-hover-color:                        #333 !default;
+$select-tag-input-color:                                    $headings-color !default;
+
+// Background Colors
+$select-active-bg-color:                                    rgba($gray-400, .3) !default;
+$select-selection-tag-bg-color:                             #e7eaf3 !default;
+$select-tag-input-bg-color:                                 rgba($dark, .1) !default;
+
+// Borders
+$select-dropdown-input-wrap-border-color:                  $input-border-color !default;
+$select-dropdown-input-wrap-border-width:                  $input-border-width !default;
+$select-dropdown-input-wrap-border-radius:                 $input-border-radius !default;
+$select-selection-tag-border-radius:                       4px !default;
+
+// Width & Heights
+$select-option-pseudo-width:                                1rem !default;
+$select-option-pseudo-height:                               1rem !default;
+
+// Type
+$select-option-pseudo-bg:                                   url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 110' fill='#{$active-color}'><path d='M98.1,16.2c-2.5-2.3-6.4-2.2-8.7,0.2L36.7,70.1l-13-15.5c-2.9-3.5-7.9-4.1-11.1-1.4c-2.9,2.4-3.5,6.6-1.4,10.1l16.5,28c3.2,5.4,10.8,5.8,14.5,0.8l56.5-67.3C100.7,22.1,100.4,18.5,98.1,16.2z'/></svg>") !default;
+$select-tag-font-size:                                      .875rem !default;
+
+// Position Spaces
+$select-option-pseudo-right-offset:                         .5rem !default;
+
+// Padding
+$select-padding-y:                                          .5rem !default;
+$select-padding-x:                                          1rem !default;
+$select-selection-tag-padding-y:                            .28rem !default;
+$select-selection-tag-padding-x:                            .875rem !default;
+$select-dropdown-input-wrap-padding:                        .4rem !default;
+
+
+
+// Leaflet
+// =========================================================
+
+// Borders
+$leaflet-popup-wrapper-border-radius:                       $border-radius !default;
+
+// Box Shadows
+$leaflet-popup-wrapper-box-shadow:                          $box-shadow-sm !default;
+
+// Width & Heights
+$leaflet-min-height:                                        30rem !default;
+
+// Z-index
+$leaflet-z-index:                                           0 !default;
+
+// Margins
+$leaflet-popup-margin-y:                                    2.5rem !default;
+
+
+
+// NoUiSlider
+// =========================================================
+
+// Colors
+$nouislider-lg-value-color:                                 $body-color !default;
+$nouislider-pips-color:                                     $body-color !default;
+
+// Backgrounds
+$nouislider-target-bg-color:                                $gray-300 !default;
+$nouislider-connect-bg-color:                               $primary !default;
+$nouislider-marker-bg-color:                                $gray-400 !default;
+
+// Borders
+$nouislider-handle-border-radius:                           $border-radius-rounded !default;
+$nouislider-tooltip-pseudo-border-width:                    .3125rem !default;
+$nouislider-tooltip-pseudo-border-top-color:                $white !default;
+
+// Type
+$nouislider-tooltip-font-size:                              .8125rem !default;
+$nouislider-lg-value-font-size:                             .875rem !default;
+
+// Width & Heights
+$nouislider-pips-min-height:                                3rem !default;
+$nouislider-horizontal-height:                              .3125rem !default;
+$nouislider-handle-width:                                   1.75rem !default;
+$nouislider-handle-height:                                  $nouislider-handle-width !default;
+$nouislider-tooltip-min-width:                              2.5rem !default;
+$nouislider-marker-width:                                   .0625rem !default;
+
+// Box Shadows
+$nouislider-handle-box-shadow:                              $box-shadow-sm !default;
+$nouislider-tooltip-box-shadow:                             $box-shadow-sm !default;
+
+// Positions
+$nouislider-handle-top-offset:                              -.75rem !default;
+$nouislider-tooltip-pseudo-bottom-offset:                   .625rem !default;
+
+// Padding
+$nouislider-tooltip-padding-y:                              .5rem !default;
+$nouislider-tooltip-padding-x:                              $nouislider-tooltip-padding-y !default;
+
+// Margins
+$nouislider-margin-y:                                       1.25rem !default;
+$nouislider-lg-value-margin-y:                              .5rem !default;
+
+
+
+// Quantity Counter
+// =========================================================
+
+// Borders
+$quantity-counter-border-width:                             $border-width !default;
+$quantity-counter-border-color:                             $border-color !default;
+$quantity-counter-border-radius:                            $input-border-radius !default;
+
+// Text
+$quantity-counter-btn-font-size:                            $font-size-lg !default;
+
+// Padding
+$quantity-counter-padding-y:                                .5rem !default;
+$quantity-counter-padding-x:                                1rem !default;
+
+
+
+// Quill
+// =========================================================
+
+// Colors
+$quill-editor-p-color:                                      $input-color !default;
+$quill-stroke-color:                                        $body-color !default;
+$quill-fill-color:                                          $quill-stroke-color !default;
+$quill-toolbar-btn-hover-color:                             $link-color !default;
+$quill-btn-color:                                           $white !default;
+
+// Backgrounds
+$quill-btn-bg-color:                                        $primary !default;
+$quill-btn-bg-hover-color:                                  darken($primary, 7%) !default;
+$quill-remove-bg-color:                                     $white !default;
+
+// Borders
+$quill-border-color:                                        $input-border-color !default;
+$quill-toolbar-border-radius:                               $input-border-radius !default;
+$quill-remove-border-width:                                 $border-width !default;
+$quill-remove-border-color:                                 $btn-white-border-color !default;
+$quill-tooltip-input-border-width:                          $border-width !default;
+$quill-tooltip-input-border-color:                          $input-border-color !default;
+$quill-tooltip-input-border-hover-color:                    $active-color !default;
+$quill-tooltip-input-focus-border-color:                    $input-focus-border-color !default;
+$quill-tooltip-pseudo-border-width:                         $quill-tooltip-input-border-width !default;
+$quill-tooltip-pseudo-border-color:                         $quill-tooltip-input-border-color !default;
+
+// Width & Heights
+$quill-tooltip-min-width:                                   20rem !default;
+$quill-toolbar-btn-width:                                   $btn-icon-width-xs !default;
+$quill-toolbar-btn-height:                                  $quill-toolbar-btn-width !default;
+
+// Type
+$quill-editor-font-size:                                    $font-size-base !default;
+$quill-editor-font-family:                                  $font-family-base !default;
+$quill-tooltip-input-font-family:                           $font-family-base !default;
+$quill-tooltip-input-font-size:                             $font-size-base !default;
+$quill-tooltip-pseudo-font-family:                          $font-family-base !default;
+$quill-tooltip-pseudo-font-weight:                          $font-weight-semi-bold !default;
+$quill-tooltip-pseudo-font-size:                            $font-size-base !default;
+$quill-btn-font-size:                                       $font-size-base !default;
+
+// Z-index
+$quill-tooltip-z-index:                                     1 !default;
+
+// Padding
+$quill-toolbar-padding-y:                                   .75rem !default;
+$quill-toolbar-padding-x:                                   $input-btn-padding-x !default;
+$quill-editor-padding-y:                                    $input-btn-padding-y !default;
+$quill-editor-padding-x:                                    $input-btn-padding-x !default;
+$quill-toolbar-btn-padding-y:                               .25rem !default;
+$quill-toolbar-btn-padding-x:                               $quill-toolbar-btn-padding-y !default;
+$quill-tooltip-padding-y:                                   1.5rem !default;
+$quill-tooltip-padding-x:                                   $quill-tooltip-padding-y !default;
+$quill-tooltip-input-padding-y:                             $input-btn-padding-y !default;
+$quill-tooltip-input-padding-x:                             $input-btn-padding-x !default;
+$quill-tooltip-pseudo-padding-y:                            1rem !default;
+$quill-btn-padding-y:                                       $input-btn-padding-y !default;
+$quill-btn-padding-x:                                       $input-btn-padding-x !default;
+
+// Margins
+$quill-remove-margin-x:                                     .5rem !default;
+$quill-formats-button-margin-x:                             .5rem !default;
+$quill-tooltip-pseudo-margin-y:                             1.5rem !default;
+$quill-tooltip-margin-y:                                    1.5rem !default;
+
+// Box Shadow
+$quill-tooltip-box-shadow:                                  $box-shadow-lg !default;
+$quill-tooltip-input-focus-box-shadow:                      $box-shadow !default;
+
+// Transitions
+$quill-tooltip-input-transition:                            $transition-timing !default;
+$quill-btn-transition:                                      $transition-timing !default;

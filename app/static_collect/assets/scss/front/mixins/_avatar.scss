@@ -1,0 +1,15 @@
+//
+// Avatar
+//
+
+// Avatar
+@mixin avatar-variants($color, $background) {
+  color: color-contrast($background);
+  background-color: $background;
+}
+
+// Soft Avatar
+@mixin avatar-soft-variants($color, $background) {
+  color: ($color);
+  background-color: rgba($background, .1);
+}

@@ -1,0 +1,13 @@
+/*------------------------------------
+  Typography
+------------------------------------*/
+
+.text-cap {
+  display: block;
+  color: $text-cap-color;
+  font-size: $text-cap-font-size;
+  font-weight: $text-cap-font-weight;
+  letter-spacing: $text-cap-letter-spacing;
+  text-transform: uppercase;
+  margin-bottom: $text-cap-margin-y;
+}

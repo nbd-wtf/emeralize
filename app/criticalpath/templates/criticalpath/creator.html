@@ -1,0 +1,281 @@
+{% extends "emeralize/base.html" %}
+{% load static %}
+{% block title %}
+Creator
+{% endblock %}
+
+{% block content %}
+
+   
+
+    {% if creator_profile.creator %}
+    <!-- Card Grid -->
+    <div class="container content-space-1 content-space-sm-1">
+
+      
+
+      <!-- Title -->
+
+      
+      <div class="row mt-9">
+        <div class="col-12 mb-5">
+          <h1>✨ Creator</h1>
+          <p>Create new things and share them our marketplace for potential sats</p>
+          {% if messages %}
+          <ul class="messages">
+              {% for message in messages %}
+              <div class="alert alert-info" role="alert">{{ message }}</div>
+              {% endfor %}
+          </ul>
+          {% endif %}
+        <div class="w-md-75 my-5">
+          <h2>Resources</h2>
+          <p>Resources are single pieces of content like a blog, video, audio, or all of the above. </p>
+          <a class="btn btn-primary btn-sm btn-transition" href="{% url 'criticalpath:resource_create' %}">Add</a>
+        </div>
+
+        </div>
+      </div>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 mb-5">
+        <!-- End Title -->
+
+        {% for resource in resources %}
+        <div class="col-md-6 col-lg-3 mb-5">
+          <!-- Card -->
+          <div class="card card-bordered h-100">
+            <!-- Card Pinned -->
+            <div class="card-pinned">
+              <img class="card-img-top" style="object-fit: cover; overflow:hidden !important; width: 100% !important; max-width: 100% !important; max-height: 100%;" src="{% if resource.cover_image %} {{ resource.cover_image.url }} {% endif %} " alt="Image Description">
+
+              
+            </div>
+            <!-- End Card Pinned -->
+
+            <!-- Card Body -->
+            <div class="card-body">
+
+              <div class="mb-3">
+                <h3 class="card-title">
+                  <a class="text-dark" href="{% url 'criticalpath:resource_detail' resource.id %}">{{ resource.title }}</a>
+                </h3>
+              </div>
+
+
+            </div>
+            <!-- End Card Body -->
+
+            <!-- Card Footer -->
+            <div class="card-footer pt-0">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="me-2">
+                  <h5 class="card-title">{{ resource.price }} sats</h5>
+                </div>
+                <a class="btn btn-outline-primary btn-sm btn-transition" href="{% url 'criticalpath:resource_update' resource.id %}">Edit</a>
+                <a class="btn btn-primary btn-sm btn-transition" href="{% url 'criticalpath:resource_detail' resource.id %}">View</a>
+              </div>
+            </div>
+            <!-- End Card Footer -->
+          </div>
+          <!-- End Card -->
+        </div>
+        <!-- End Col -->
+        {% endfor %}
+
+
+      </div>
+      <div class="row mt-9">
+
+        <div class="w-md-75 my-5">
+          <h2>Courses</h2>
+          <p>Courses are sets of resources that are organized in a way to help learners learn a topic from A-to-Z. </p>
+          <a class="btn btn-primary btn-sm btn-transition" href="{% url 'criticalpath:course_create' %}">Add</a>
+        </div>
+      </div>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 mb-5">
+
+
+        <!-- End Title -->
+        {% for course in courses %}
+        <div class="col-md-6 col-lg-4 mb-5">
+          <!-- Card -->
+          <div class="card card-bordered h-100">
+            <!-- Card Pinned -->
+            <div class="card-pinned">
+              <img class="card-img-top" style="object-fit: cover; overflow:hidden !important; width: 100% !important; max-width: 100% !important; max-height: 100%;" src="{% if course.cover_image %} {{ course.cover_image.url }} {% endif %} " alt="Image Description">
+
+            </div>
+            <!-- End Card Pinned -->
+
+            <!-- Card Body -->
+            <div class="card-body">
+
+              <div class="mb-3">
+                <h3 class="card-title">
+                  <a class="text-dark" href="{% url 'criticalpath:course_detail' course.id %}">{{ course.title }}</a>
+                </h3>
+              </div>
+
+
+            </div>
+            <!-- End Card Body -->
+
+            <!-- Card Footer -->
+            <div class="card-footer pt-0">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="me-2">
+                  <h5 class="card-title">{{ course.price }} sats</h5>
+                </div>
+                <a class="btn btn-outline-primary btn-sm btn-transition" href="{% url 'criticalpath:course_update' course.id %}">Edit</a>
+                <a class="btn btn-primary btn-sm btn-transition" href="{% url 'criticalpath:course_detail' course.id %}">View</a>
+              </div>
+            </div>
+            <!-- End Card Footer -->
+          </div>
+          <!-- End Card -->
+        </div>
+        <!-- End Col -->
+        {% endfor %}
+      </div>
+      <!-- End Row -->
+
+      <div class="row mt-9">
+
+        <div class="w-md-75 my-5">
+          <h2>Workshops</h2>
+          <p>Show someone how to do something cool. </p>
+          <a class="btn btn-primary btn-sm btn-transition" href="{% url 'criticalpath:workshop_create' %}">Add</a>
+        </div>
+      </div>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 mb-5">
+
+
+        <!-- End Title -->
+        {% for workshop in workshops %}
+        <div class="col-md-6 col-lg-4 mb-5">
+          <!-- Card -->
+          <div class="card card-bordered h-100">
+            <!-- Card Pinned -->
+            <div class="card-pinned">
+              <img class="card-img-top" style="object-fit: cover; overflow:hidden !important; width: 100% !important; max-width: 100% !important; max-height: 100%;" src="{% if workshop.cover_image %} {{ workshop.cover_image.url }} {% endif %} " alt="Image Description">
+
+              
+            </div>
+            <!-- End Card Pinned -->
+
+            <!-- Card Body -->
+            <div class="card-body">
+
+              <div class="mb-3">
+                <h3 class="card-title">
+                  <a class="text-dark" href="{% url 'criticalpath:workshop_detail' workshop.id %}">{{ workshop.title }}</a>
+                </h3>
+              </div>
+
+
+            </div>
+            <!-- End Card Body -->
+
+            <!-- Card Footer -->
+            <div class="card-footer pt-0">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="me-2">
+                  <h5 class="card-title">{% if workshop.currency_type.iso_code == "USD"  %} ${% endif %}{{ workshop.price }} {% if workshop.currency_type.iso_code == "SAT" %} sats {% else %} {{workshop.currency_type.iso_code}} {% endif %}</h5>
+                </div>
+                <a class="btn btn-outline-primary btn-sm btn-transition" href="{% url 'criticalpath:workshop_update' workshop.id %}">Edit</a>
+                <a class="btn btn-primary btn-sm btn-transition" href="{% url 'criticalpath:workshop_detail' workshop.id %}">View</a>
+              </div>
+            </div>
+            <!-- End Card Footer -->
+          </div>
+          <!-- End Card -->
+        </div>
+        <!-- End Col -->
+        {% endfor %}
+      </div>
+      <!-- End Row -->
+
+      <div class="row mt-9">
+
+        <div class="w-md-75 my-5">
+          <h2>Ebooks</h2>
+          <p>Sell your awesome books and keep 38%-58% more. </p>
+          <a class="btn btn-primary btn-sm btn-transition" href="{% url 'criticalpath:ebook_create' %}">Add</a>
+        </div>
+      </div>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 mb-5">
+
+
+        <!-- End Title -->
+        {% for ebook in ebooks %}
+        <div class="col-md-6 col-lg-4 mb-5">
+          <!-- Card -->
+          <div class="card card-bordered h-100">
+            <!-- Card Pinned -->
+            <div class="card-pinned">
+              <img class="card-img-top" style="object-fit: cover; overflow:hidden !important; width: 100% !important; max-width: 100% !important; max-height: 100%;" src="{% if ebook.cover_image %} {{ ebook.cover_image.url }} {% endif %} " alt="Image Description">
+
+            </div>
+            <!-- End Card Pinned -->
+
+            <!-- Card Body -->
+            <div class="card-body">
+
+              <div class="mb-3">
+                <h3 class="card-title">
+                  <a class="text-dark" href="{% url 'criticalpath:ebook_detail' ebook.id %}">{{ ebook.title }}</a>
+                </h3>
+              </div>
+
+
+            </div>
+            <!-- End Card Body -->
+
+            <!-- Card Footer -->
+            <div class="card-footer pt-0">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="me-2">
+                  <h5 class="card-title">{% if ebook.currency_type.iso_code == "USD"  %} ${% endif %}{{ ebook.price }} {% if ebook.currency_type.iso_code == "SAT" %} sats {% else %} {{ebook.currency_type.iso_code}} {% endif %}</h5>
+                </div>
+                <a class="btn btn-outline-primary btn-sm btn-transition" href="{% url 'criticalpath:ebook_update' ebook.id %}">Edit</a>
+                <a class="btn btn-primary btn-sm btn-transition" href="{% url 'criticalpath:ebook_detail' ebook.id %}">View</a>
+              </div>
+            </div>
+            <!-- End Card Footer -->
+          </div>
+          <!-- End Card -->
+        </div>
+        <!-- End Col -->
+        {% endfor %}
+      </div>
+      <!-- End Row -->
+
+
+
+    </div>
+    <!-- End Card Grid -->
+    {% else %}
+    <div class="container content-space-1 content-space-sm-1">
+      <div class="row mt-9">
+        <div class="col-12 mb-5">
+          <h1>✨ Creator</h1>
+          <p>Thank you for your interest in emeralize Creator! Please complete the review of our Terms and Privacy Policy. Once reviewed, if you agree please complete the form.</p>
+
+          <form action="{% url 'criticalpath:creator_signup' %}"  method="post">
+            {% csrf_token %}
+            <!-- Checkbox -->
+            <div class="form-check mb-3">
+              <input type="checkbox" id="formCheck11" class="form-check-input" name="agree" id="agree" required />
+              <label class="form-check-label" for="formCheck11">I agree to the <a href="{% url 'marketplace:terms' %}">Terms of Use</a> and the <a href="{% url 'marketplace:privacy' %}">Privacy Policy</a></label>
+            </div>
+            <!-- End Checkbox -->
+            <button class="btn btn-primary" type="submit">Continue</button>
+
+          </form>
+      </div>
+    </div>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,13 @@
+/*------------------------------------
+  Close Button
+------------------------------------*/
+
+.btn-close {
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+.btn-close-light {
+  background: transparent escape-svg($btn-close-light-bg) center;
+}

@@ -1,0 +1,39 @@
+/*--------------------------------------------------
+  Fancybox
+----------------------------------------------------*/
+
+.fancybox-custom .fancybox-slide.animated {
+  display: block;
+  opacity: 0;
+  z-index: 0;
+}
+
+.fancybox-custom .fancybox-slide.animated.fancybox-slide--current {
+  opacity: 1;
+  z-index: 1;
+}
+
+.fancybox-custom .fancybox-content {
+  background-color: transparent;
+}
+
+.fancybox-custom .fancybox-bg {
+  background-color: $fancybox-bg-color;
+}
+
+.fancybox-custom .fancybox-button svg {
+  margin-bottom: 0;
+}
+
+.fancybox-custom .fancybox-progress {
+  background-color: $fancybox-progress-bg-color;
+}
+
+.fancybox-blur {
+  header,
+  aside,
+  main,
+  footer {
+    filter: $fancybox-blur;
+  }
+}

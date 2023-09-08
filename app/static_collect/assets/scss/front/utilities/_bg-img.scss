@@ -1,0 +1,21 @@
+/*------------------------------------
+  Background Image Style
+------------------------------------*/
+
+.bg-img-start {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+
+.bg-img-end {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+}
+
+.bg-img-center {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}

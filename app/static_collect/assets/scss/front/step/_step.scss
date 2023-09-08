@@ -1,0 +1,81 @@
+/*------------------------------------
+  Step
+------------------------------------*/
+
+.step {
+  position: relative;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin-right: calc(#{$step-padding-x} / -2);
+  margin-left: calc(#{$step-padding-x} / -2);
+}
+
+.step.step-dashed {
+  .step-icon::after {
+    border-left-style: dashed;
+  }
+}
+
+.step-icon-border {
+  border: $step-border-width solid $step-border-color;
+}
+
+.step-title {
+  display: block;
+  color: $step-title-color;
+  font-weight: $step-title-font-weight;
+}
+
+.step-text:last-child {
+  color: $step-text-color;
+  margin-bottom: 0;
+}
+
+.step-border-last-0 {
+  .step-item:last-child {
+    .step-icon::after {
+      display: none;
+    }
+  }
+}
+
+.step .step-item {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 0;
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding-right: $step-padding-x / 2;
+  padding-left: $step-padding-x / 2;
+  margin-bottom: $step-item-margin-y;
+}
+
+.step-item-between .step-item:last-child {
+  flex: 0 0 auto;
+  width: auto;
+}
+
+.step .step-content-wrapper {
+  position: relative;
+  display: flex;
+  width: 100%;
+}
+
+.step .step-content {
+  flex: 1;
+}
+
+.step-item.collapse:not(.show) {
+  display: none;
+}
+
+// Description show/hide on focus
+.step-item .step-title-description {
+  display: none;
+}
+
+.step-item.focus .step-title-description {
+  display: block;
+}

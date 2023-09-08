@@ -1,0 +1,109 @@
+/*------------------------------------
+  List Checked
+------------------------------------*/
+
+.list-checked {
+  padding-left: 0;
+  list-style: none;
+}
+
+.list-checked-item {
+  position: relative;
+  color: $list-checked-item-color;
+  padding-left: $list-checked-item-padding-x;
+
+  &:not(:last-child) {
+    margin-bottom: $list-checked-item-margin-y;
+  }
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $list-checked-pseudo-width;
+    height: $list-checked-pseudo-height;
+    background-image: escape-svg($list-checked-pseudo);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: $list-checked-pseudo-width $list-checked-pseudo-height;
+    content: '';
+    margin-top: $list-checked-pseudo-margin-y;
+  }
+
+  &[hover]:hover {
+    color: $list-checked-item-hover-color;
+  }
+}
+
+[class*="list-checked-bg-"],
+[class*="list-checked-soft-bg-"] {
+  .list-checked-item::before {
+    margin-top: $list-checked-bg-pseudo-margin-y;
+  }
+}
+
+// Styles
+@each $color, $value in $theme-colors {
+  .list-checked-#{$color} {
+    .list-checked-item::before {
+      background-image: escape-svg(url("data:image/svg+xml,<svg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M13.3035 4.76425C13.5718 4.44865 14.0451 4.41027 14.3607 4.67853C14.6763 4.9468 14.7147 5.42012 14.4464 5.73572L8.07144 13.2357C7.79896 13.5563 7.31616 13.5901 7.00171 13.3105L3.62671 10.3105C3.31713 10.0354 3.28924 9.5613 3.56443 9.25172C3.83962 8.94213 4.31367 8.91424 4.62326 9.18943L7.42515 11.68L13.3035 4.76425Z' fill='#{$value}'/></svg>"));
+    }
+  }
+
+  .list-checked-bg-#{$color} {
+    .list-checked-item::before {
+      background-image: escape-svg(url("data:image/svg+xml,<svg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'><rect width='18' height='18' rx='9' fill='#{$value}'/><path d='M12.0603 5.78792C12.2511 5.56349 12.5876 5.5362 12.8121 5.72697C13.0365 5.91774 13.0638 6.25432 12.873 6.47875L8.3397 11.8121C8.14594 12.04 7.80261 12.064 7.57901 11.8653L5.17901 9.73195C4.95886 9.53626 4.93903 9.19915 5.13472 8.979C5.33041 8.75885 5.66751 8.73902 5.88766 8.93471L7.88011 10.7058L12.0603 5.78792Z' fill='white'/></svg>"));
+    }
+  }
+
+  .list-checked-soft-bg-#{$color} {
+    .list-checked-item::before {
+      background-image: escape-svg(url("data:image/svg+xml,<svg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'><rect width='18' height='18' rx='9' fill='#{$value}' fill-opacity='0.1'/><path d='M12.0603 5.78792C12.2511 5.56349 12.5876 5.5362 12.8121 5.72697C13.0365 5.91774 13.0638 6.25432 12.873 6.47875L8.3397 11.8121C8.14594 12.04 7.80261 12.064 7.57901 11.8653L5.17901 9.73195C4.95886 9.53626 4.93903 9.19915 5.13472 8.979C5.33041 8.75885 5.66751 8.73902 5.88766 8.93471L7.88011 10.7058L12.0603 5.78792Z' fill='#{$value}'/></svg>"));
+    }
+  }
+}
+
+// Sizes
+.list-checked-sm {
+  .list-checked-item {
+    padding-left: $list-checked-sm-item-padding-x;
+
+    &::before {
+      width: $list-checked-sm-pseudo-width;
+      height: $list-checked-sm-pseudo-height;
+      background-size: $list-checked-sm-pseudo-width $list-checked-sm-pseudo-height;
+      margin-top: $list-checked-sm-pseudo-margin-y;
+    }
+  }
+
+  &[class*="list-checked-bg-"],
+  &[class*="list-checked-soft-bg-"] {
+    .list-checked-item::before {
+      margin-top: $list-checked-sm-bg-pseudo-margin-y;
+    }
+  }
+}
+
+.list-checked-lg {
+  .list-checked-item {
+    padding-left: $list-checked-lg-item-padding-x;
+
+    &:not(:last-child) {
+      margin-bottom: $list-checked-lg-item-margin-y;
+    }
+
+    &::before {
+      width: $list-checked-lg-pseudo-width;
+      height: $list-checked-lg-pseudo-height;
+      background-size: $list-checked-lg-pseudo-width $list-checked-lg-pseudo-height;
+      margin-top: $list-checked-lg-pseudo-margin-y;
+    }
+  }
+
+  &[class*="list-checked-bg-"],
+  &[class*="list-checked-soft-bg-"] {
+    .list-checked-item::before {
+      margin-top: -$list-checked-lg-bg-pseudo-margin-y;
+    }
+  }
+}

@@ -1,0 +1,51 @@
+/*------------------------------------
+  Avatar
+------------------------------------*/
+
+.avatar {
+  position: relative;
+  display: inline-block;
+  width: $avatar-width;
+  height: $avatar-height;
+  @include border-radius($avatar-img-border-radius);
+
+  &:not(img) {
+    background-color: $avatar-bg-color;
+  }
+}
+
+.avatar-img {
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  @include border-radius($avatar-img-border-radius);
+}
+
+.avatar-initials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: $avatar-font-size;
+  font-weight: $avatar-font-weight;
+  pointer-events: none;
+  text-transform: uppercase;
+  @include border-radius($avatar-img-border-radius);
+}
+
+.avatar-circle {
+  @include border-radius($avatar-circle-border-radius);
+
+  .avatar,
+  .avatar-initials,
+  .avatar-img {
+    @include border-radius($avatar-circle-border-radius);
+  }
+}
+
+.avatar-centered {
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+}

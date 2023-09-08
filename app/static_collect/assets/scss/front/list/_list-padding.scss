@@ -1,0 +1,24 @@
+/*------------------------------------
+  List Padding
+------------------------------------*/
+
+.list-py-1 {
+  > li {
+    padding-top: $list-padding-y-1;
+    padding-bottom: $list-padding-y-1;
+  }
+}
+
+.list-py-2 {
+  > li {
+    padding-top: $list-padding-y-2;
+    padding-bottom: $list-padding-y-2;
+  }
+}
+
+.list-py-3 {
+  > li {
+    padding-top: $list-padding-y-3;
+    padding-bottom: $list-padding-y-3;
+  }
+}

@@ -1,0 +1,176 @@
+* {
+    font-family: Inter, sans-serif;
+}
+
+::selection {
+    background: #049070;
+    color: #fff;
+}
+
+body {
+    background-color: #000418;
+    color: #FFFFFF;
+}
+
+h1 {
+    color: #FFFFFF;
+}
+
+h2 {
+    color: #FFFFFF;
+}
+
+h3 {
+    color: #FFFFFF;
+}
+
+h4 {
+    color: #FFFFFF;
+}
+
+h5 {
+    color: #FFFFFF;
+}
+
+h6 {
+    color: #FFFFFF;
+}
+
+.h1 {
+    color: #FFFFFF;
+}
+
+.h2 {
+    color: #FFFFFF;
+}
+
+.h3 {
+    color: #FFFFFF;
+}
+
+.h4 {
+    color: #FFFFFF;
+}
+
+.h5 {
+    color: #FFFFFF;
+}
+
+.h6 {
+    color: #FFFFFF;
+}
+
+p {
+    color: #DADADB;
+}
+
+li {
+    margin-left:20px;
+}
+
+.card {
+    background-color: #11142C;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 10em;
+}
+
+.card-subtitle {
+    color: #DADADB;
+}
+
+.text-dark {
+    color: #FFFFFF!important;
+}
+
+.text-dark[href]:hover {
+    color: #049070!important;
+}
+
+.bg-primary {
+    background-color: #11142C!important;
+}
+
+.dropdown-menu {
+    background-color: #11142C;
+}
+
+.dropdown-menu {
+    border-top: .1875rem solid #049070!important;
+}
+
+.dropdown-item {
+    color: #FFFFFF!important;
+}
+
+.navbar-expand-lg.navbar-dark .navbar-nav, .navbar-expand-lg.navbar-dark .navbar-topbar-collapse {
+    background-color: #11142C;
+}
+
+.text-primary {
+    color: #049070!important;
+}
+
+a {
+    color: #049070;
+}
+
+a:hover {
+    color: #93CFC1;
+}
+
+a:focus {
+    color: #93CFC1;
+}
+
+.btn-primary {
+    background-color: #049070;
+    border: #049070;
+}
+
+.btn-primary:hover {
+    background-color: #049070;
+    border: #049070;
+}
+
+.btn-primary:focus {
+    background-color: #049070;
+    border: #049070;
+}
+
+.btn-outline-primary {
+    color: #fff;
+    border-color: #049070;
+
+}
+
+.btn-outline-primary:hover {
+    color: #fff;
+    background-color: #049070;
+    border: #049070;
+}
+
+.btn-outline-primary:focus {
+    color: #fff;
+    background-color: #049070;
+    border: #049070;
+}
+
+.border-top {
+    border-top: .0625rem solid #049070!important ;
+}
+
+.page-header {
+    border-bottom: .0625rem solid #049070!important ;
+}
+
+.ck {
+    color: #ABB5BE !important;
+}
+
+input .form-control{
+    background: #11142C !important;
+}
+

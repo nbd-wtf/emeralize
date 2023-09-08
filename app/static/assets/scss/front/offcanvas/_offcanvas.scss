@@ -1,0 +1,14 @@
+/*------------------------------------
+  Offcanvas
+------------------------------------*/
+
+.offcanvas-header {
+  padding-top: $offcanvas-header-padding-y;
+  padding-bottom: $offcanvas-header-padding-y;
+  border-bottom: $offcanvas-border-width solid $offcanvas-header-border-bottom-color;
+}
+
+.offcanvas-navbar-search {
+  bottom: auto;
+  height: auto;
+}

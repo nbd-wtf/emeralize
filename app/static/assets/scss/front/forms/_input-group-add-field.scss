@@ -1,0 +1,20 @@
+/*------------------------------------
+  Input Group
+------------------------------------*/
+
+// Add field
+.input-group-add-field {
+  position: relative;
+  margin-top: $input-group-add-field-margin-y;
+}
+
+.input-group-add-field-delete {
+  position: absolute;
+  top: $input-group-add-field-top-offset;
+  right: -$input-group-add-field-right-offset;
+  color: $input-group-add-field-delete-color;
+
+  &:hover {
+    color: $input-group-add-field-delete-hover-color;
+  }
+}

@@ -1,0 +1,112 @@
+/*------------------------------------
+  Nav Scroll Horizontal
+------------------------------------*/
+
+.hs-nav-scroller-horizontal {
+  position: relative;
+
+  .nav {
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+
+    .nav-item {
+      white-space: nowrap;
+    }
+
+    .nav-link {
+      white-space: nowrap;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .nav-tabs {
+    padding-bottom: .1875rem;
+  }
+
+  .hs-nav-scroller-arrow-prev,
+  .hs-nav-scroller-arrow-next {
+    position: absolute;
+    height: 100%;
+    z-index: $nav-scroller-arrow-z-index;
+    font-size: $nav-scroller-arrow-font-size;
+    display: flex;
+    align-items: center;
+  }
+
+  .hs-nav-scroller-arrow-link {
+    width: $nav-scroller-arrow-link-width;
+    color: $nav-scroller-arrow-link-color;
+
+    &:hover {
+      color: $nav-scroller-arrow-link-hover-color;
+    }
+  }
+
+  .hs-nav-scroller-arrow-prev {
+    left: 0;
+    margin-left: -$nav-scroller-arrow-margin-x;
+    @include gradient-x($start-color: $gradient-white, $start-percent: 50%, $end-color: $gradient-transparent);
+
+    .hs-nav-scroller-arrow-link {
+      padding: $nav-link-padding-y 0;
+    }
+  }
+
+  .hs-nav-scroller-arrow-next {
+    right: 0;
+    margin-right: -$nav-scroller-arrow-margin-x;
+    @include gradient-x($start-color: $gradient-transparent, $end-color: $gradient-white, $end-percent: 50%);
+
+    .hs-nav-scroller-arrow-link {
+      padding: $nav-link-padding-y 0;
+      text-align: right;
+    }
+  }
+}
+
+// Light
+.hs-nav-scroller-light {
+  .hs-nav-scroller-arrow-prev,
+  .hs-nav-scroller-arrow-next {
+    .hs-nav-scroller-arrow-link {
+    color: $nav-scroller-arrow-light-link-color;
+
+      &:hover {
+        color: $nav-scroller-arrow-light-link-hover-color;
+      }
+    }
+  }
+
+  .hs-nav-scroller-arrow-prev {
+    @include gradient-x($start-color: $gradient-dark, $start-percent: 50%, $end-color: $gradient-transparent);
+  }
+
+  .hs-nav-scroller-arrow-next {
+    @include gradient-x($start-color: $gradient-transparent, $end-color: $gradient-dark, $end-percent: 50%);
+  }
+}
+
+// Vertical
+.hs-nav-scroller-vertical {
+  height: 100%;
+  overflow: hidden;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: $scrollbar-width;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $scrollbar-bg-color;
+  }
+}
+
+.hs-nav-scroller-unfold {
+  position: static; // fixes dropdown menu getting clipped by overflow: hidden;
+}

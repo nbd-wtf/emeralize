@@ -1,0 +1,23 @@
+/*------------------------------------
+  Background Gradients
+------------------------------------*/
+
+.gradient-y-sm-primary {
+	@include gradient-y($start-color: $gradient-transparent, $end-color: rgba($gradient-primary, .075));
+}
+
+.gradient-y-gray {
+	@include gradient-y($start-color: $gradient-transparent, $end-color: rgba($gradient-gray-300, .5));
+}
+
+.gradient-y-lg-white {
+  @include gradient-y($start-color: $gradient-transparent, $end-color: $gradient-white);
+}
+
+.gradient-y-three-sm-primary {
+  @include gradient-y-three-colors($start-color: $gradient-transparent, $mid-color: rgba($gradient-primary, .075), $end-color: $gradient-transparent);
+}
+
+.gradient-x-three-sm-primary {
+  @include gradient-x-three-colors($start-color: rgba($gradient-primary, .03), $mid-color: rgba($gradient-info, .05), $end-color: rgba($gradient-warning, .05));
+}

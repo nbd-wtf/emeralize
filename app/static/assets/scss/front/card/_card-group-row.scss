@@ -1,0 +1,124 @@
+/*------------------------------------
+  Card Group Row
+------------------------------------*/
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  $next: breakpoint-next($breakpoint, $grid-breakpoints);
+  $infix: breakpoint-infix($next, $grid-breakpoints);
+
+  @include media-breakpoint-up($next) {
+    // Card Group Row
+    .card-group#{$infix}-row {
+      box-shadow: $card-box-shadow;
+      @include border-radius($card-border-radius);
+      margin: 0;
+
+      > * {
+        padding: 0;
+        
+        > .card {
+          height: 100%;
+          box-shadow: none;
+          @include border-radius(0);
+        }
+
+        &:not(:first-child):not(:last-child) {
+          &,
+          .card-header,
+          .card-img-top,
+          .card-footer,
+          .card-img-bottom {
+            @include border-radius(0);
+          }
+        }
+
+        &:first-child {
+          > .card {
+            @include border-start-radius($card-border-radius);
+
+            &,
+            .card-header,
+            .card-img-top,
+            .card-footer,
+            .card-img-bottom {
+              @include border-end-radius(0);
+            }
+          }
+        }
+
+        &:last-child {
+          > .card {
+            @include border-end-radius($card-border-radius);
+
+            &,
+            .card-header,
+            .card-img-top,
+            .card-footer,
+            .card-img-bottom {
+              @include border-start-radius(0);
+            }
+          }
+        }
+        
+        + * {
+          > .card {
+            border-left: $card-border-width solid $card-border-color;
+          }
+        }
+      }
+
+      .card-divider {
+        border-left-width: 0;
+        border-top: $card-border-width solid $card-border-color;
+      }
+    }
+
+    // Number of horizontally stacked cards in one line
+    @if $card-group-number-of-cards > 0 {
+      @for $i from 2 through $card-group-number-of-cards {
+        .card-group#{$infix}-#{$i} {
+          > * {
+            &:first-child {
+              > .card {
+                &,
+                .card-header,
+                .card-img-top,
+                .card-footer,
+                .card-img-bottom {
+                  @include border-top-start-radius($card-border-radius);
+                  @include border-bottom-start-radius(0);
+                }
+              }
+            }
+
+            &:nth-child(#{$i}) {
+              > .card {
+                &,
+                .card-header,
+                .card-img-top,
+                .card-footer,
+                .card-img-bottom {
+                  @include border-top-end-radius($card-border-radius);
+                  @include border-bottom-end-radius(0);
+                }
+              }
+            }
+
+            &:last-child {
+              > .card {
+                &,
+                .card-header,
+                .card-img-top,
+                .card-footer,
+                .card-img-bottom {
+                  @include border-top-end-radius(0);
+                  @include border-bottom-radius($card-border-radius);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

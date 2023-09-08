@@ -1,0 +1,23 @@
+/*------------------------------------
+  Banner
+------------------------------------*/
+
+.banner-half-middle-x {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40%;
+  height: 100%;
+  z-index: -1;
+  
+  &::before {
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    width: 80%;
+    height: 80%;
+    @include gradient-y-three-colors($start-color: $gradient-transparent, $mid-color: rgba($gradient-primary, .075), $end-color: $gradient-transparent);
+    content: "";
+    transform: translateY(-50%);
+  }
+}

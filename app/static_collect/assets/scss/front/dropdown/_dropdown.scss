@@ -1,0 +1,118 @@
+/*------------------------------------
+  Dropdown
+------------------------------------*/
+
+.dropdown-menu {
+  box-shadow: $dropdown-box-shadow;
+  margin-top: $dropdown-margin-y;
+
+  .dropdown-item.dropdown-toggle::after {
+    transform: rotate(-90deg);
+  }
+}
+
+// Item
+.dropdown-item {
+  font-size: $dropdown-item-font-size;
+  @include border-radius($dropdown-item-border-radius);
+
+  &:not(:last-child) {
+    margin-bottom: $dropdown-item-margin-y;
+  }
+
+  &:active {
+    color: $dropdown-link-color;
+    background-color: $dropdown-link-hover-bg;
+  }
+
+  &.active:not(:focus):not(:active),
+  &.active:active:focus {
+    color: $dropdown-link-active-color;
+    background-color: $dropdown-link-active-bg;
+  }
+}
+
+// Header
+.dropdown-header {
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing;
+  font-size: $dropdown-header-font-size;
+  font-weight: $dropdown-header-font-weight;
+  padding: $dropdown-header-padding;
+}
+
+// Icon
+.dropdown-item-icon {
+  display: inline-block;
+  opacity: $dropdown-icon-opacity;
+  width: $dropdown-icon-width;
+  color: $dropdown-icon-color;
+}
+
+// Toggle
+.dropdown-toggle {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  &::after {
+    display: inline-block;
+    width: $dropdown-toggle-pseudo-width;
+    height: $dropdown-toggle-pseudo-height;
+    background-image: escape-svg($dropdown-toggle-pseudo-bg);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: $dropdown-toggle-pseudo-width $dropdown-toggle-pseudo-height;
+    margin-left: auto;
+    padding-left: $dropdown-toggle-padding-x;
+    content: '';
+  }
+
+  &[aria-expanded="true"] {
+    &::after {
+      transform: $dropdown-toggle-psuedo-collapse-rotation;
+    }
+  }
+
+  .dropdown-item-icon {
+    width: $dropdown-icon-width + .25;
+  }
+}
+
+.dropup .dropdown-toggle::after {
+  transform: rotate(-180deg);
+}
+
+.dropright .dropdown-toggle::after {
+  transform: rotate(-90deg);
+  margin-top: .25rem;
+}
+
+.dropleft .dropdown-toggle::after {
+  transform: rotate(90deg);
+  margin-top: -.25rem;
+}
+
+// Card
+.dropdown-card {
+  padding: 0;
+
+  .card {
+    box-shadow: none;
+  }
+}
+
+.dropdown-card-shopping-cart {
+  .card > .card-footer {
+    border-top-width: $card-border-width;
+  }
+}
+
+// Course Search
+.dropdown-course-search {
+  position: static !important;
+
+  .dropdown-menu {
+    width: 100%;
+  }
+}

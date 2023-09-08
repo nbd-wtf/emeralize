@@ -1,0 +1,90 @@
+{% extends "emeralize/base.html" %}
+{% load static %}
+{% block title %}
+Tip {{creator.user.username}}
+{% endblock %}
+
+{% block content %}
+        
+      <div class="container content-space-2 content-space-sm-2">
+        <!-- Page Header -->
+        <div class="page-header">
+          <div class="row align-items-center mt-2">
+            <div class="col-sm mb-2 mb-sm-0">
+
+
+              <h2 class="page-header-title">Tip {{creator.user.username}}</h2>
+            </div>
+
+            <div class="col-sm-auto">
+              <a class="btn btn-primary btn-sm" href="{% url 'marketplace:user-profile' creator.username %}">
+                <i class="bi-back-arrow me-1"></i> Back
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- End Page Header -->
+      
+        <div class="row">
+          <div class="col-4">
+              <a href="{{ ln_invoice.invoice.uri }}">
+                <canvas style="margin:auto;" id="qrcode"></canvas>
+              </a>
+
+          </div>
+        </div>
+
+
+        <div class="row my-3">
+          <div class="col-8 col-lg-4">
+            <input id="invoiceInput" type="text" class="form-control" value="{{ln_invoice.invoice.request}}" readonly>
+          </div>
+          <div class="col-3">
+            <button type="button" class="btn btn-primary btn-icon bnt-sm" onclick="copyInvoice();">
+              <i class="bi bi-clipboard"></i>
+            </button>
+          </div>
+
+
+      </div>
+
+      <div class="row my-3">
+        <div class="col-md-6 col-lg-3">
+        <a class="btn btn-outline-primary btn-transition my-2" href="{{ ln_invoice.invoice.uri }}">Open in Wallet</a>
+        </div>
+
+        <span hx-get="{{ request.scheme }}://{{ request.get_host }}/charge-status/?id={{ ln_invoice.id }}&origin={{url}}" hx-trigger="every 2s"></span>
+
+      </div>
+      </div>
+
+
+{% endblock%}
+
+{% block customjs %}
+<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+
+<script type="text/javascript">
+
+  invoice = "{{ln_invoice.invoice.uri}}"
+  var qrcode = new QRious({
+    element: document.getElementById('qrcode'),
+    size: 200,
+    value: invoice,
+  });
+
+  function copyInvoice() {
+    // Get the text field
+    var copyText = document.getElementById("invoiceInput");
+  
+    // Select the text field
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); // For mobile devices
+  
+     // Copy the text inside the text field
+    navigator.clipboard.writeText(copyText.value);
+  
+  }
+</script>
+{% endblock %}

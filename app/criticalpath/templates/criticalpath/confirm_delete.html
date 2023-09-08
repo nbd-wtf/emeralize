@@ -1,0 +1,31 @@
+{% extends "emeralize/base.html" %}
+{% load static %}
+{% block title %}
+Delete {{resource.title}}
+{% endblock %}
+{% block content %}
+<div class="container content-space-2 content-space-lg-3">
+    <div class="row">
+        <div class="col-12">
+          <h1>Delete 
+          {% if resource %} {{resource.title}} {% endif %}
+          {% if course %} {{course.title}} {% endif %}
+        </h1>
+        
+        <p>Are you sure you want to delete the 
+          {% if resource %} Resource : {{ resource.title }}?{% endif %}
+          {% if course %} Course : {{ course.title }}?{% endif %}
+        </p>
+        
+        <form action="" method="POST">
+          {% csrf_token %}
+          <button class="btn btn-danger" type="submit" >Yes Delete.</button>
+          
+          <input class="btn btn-primary" type="submit" value="Cancel" onclick="window.location.href='{% url 'criticalpath:my-creations' %}';return false;">
+        </form>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,94 @@
+{% extends "emeralize/base.html" %}
+{% load static %}
+{% block title %}
+Buy {{resource.title}}
+{% endblock %}
+
+{% block content %}
+        
+      <div class="container content-space-2 content-space-sm-2">
+        <!-- Page Header -->
+        <div class="page-header">
+          <div class="row align-items-center mt-3">
+            <div class="col-sm mb-2 mb-sm-0">
+
+
+              <h2 class="page-header-title">Buy {{ resource.title }}</h2>
+            </div>
+
+            <div class="col-sm-auto">
+              <a class="btn btn-primary btn-sm" href="{% url 'marketplace:resource_purchase_detail' resource.id %}">
+                <i class="bi-back-arrow me-1"></i> Back
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- End Page Header -->
+      
+        <div class="row">
+          <div class="col-4">
+              <a href="{{ ln_invoice.invoice.uri }}">
+                <canvas id="qrcode"></canvas>
+              </a>
+
+          </div>
+        </div>
+
+        <div class="row my-3">
+          <div class="col-8 col-lg-4">
+            <input id="invoiceInput" type="text" class="form-control" value="{{ln_invoice.invoice.request}}" readonly>
+          </div>
+          <div class="col-3">
+            <button type="button" class="btn btn-primary btn-icon bnt-sm" onclick="copyInvoice()">
+              <i class="bi bi-clipboard"></i>
+            </button>
+          </div>
+
+
+      </div>
+
+      <div class="row my-3">
+        <div class="col-lg-3 col-md-6 mb-2">
+          <div class="rounded px-3 py-2" style="background-color: #121421; border: 1px; border-radius: 4px;">
+            Price: {{resource.price}} sats
+          </div>
+          <a class="btn btn-outline-primary btn-transition my-2" href="{{ ln_invoice.invoice.uri }}">Open in Wallet</a>
+
+        </div>          
+
+        <span hx-get="{{ request.scheme }}://{{ request.get_host }}/charge-status/?id={{ ln_invoice.id }}&ebook=&course=&resource={{resource.id}}&origin={{url}}" hx-trigger="every 2s"></span>
+      </div>
+
+      </div>
+
+
+{% endblock%}
+
+{% block customjs %}
+{% comment %} <script src="{% static 'assets/js/qrcode.min.js' %}"></script> {% endcomment %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+
+<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+<script type="text/javascript">
+  invoice = "{{ln_invoice.invoice.uri}}"
+  var qrcode = new QRious({
+    element: document.getElementById('qrcode'),
+    size: 200,
+    value: invoice,
+  });
+  function copyInvoice() {
+    // Get the text field
+    var copyText = document.getElementById("invoiceInput");
+  
+    // Select the text field
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); // For mobile devices
+  
+     // Copy the text inside the text field
+    navigator.clipboard.writeText(copyText.value);
+  
+  }
+</script>
+
+
+{% endblock %}

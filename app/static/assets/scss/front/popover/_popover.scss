@@ -1,0 +1,12 @@
+/*------------------------------------
+  Popover
+------------------------------------*/
+
+.popover {
+  box-shadow: $popover-box-shadow;
+}
+
+.popover-header {
+  @include font-size($font-size-lg);
+  font-weight: $popover-header-font-weight;
+}

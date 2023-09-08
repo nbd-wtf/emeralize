@@ -1,0 +1,47 @@
+/*------------------------------------
+  Tablet Devices
+------------------------------------*/
+
+.device-tablet {
+  position: relative;
+  z-index: 1;
+  display: block;
+  max-width: 100%;
+  width: $device-tablet-width;
+  height: auto;
+}
+
+.device-tablet-frame {
+  background: $device-tablet-bg-color;
+  box-shadow: $device-tablet-box-shadow;
+  @include border-radius($device-tablet-border-radius);
+  padding: $device-tablet-padding;
+}
+
+.device-tablet-img {
+  max-width: 100%;
+  height: auto;
+  @include border-radius($device-tablet-border-radius);
+}
+
+// Vertical Tablet
+.device-vertical-tablet {
+  position: relative;
+  z-index: 1;
+  max-width: 100%;
+  width: $device-vertical-tablet-width;
+  height: auto;
+}
+
+.device-vertical-tablet-frame {
+  background: $device-tablet-bg-color;
+  box-shadow: $device-tablet-box-shadow;
+  @include border-radius($device-tablet-border-radius);
+  padding: $device-tablet-padding;
+}
+
+.device-vertical-tablet-img {
+  max-width: 100%;
+  height: auto;
+  @include border-radius($device-tablet-border-radius);
+}

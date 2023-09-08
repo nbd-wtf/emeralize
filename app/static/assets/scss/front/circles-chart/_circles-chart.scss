@@ -1,0 +1,26 @@
+/*------------------------------------
+  Circles Chart
+-------------------------------------*/
+
+.circles-chart {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: $circles-chart-width;
+  height: $circles-chart-height;
+  @include border-radius($circles-chart-border-radius);
+  box-shadow: $circles-chart-box-shadow;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.circles-chart-content {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  padding: $circles-chart-content-padding-y $circles-chart-content-padding-x;
+  transform: translate(0, -50%);
+}

@@ -1,0 +1,71 @@
+{% extends "emeralize/base.html" %}
+{% load static %}
+{% block title %}
+{{ course.title }} 
+{% endblock %}
+{% block content %}
+<!-- Content -->
+<div class="container content-space-2 content-space-lg-3">
+  <div class="page-header">
+    <div class="row align-items-center">
+      <div class="col-sm mb-2">
+        {% if course.creator == request.user%}
+        <a class="btn btn-primary btn-sm mb-4" href="{% url 'criticalpath:my-creations' %}">
+          <i class="bi-arrow-left "></i> Back
+        </a>
+        {% else %}
+        <a class="btn btn-primary btn-sm mb-4" href="{% url 'home' %}">
+          <i class="bi-arrow-left "></i> Back
+        </a>
+        {% endif %}
+        <h2 class="page-header-title">{{course.title}}</h2>
+      </div>
+
+      <div class="col-sm-auto">
+          {% if request.user == course.creator %}
+          <a class="btn btn-primary" href="{% url 'criticalpath:course_update' course.id %}">Edit</a>
+          <a class="btn btn-outline-primary" href="{% url 'criticalpath:course_delete' course.id %}">Delete</a>
+          {% else %}
+          <a class="btn btn-primary" href="{% url 'marketplace:tip-amount' course.creator.username %}">Tip</a>
+          {% endif %}
+
+      </div>
+    </div>
+  </div>
+  {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-primary" role="alert">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+    <!-- Step Timeline -->
+    {% for course_resource in course_resources %}
+    <ul class="step">
+      <!-- Timeline Item -->
+      <a href="{% url 'criticalpath:course_resource_detail' course_resource.course.id course_resource.resource.id %}">
+      <li class="step-item">
+        <div class="step-content-wrapper">
+          <span class="step-icon step-icon-soft-dark">
+            {{course_resource.order_no}}
+          </span>
+  
+          <div class="step-content">
+  
+            <h5 class="text-primary">{{course_resource.resource.title}}</h5>
+  
+            <div class="mb-4">
+              <p class="mb-1">{% if course_resource.resource.excerpt %} {{course_resource.resource.excerpt}} {% endif %}</span>
+            </div>
+
+          </div>
+        </div>
+      </li>
+      </a>
+      <!-- End Timeline Item -->
+
+    </ul>
+    {% endfor %}
+    <!-- End Step Timeline -->
+  </div>
+  <!-- End Content -->
+
+{% endblock %}

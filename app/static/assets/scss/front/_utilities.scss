@@ -1,0 +1,140 @@
+// Utilities
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "content-spacer-top": (
+      property: padding-top,
+      class: content-space-t,
+      responsive: true,
+      values: map-merge($content-spacers, (auto: auto))
+    ),
+    "content-spacer-bottom": (
+      property: padding-bottom,
+      class: content-space-b,
+      responsive: true,
+      values: map-merge($content-spacers, (auto: auto))
+    ),
+    "content-spacer": (
+      property: padding-top padding-bottom,
+      class: content-space,
+      responsive: true,
+      values: map-merge($content-spacers, (auto: auto))
+    ),
+    "z-index": (
+      property: z-index,
+      class: zi,
+      values: $z-indexes
+    ),
+    "bg-soft-colors": (
+      property: background-color,
+      class: bg-soft,
+      values: $theme-soft-colors
+    ),
+    "position": map-merge(
+      map-get($utilities, "position"),
+      (
+        responsive: true,
+      ),
+    ),
+    "top": map-merge(
+      map-get($utilities, "top"),
+      (
+        responsive: true,
+      ),
+    ),
+    "bottom": map-merge(
+      map-get($utilities, "bottom"),
+      (
+        responsive: true,
+      ),
+    ),
+    "start": map-merge(
+      map-get($utilities, "start"),
+      (
+        responsive: true,
+      ),
+    ),
+    "end": map-merge(
+      map-get($utilities, "end"),
+      (
+        responsive: true,
+      ),
+    ),
+    "color": map-merge(
+      map-get($utilities, "color"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "color"), "values"),
+          ("white-70": $white-70),
+        ),
+      ),
+    ),
+    "border-color": map-merge(
+      map-get($utilities, "border-color"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "border-color"), "values"),
+          ("white-10": $white-10),
+        ),
+      ),
+    ),
+    "shadow": map-merge(
+      map-get($utilities, "shadow"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "shadow"), "values"),
+          ("xl": $box-shadow-xl),
+        ),
+      ),
+    ),
+    "width": map-merge(
+      map-get($utilities, "width"),
+      (
+        responsive: true,
+        values: map-merge(
+          map-get(map-get($utilities, "width"), "values"),
+          (35: 35%, 65: 65%, 85: 85%),
+        ),
+      ),
+    ),
+    "height": map-merge(
+      map-get($utilities, "height"),
+      (
+        responsive: true,
+      ),
+    ),
+    "min-height": (
+      property: min-height,
+      class: min-h,
+      values: (
+        100: 100%
+      )
+    ),
+    "viewport-height": map-merge(
+      map-get($utilities, "viewport-height"),
+      (
+        responsive: true,
+        values: map-merge(
+          map-get(map-get($utilities, "viewport-height"), "values"),
+          (30: 30vh, 50: 50vh, 70: 70vh),
+        ),
+      ),
+    ),
+    "min-viewport-height": map-merge(
+      map-get($utilities, "min-viewport-height"),
+      (
+        responsive: true,
+      ),
+    ),
+    "font-weight": map-merge(
+      map-get($utilities, "font-weight"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "font-weight"), "values"),
+          (semi-bold: $font-weight-semi-bold),
+        ),
+      ),
+    )
+  )
+);

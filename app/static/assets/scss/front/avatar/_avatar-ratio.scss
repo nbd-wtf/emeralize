@@ -1,0 +1,73 @@
+/*------------------------------------
+  Avatar Ratio
+------------------------------------*/
+
+.avatar.avatar-4x3 {
+  width: $avatar-width * 4 / 3;
+  height: auto;
+  @include border-radius(0);
+
+  .avatar-img {
+    height: inherit;
+  }
+}
+
+.avatar-xss.avatar-4x3 {
+  width: $avatar-width-xss * 4 / 3;
+  height: $avatar-height-xss;
+  @include border-radius(0);
+
+  .avatar-img {
+    height: inherit;
+  }
+}
+
+.avatar-xs.avatar-4x3 {
+  width: $avatar-width-xs * 4 / 3;
+  height: auto;
+  @include border-radius(0);
+
+  .avatar-img {
+    height: inherit;
+  }
+}
+
+.avatar-sm.avatar-4x3 {
+  width: $avatar-width-sm * 4 / 3;
+  height: auto;
+  @include border-radius(0);
+
+  .avatar-img {
+    height: inherit;
+  }
+}
+
+.avatar-lg.avatar-4x3 {
+  width: $avatar-width-lg * 4 / 3;
+  height: auto;
+  @include border-radius(0);
+
+  .avatar-img {
+    height: inherit;
+  }
+}
+
+.avatar-xl.avatar-4x3 {
+  width: $avatar-width-xl * 4 / 3;
+  height: auto;
+  @include border-radius(0);
+
+  .avatar-img {
+    height: inherit;
+  }
+}
+
+.avatar-xxl.avatar-4x3 {
+  width: $avatar-width-xxl * 4 / 3;
+  height: auto;
+  @include border-radius(0);
+
+  .avatar-img {
+    height: inherit;
+  }
+}

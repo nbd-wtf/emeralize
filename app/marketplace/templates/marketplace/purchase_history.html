@@ -1,0 +1,62 @@
+{% extends "emeralize/base.html" %}
+{% load static %}
+{% block title %}
+Success!
+{% endblock %}
+
+{% block content %}
+
+
+    <!-- Card Grid -->
+    <div class="container content-space-1 content-space-sm-1">
+      <!-- Title -->
+      <div class="w-md-75 text-center mx-md-auto mb-9">
+        <h2>Your Purchases</h2>
+        <p>Here are all of purchases you've purchased</p>
+      </div>
+      <!-- End Title -->
+      
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 mb-5">
+        {% for purchase in purchases %}
+        <div class="col mb-5">
+          <!-- Card -->
+          <div class="card card-bordered h-100">
+            <!-- Card Pinned -->
+            <div class="card-pinned">
+              <img class="card-img-top" src="{% if purchase.resource.cover_image %} {{ purchase.resource.cover_image.url }} {% endif %} " alt="Image Description">
+            </div>
+            <!-- End Card Pinned -->
+
+            <!-- Card Body -->
+            <div class="card-body">
+              <small class="card-subtitle">{{ purchase.resource.category }}</small>
+
+              <div class="mb-3">
+                <h3 class="card-title">
+                  <a class="text-dark" href="../demo-course/course-overview.html">{{ purchase.resource.title }}</a>
+                </h3>
+              </div>
+            </div>
+            <!-- End Card Body -->
+
+            <!-- Card Footer -->
+            <div class="card-footer pt-0">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="me-2">
+                  <h5 class="card-title">{{ purchase.charge.amount }} sats</h5>
+                </div>
+              </div>
+            </div>
+            <!-- End Card Footer -->
+          </div>
+          <!-- End Card -->
+        </div>
+        <!-- End Col -->
+        {% endfor %}
+      </div>
+      <!-- End Row -->
+
+    </div>
+    <!-- End Card Grid -->
+
+{% endblock %}

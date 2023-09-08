@@ -1,0 +1,45 @@
+// Front Default Color Variables
+// =========================================================
+
+$root-path:                                                 "../";
+
+
+
+// Grays
+$gray-100:                                                  #f7faff;
+$gray-200:                                                  #f8fafd;
+$gray-300:                                                  #e7eaf3;
+$gray-400:                                                  #bdc5d1;
+$gray-500:                                                  #97a4af;
+$gray-600:                                                  #8c98a4;
+$gray-700:                                                  #677788;
+$gray-800:                                                  #71869d;
+$gray-900:                                                  #1e2022;
+
+// Colors
+$white:                                                     #fff;
+$dark:                                                      #21325b;
+$blue:                                                      #377dff;
+$teal:                                                      #00c9a7;
+$cyan:                                                      #09a5be;
+$yellow:                                                    #f5ca99;
+$red:                                                       #ed4c78;
+
+// Theme Colors
+$primary:                                                   $blue;
+$secondary:                                                 $gray-800;
+$success:                                                   $teal;
+$info:                                                      $cyan;
+$warning:                                                   $yellow;
+$danger:                                                    $red;
+$dark:                                                      $dark;
+
+// Theme Soft Colors
+$primary-soft:                                              rgba($blue, .1) !default;
+$secondary-soft:                                            rgba($gray-800, .1) !default;
+$success-soft:                                              rgba($teal, .1) !default;
+$info-soft:                                                 rgba($cyan, .1) !default;
+$warning-soft:                                              rgba($yellow, .1) !default;
+$danger-soft:                                               rgba($red, .1) !default;
+$light-soft:                                                rgba($gray-100, .1) !default;
+$dark-soft:                                                 rgba($dark, .1) !default;

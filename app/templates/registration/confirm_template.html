@@ -1,0 +1,21 @@
+{% extends "emeralize/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}
+Email Verified
+{% endblock %}
+{% block content %}
+<div class="container content-space-1 content-space-sm-1">
+    <div class="row my-9 ">
+        <div class="col">
+            {% if success %}
+            {{ user.username }}, your account is confirmed!
+            Please <a class="btn btn-primary" href="{% url 'signin' %}">Sign In</a>
+            {% else %}
+            Error, invalid token!
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{%endblock%}

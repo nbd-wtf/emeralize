@@ -1,0 +1,66 @@
+/*------------------------------------
+  Shapes
+------------------------------------*/
+
+.shape-container {
+  position: relative;
+}
+
+.shape[class*="text-"] > svg [fill]:not([fill="none"]) {
+  fill: currentColor !important;
+}
+
+.shape {
+  position: absolute;
+  z-index: -1;
+}
+
+.shape-top {
+  top: 0;
+  left: 0;
+  right: 0;
+
+  > svg {
+    width: 100%;
+    height: auto;
+    margin-bottom: -1px;
+    transform-origin: bottom center;
+  }
+}
+
+.shape-bottom {
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  > svg {
+    width: 100%;
+    height: auto;
+    margin-bottom: -1px;
+    transform-origin: top center;
+  }
+}
+
+.shape-start {
+  top: 0;
+  left: 0;
+  bottom: 0;
+
+  > svg {
+    width: auto;
+    height: 100%;
+    transform-origin: left center;
+  }
+}
+
+.shape-end {
+  top: 0;
+  right: 0;
+  bottom: 0;
+
+  > svg {
+    width: auto;
+    height: 100%;
+    transform-origin: right center;
+  }
+}

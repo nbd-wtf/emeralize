@@ -1,0 +1,15 @@
+//
+// Icons
+//
+
+@mixin icon-variants($background, $border, $hover-background) {
+  color: color-contrast($background);
+  border-color: $border;
+  background-color: ($background);
+}
+
+// Icon Air Styles
+@mixin icon-soft-variants($color, $background) {
+  color: ($color);
+  background: rgba($background, .1);
+}

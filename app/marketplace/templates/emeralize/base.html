@@ -1,0 +1,241 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required Meta Tags Always Come First -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- Title -->
+    <title>emeralize - {%block title%}{%endblock%}</title>
+    
+    <!-- Favicon -->
+    {% comment %} <link rel="shortcut icon" href="{% static 'favicon.ico' %}"> {% endcomment %}
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'site.webmanifest' %}">
+    <link rel="mask-icon" href="{% static 'safari-pinned-tab.svg' %}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    
+    <!-- SEO -->
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="{{ request.path }}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="emeralize - {% if resource.title %}{{resource.title}}{% else %} Where Educators Earn and Learning Pays {% endif %}">
+    <meta property="og:description" content="
+    {% if resource.descripton %}{{resource.excerpt}}{% else %} A better alternative to the legacy education system. Discover, learn, earn, share, and grow. {% endif %}
+    ">
+    <meta property="og:image" content="{% static 'assets/img/seo-card-image.png' %}">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="emeralize.app">
+    <meta property="twitter:url" content="{{ request.path }}">
+    <meta name="twitter:title" content="emeralize - {% if resource.title %}{{resource.title}}{% else %} Where Educators Earn and Learning Pays {% endif %}">
+    <meta name="twitter:description" content="{% if resource.excerpt %}{{resource.excerpt}}{% else %} A better alternative to the legacy education system. Discover, learn, earn, share, and grow. {% endif %}">
+    <meta name="twitter:image" content="https://emeralize.app{% static 'assets/img/seo-card-image.png' %}">
+  
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" type="text/css" media="all" href="{% static 'assets/css/vendor.min.css'%}">
+    <link rel="stylesheet" type="text/css" media="all" href="{% static 'assets/vendor/bootstrap-icons/font/bootstrap-icons.css'%}">
+    <link href="{% static 'django_ckeditor_5/dist/styles.css' %}" type="text/css" media="all" rel="stylesheet">
+    <script src="{% static 'django_ckeditor_5/dist/bundle.js' %}"></script>    
+    
+    <!-- CSS Front Template -->
+    <link rel="stylesheet" type="text/css" media="all" href="{% static 'assets/css/theme.css'%}">
+
+    <!-- CSS Front Template -->
+    <link rel="stylesheet" type="text/css" media="all" href="{% static 'assets/css/custom.css'%}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+
+    <!-- HTMX -->
+    <script src="https://unpkg.com/htmx.org@1.6.1"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P1GGC0QCYG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-P1GGC0QCYG');
+    </script>
+
+    {% block customhead %}
+    {% endblock %}
+</head>
+
+<body>
+{% include "emeralize/components/navbar.html" %}
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <main id="content" role="main">
+    {% block content %}
+    {% endblock %}
+  </main>
+  <!-- ========== END MAIN CONTENT ========== -->
+
+  {% comment %} {% include "emeralize/components/footer.html" %} {% endcomment %}
+
+  <!-- ========== SECONDARY CONTENTS ========== -->
+  <!-- Go To -->
+  <a class="js-go-to go-to position-fixed" href="javascript:;" style="visibility: hidden;"
+     data-hs-go-to-options='{
+       "offsetTop": 700,
+       "position": {
+         "init": {
+           "right": "2rem"
+         },
+         "show": {
+           "bottom": "2rem"
+         },
+         "hide": {
+           "bottom": "-2rem"
+         }
+       }
+     }'>
+    <i class="bi-chevron-up"></i>
+  </a>
+
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="container content-space-2 text-center">
+    <!-- Logo -->
+    <a class="d-inline-flex align-items-center mb-3" href="{% url 'home' %}" aria-label="emeralize">
+      <img class="brand" src="{% static 'assets/svg/logos/logo.svg' %}" alt="Logo">
+    </a>
+    <!-- End Logo -->
+
+    <p class="fs-6 mb-1">Made with ♡ by <a target="_blank" class="link" href="https://twitter.com/5antoshernandez">santos</a>. Powered by <a class="link" href="https://zebedee.io">ZBD</a>.</p>
+
+    <!-- Socials -->
+    <ul class="list-inline mb-0">
+      <li class="list-inline-item">
+        <a target="_blank" class="btn btn-ghost-secondary btn-sm btn-icon rounded-circle" href="https://www.instagram.com/emeralize/">
+          <i class="bi-instagram"></i>
+        </a>
+      </li>
+
+      <li class="list-inline-item">
+        <a target="_blank" class="btn btn-ghost-secondary btn-sm btn-icon rounded-circle" href="https://twitter.com/emeralizeapp">
+          <i class="bi-twitter"></i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a target="_blank" class="btn btn-ghost-secondary btn-sm btn-icon rounded-circle" href="https://www.linkedin.com/company/emeralize/">
+          <i class="bi-linkedin"></i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a target="_blank" class="btn btn-ghost-secondary btn-sm btn-icon rounded-circle" href="https://discord.gg/tusCgVaGYs">
+          <i class="bi-discord"></i>
+        </a>
+      </li>
+    </ul>
+    <!-- End Socials -->
+  </footer>
+  <!-- ========== END FOOTER ========== -->
+
+  <!-- ========== END SECONDARY CONTENTS ========== -->
+
+  <!-- JS Implementing Plugins -->
+  <script src="{% static 'assets/js/vendor.min.js' %}"></script>
+
+  <!-- JS Front -->
+  <script src="{% static 'assets/js/theme.min.js' %}"></script>
+
+  <!-- JS Plugins Init. -->
+  <script>
+    (function() {
+      // INITIALIZATION OF HEADER
+      // =======================================================
+      new HSHeader('#header').init()
+
+
+      // INITIALIZATION OF MEGA MENU
+      // =======================================================
+      new HSMegaMenu('.js-mega-menu', {
+          desktop: {
+            position: 'left'
+          }
+        })
+
+
+      // INITIALIZATION OF SHOW ANIMATIONS
+      // =======================================================
+      new HSShowAnimation('.js-animation-link')
+
+
+      // INITIALIZATION OF BOOTSTRAP VALIDATION
+      // =======================================================
+      HSBsValidation.init('.js-validate', {
+        onSubmit: data => {
+          data.event.preventDefault()
+          alert('Submited')
+        }
+      })
+
+
+      // INITIALIZATION OF BOOTSTRAP DROPDOWN
+      // =======================================================
+      HSBsDropdown.init()
+
+
+      // INITIALIZATION OF GO TO
+      // =======================================================
+      new HSGoTo('.js-go-to')
+
+
+      // INITIALIZATION OF TEXT ANIMATION (TYPING)
+      // =======================================================
+      HSCore.components.HSTyped.init('.js-typedjs')
+
+
+      // INITIALIZATION OF SWIPER
+      // =======================================================
+      var swiper = new Swiper('.js-swiper-course-hero',{
+        preloaderClass: 'custom-swiper-lazy-preloader',
+        navigation: {
+          nextEl: '.js-swiper-course-hero-button-next',
+          prevEl: '.js-swiper-course-hero-button-prev',
+        },
+        slidesPerView: 1,
+        loop: 1,
+        breakpoints: {
+          380: {
+            slidesPerView: 2,
+            spaceBetween: 15,
+          },
+          580: {
+            slidesPerView: 3,
+            spaceBetween: 15,
+          },
+          768: {
+            slidesPerView: 4,
+            spaceBetween: 15,
+          },
+          1024: {
+            slidesPerView: 6,
+            spaceBetween: 15,
+          },
+        },
+        on: {
+          'imagesReady': function (swiper) {
+            const preloader = swiper.el.querySelector('.js-swiper-course-hero-preloader')
+            preloader.parentNode.removeChild(preloader)
+          }
+        }
+      });
+    })()
+  </script>
+  {% block customjs %}{% endblock %}
+</body>
+</html>

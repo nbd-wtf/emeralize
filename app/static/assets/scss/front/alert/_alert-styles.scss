@@ -1,0 +1,21 @@
+/*------------------------------------
+  Alert Styles
+------------------------------------*/
+
+@each $color, $value in $theme-colors {
+  .alert-#{$color} {
+    @include alert-variant($value, $value, $value);
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .alert-soft-#{$color} {
+    @include alert-soft-variant($value, $value);
+  }
+}
+
+// White
+.alert-white {
+  border: $alert-white-border-width solid $alert-white-border-color;
+  background-color: $alert-white-bg-color;
+}

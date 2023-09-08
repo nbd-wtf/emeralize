@@ -1,0 +1,83 @@
+/*------------------------------------
+  Accordion
+------------------------------------*/
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+.accordion-button:not(.collapsed) {
+  box-shadow: none;
+}
+
+.accordion-button {
+  color: $accordion-button-color;
+  font-size: $accordion-button-font-size;
+  font-weight: $accordion-button-font-weight;
+  padding: $accordion-padding-y $accordion-padding-x;
+
+  @include media-breakpoint-down(sm) {
+    padding: $accordion-padding-y / 1.5 $accordion-padding-x / 1.5;
+  }
+}
+
+.accordion-body {
+  padding-top: 0;
+}
+
+.accordion-button,
+.accordion-body {
+  @include media-breakpoint-down(sm) {
+    padding: $accordion-padding-y / 1.5 $accordion-padding-x / 1.5;
+  }
+}
+
+// Flush
+.accordion-flush {
+  .accordion-button,
+  .accordion-body {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+// Size
+.accordion-lg {
+  .accordion-button {
+    font-size: $accordion-lg-button-font-size;
+    padding-top: $accordion-lg-padding-y;
+    padding-bottom: $accordion-lg-padding-y;
+  }
+  
+  .accordion-body {
+    padding-bottom: $accordion-lg-padding-y;
+  }
+}
+
+// Button Icon Start
+.accordion-btn-icon-start {
+  .accordion-button {
+    // Accordion icon
+    &::before {
+      flex-shrink: 0;
+      width: $accordion-icon-width;
+      height: $accordion-icon-width;
+      content: "";
+      background-image: escape-svg($accordion-button-icon);
+      background-repeat: no-repeat;
+      background-size: $accordion-icon-width;
+      @include transition($accordion-icon-transition);
+    }
+
+    &:not(.collapsed) {
+      &::before {
+        background-image: escape-svg($accordion-button-active-icon);
+        transform: $accordion-icon-transform;
+      }
+    }
+
+    &::after {
+      display: none;
+    }
+  }
+}

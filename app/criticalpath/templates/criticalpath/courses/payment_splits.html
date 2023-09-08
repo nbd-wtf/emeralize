@@ -1,0 +1,207 @@
+{% extends "emeralize/base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}
+{{header_name}}
+{% endblock %}
+
+{% block content %}
+        
+      <div class="container content-space-2 content-space-lg-3">
+      <!-- Page Header -->
+      <div class="page-header">
+        <div class="row align-items-center">
+          <div class="col-sm mb-2">
+            <h2 class="page-header-title">Payment Splitting</h2>
+            <p>Payment splitting using Bitcoin is a secure and easy process that can be done by providing the creators and specifying the percentage to split amongst each party.</p>
+          </div>
+
+          <div class="col-sm-auto">
+            {% if course %}
+            <a class="btn btn-outline-primary" href="{% url 'criticalpath:course_delete' course.id %}">Delete</a>
+
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      <!-- End Page Header -->
+      <form action="{% url 'criticalpath:course_add_splits' course.id %}" method="post">
+        {% csrf_token %}
+        <div class="row align-items-center" id="row-owner">
+          {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-danger" role="alert">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+          <div class="col-sm-6">
+            <!-- Form -->
+            <div class="mb-4">
+              <label class="form-label" >Your Share</label>
+              <select id="owner-user" name="owner-user" class="form-select form-select-lg" readonly="readonly">
+                <option value="{{request.user.id}}" selected>{{request.user.username}}</option>
+              </select>
+            </div>
+            <!-- End Form -->
+
+          </div>
+
+          <div class="col-sm-3">
+            <!-- Form -->
+            <div class="mb-4">
+              <label class="form-label" >Share %</label>
+              <input type="number" value="{{creator_share}}" min="1" step="1" id="split-owner-amount" name="owner-amount" class="form-select form-select-lg" readonly="readonly">
+            </div>
+            <!-- End Form -->
+  
+          </div>
+        {% if course_payment_splits %}
+
+          {% for course_payment_split in course_payment_splits %}
+          <div class="row align-items-center" id="row-{{course_payment_split.id}}">
+            <div class="col-sm-6">
+              <!-- Form -->
+              <div class="mb-4">
+                <label class="form-label" >Creator</label>
+                <select id="{{course_payment_split.user.username}}" name="{{course_payment_split.user.username}}" class="form-select form-select-lg" >
+                  <option value="{{course_payment_split.user.id}}" selected>{{course_payment_split.user.username}}</option>
+                  {% if creators %}
+                  {% for creator in creator %}
+                  <option value="{{creator.user.id}}">{{creator.user.username}}</option>
+                  {%endfor%}
+  
+                {% endif %}
+                </select>
+              </div>
+              <!-- End Form -->
+
+            </div>
+
+
+            <div class="col-sm-3">
+              <!-- Form -->
+              <div class="mb-4">
+                <label class="form-label" >Share %</label>
+                <input type="number" value="{{course_payment_split.amount}}" min="1" step="1" id="{{course_payment_split.user.username}}-amount" name="{{course_payment_split.user.username}}-amount" class="form-select form-select-lg" >
+              </div>
+              <!-- End Form -->
+
+            </div>
+
+            <div class="col-sm-3">
+              <!-- Form -->
+              <div class="mb-4">
+                <div>
+                  <label class="form-label" for="hireUsFormLasttName">Action</label>
+                </div>
+                {% comment %} <button type="button" onclick="moveUp()" class="btn btn-primary" id="move_up1"><i class="bi bi-arrow-up"></i></button>
+                <button type="button" onclick="moveDown()" class="btn btn-primary" id="move_down1"><i class="bi bi-arrow-down"></i></button> {% endcomment %}
+                <button type="button" onclick="removeInputs()" class="btn btn-outline-primary" id="del-{{course_payment_split.id}}"><i class="bi bi-trash"></i></button>
+
+              </div>
+              <!-- End Form -->
+            
+            </div>
+
+          <!-- End Form -->
+          </div>
+
+          {%endfor%}
+
+
+ 
+        </div>
+
+          {% endif %}
+          <div id="add_split_list">
+
+          </div>
+          <div class ="row align-items-center">
+            <div class="col-12 mb-3">
+              <button type="button" onclick="addInputs()" class="btn btn-primary" id="add1"><i class="bi bi-plus"></i></button>
+            </div>
+            <div class="col-12">
+              <a class="btn btn-outline-primary" href="{% url 'criticalpath:course_update' course.id %}">
+                <i class="bi-arrow-left "></i> Back
+              </a>
+              <button type="submit" class="btn btn-primary">Next</button>
+            </div>
+          </div>
+        </div>
+  
+        </form>
+        </div>
+    </div>
+{% endblock %}
+
+{% block customjs %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script>
+  start_add_row = {{course_payment_splits|length}};
+
+
+  function addInputs () {
+    start_add_row += 1
+    $('#add_split_list').append(`
+      <div class="row" id="row-${start_add_row}">
+        <div class="col-sm-6">
+
+        <!-- Form -->
+        <div class="mb-4">
+          <label class="form-label">Creator</label>
+          <select name="creator-${start_add_row}" id="creator-${start_add_row}" class="form-select form-select-lg" >
+            <option selected>Please select another creator.</option>
+            {% for creator in creators %}
+            <option value="{{creator.user.id}}">{{creator.user.username}}</option>
+            {%endfor%}
+          </select>
+        </div>
+        <!-- End Form -->
+
+        </div>
+
+        <div class="col-sm-3">
+          <!-- Form -->
+          <div class="mb-4">
+            <label class="form-label" >Share %</label>
+            <input type="number" min="1" step="1" id="amount-${start_add_row}" name="amount-${start_add_row}" class="form-select form-select-lg" >
+          </div>
+          <!-- End Form -->
+
+        </div>
+
+        <div class="col-sm-3">
+          <!-- Form -->
+          <div class="mb-4">
+            <div>
+              <label class="form-label" for="hireUsFormLasttName">Action</label>
+            </div>
+            <button type="button" class="btn btn-outline-primary" id="del-${start_add_row}"><i class="bi bi-trash"></i></button>
+
+          </div>
+          <!-- End Form -->
+        
+        </div>
+        </div>
+    `);
+
+    row = "row-" + start_add_row;
+    del = "del-" + start_add_row;
+    document.getElementById(del).addEventListener("click", removeInputs);
+    };
+
+  function removeInputs (e) {
+    let element = e.target.id;
+    element_split = element.split("-");
+    let num = element_split[1];
+    $("div").remove("#row-"+num);
+  }
+
+  {%comment%} add event listeners for all existing rows for deletion / update {%endcomment%}
+  {% comment %} let number_of_course_resources = 1; {% endcomment %}
+  {% for split in course_payment_splits %}
+    existing_dels = "del-" + {{split.id}};
+    document.getElementById(existing_dels).addEventListener("click", removeInputs);
+  {% endfor %}
+
+</script>
+
+{% endblock %}

@@ -1,0 +1,37 @@
+/*------------------------------------
+  SVG Icon
+------------------------------------*/
+
+.svg-icon {
+  display: block;
+  margin-top: $svg-icon-margin-y;
+}
+
+.svg-icon[class*="text-"] > svg [fill]:not([fill="none"]) {
+  fill: currentColor !important;
+}
+
+.svg-inline {
+  display: inline-block;
+}
+
+// Sizes
+.svg-icon > svg {
+  width: $svg-icon-width;
+  height: $svg-icon-height;
+}
+
+.svg-icon-xs > svg {
+  width: $svg-icon-xs-width;
+  height: $svg-icon-xs-height;
+}
+
+.svg-icon-sm > svg {
+  width: $svg-icon-sm-width;
+  height: $svg-icon-sm-height;
+}
+
+.svg-icon-lg > svg {
+  width: $svg-icon-lg-width;
+  height: $svg-icon-lg-height;
+}

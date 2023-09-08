@@ -1,0 +1,25 @@
+// Setup
+@import '../../../node_modules/bootstrap/scss/functions';
+
+@import 'themes/default';
+@import 'user-variables';
+@import 'front/variables';
+
+@import '../../../node_modules/bootstrap/scss/variables';
+@import '../../../node_modules/bootstrap/scss/utilities';
+
+@import 'front/utilities';
+
+// Bootstrap core
+@import '../../../node_modules/bootstrap/scss/bootstrap';
+
+/*----------------------------------------------------------------------
+  * Front - Responsive Website Template version v4.0.0
+  * Copyright 2021 Htmlstream
+  * Licensed under Bootstrap Themes (https://themes.getbootstrap.com/licenses/)
+------------------------------------------------------------------------*/
+
+@import 'front/front';
+
+// Custom core
+@import 'user';

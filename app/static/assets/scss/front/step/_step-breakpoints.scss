@@ -1,0 +1,227 @@
+/*------------------------------------
+  Step Breakpoints
+------------------------------------*/
+
+// Small Devices
+@include media-breakpoint-up(sm) {
+  .step-sm {
+    &.step-dashed {
+      .step-icon::after {
+        border-left: none;
+        border-top-style: dashed;
+      }
+    }
+
+    .step-item {
+      flex-grow: 1;
+      flex: 1;
+      margin-bottom: 0;
+    }
+
+     &:not(.step-inline) .step-content-wrapper {
+      display: block;
+    }
+
+    .step-icon {
+      margin-bottom: $step-icon-margin-y;
+    }
+
+    .step-icon::after {
+      top: $step-icon-height / 2;
+      left: $step-padding-x + $step-icon-width;
+      width: calc(100% - #{$step-padding-x + $step-icon-width});
+      height: $step-border-width + $step-padding-x;
+      border-top: $step-border-width solid $step-border-color;
+      border-left: none;
+    }
+
+    &.step-icon-xs .step-icon::after,
+    .step-icon.step-icon-xs::after {
+      top: $step-icon-height-xs / 2;
+      left: $step-padding-x + $step-icon-width-xs;
+      width: calc(100% - #{$step-padding-x + $step-icon-width-xs});
+    }
+
+    &.step-icon-sm .step-icon::after,
+    .step-icon.step-icon-sm::after {
+      top: $step-icon-height-sm / 2;
+      left: $step-padding-x + $step-icon-width-sm;
+      width: calc(100% - #{$step-padding-x + $step-icon-width-sm});
+    }
+
+    &.step-icon-lg .step-icon::after,
+    .step-icon.step-icon-lg::after {
+      top: $step-icon-height-lg / 2;
+      left: $step-padding-x + $step-icon-width-lg;
+      width: calc(100% - #{$step-padding-x + $step-icon-width-lg});
+    }
+  }
+}
+
+// Medium Devices
+@include media-breakpoint-up(md) {
+  .step-md {
+    &.step-dashed {
+      .step-icon::after {
+        border-left: none;
+        border-top-style: dashed;
+      }
+    }
+
+    .step-item {
+      flex-grow: 1;
+      flex: 1;
+      margin-bottom: 0;
+    }
+
+     &:not(.step-inline) .step-content-wrapper {
+      display: block;
+    }
+
+    .step-icon {
+      margin-bottom: $step-icon-margin-y;
+    }
+
+    .step-icon::after {
+      top: $step-icon-height / 2;
+      left: $step-padding-x + $step-icon-width;
+      width: calc(100% - #{$step-padding-x + $step-icon-width});
+      height: $step-border-width + $step-padding-x;
+      border-top: $step-border-width solid $step-border-color;
+      border-left: none;
+    }
+
+    &.step-icon-xs .step-icon::after,
+    .step-icon.step-icon-xs::after {
+      top: $step-icon-height-xs / 2;
+      left: $step-padding-x + $step-icon-width-xs;
+      width: calc(100% - #{$step-padding-x + $step-icon-width-xs});
+    }
+
+    &.step-icon-sm .step-icon::after,
+    .step-icon.step-icon-sm::after {
+      top: $step-icon-height-sm / 2;
+      left: $step-padding-x + $step-icon-width-sm;
+      width: calc(100% - #{$step-padding-x + $step-icon-width-sm});
+    }
+
+    &.step-icon-lg .step-icon::after,
+    .step-icon.step-icon-lg::after {
+      top: $step-icon-height-lg / 2;
+      left: $step-padding-x + $step-icon-width-lg;
+      width: calc(100% - #{$step-padding-x + $step-icon-width-lg});
+    }
+  }
+}
+
+// Large Devices
+@include media-breakpoint-up(lg) {
+  .step-lg {
+    &.step-dashed {
+      .step-icon::after {
+        border-left: none;
+        border-top-style: dashed;
+      }
+    }
+
+    .step-item {
+      flex-grow: 1;
+      flex: 1;
+      margin-bottom: 0;
+    }
+
+     &:not(.step-inline) .step-content-wrapper {
+      display: block;
+    }
+
+    .step-icon {
+      margin-bottom: $step-icon-margin-y;
+    }
+
+    .step-icon::after {
+      top: $step-icon-height / 2;
+      left: $step-padding-x + $step-icon-width;
+      width: calc(100% - #{$step-padding-x + $step-icon-width});
+      height: $step-border-width + $step-padding-x;
+      border-top: $step-border-width solid $step-border-color;
+      border-left: none;
+    }
+
+    &.step-icon-xs .step-icon::after,
+    .step-icon.step-icon-xs::after {
+      top: $step-icon-height-xs / 2;
+      left: $step-padding-x + $step-icon-width-xs;
+      width: calc(100% - #{$step-padding-x + $step-icon-width-xs});
+    }
+
+    &.step-icon-sm .step-icon::after,
+    .step-icon.step-icon-sm::after {
+      top: $step-icon-height-sm / 2;
+      left: $step-padding-x + $step-icon-width-sm;
+      width: calc(100% - #{$step-padding-x + $step-icon-width-sm});
+    }
+
+    &.step-icon-lg .step-icon::after,
+    .step-icon.step-icon-lg::after {
+      top: $step-icon-height-lg / 2;
+      left: $step-padding-x + $step-icon-width-lg;
+      width: calc(100% - #{$step-padding-x + $step-icon-width-lg});
+    }
+  }
+}
+
+// Extra Large Devices
+@include media-breakpoint-up(xl) {
+  .step-xl {
+    &.step-dashed {
+      .step-icon::after {
+        border-left: none;
+        border-top-style: dashed;
+      }
+    }
+
+    .step-item {
+      flex-grow: 1;
+      flex: 1;
+      margin-bottom: 0;
+    }
+
+     &:not(.step-inline) .step-content-wrapper {
+      display: block;
+    }
+
+    .step-icon {
+      margin-bottom: $step-icon-margin-y;
+    }
+
+    .step-icon::after {
+      top: $step-icon-height / 2;
+      left: $step-padding-x + $step-icon-width;
+      width: calc(100% - #{$step-padding-x + $step-icon-width});
+      height: $step-border-width + $step-padding-x;
+      border-top: $step-border-width solid $step-border-color;
+      border-left: none;
+    }
+
+    &.step-icon-xs .step-icon::after,
+    .step-icon.step-icon-xs::after {
+      top: $step-icon-height-xs / 2;
+      left: $step-padding-x + $step-icon-width-xs;
+      width: calc(100% - #{$step-padding-x + $step-icon-width-xs});
+    }
+
+    &.step-icon-sm .step-icon::after,
+    .step-icon.step-icon-sm::after {
+      top: $step-icon-height-sm / 2;
+      left: $step-padding-x + $step-icon-width-sm;
+      width: calc(100% - #{$step-padding-x + $step-icon-width-sm});
+    }
+
+    &.step-icon-lg .step-icon::after,
+    .step-icon.step-icon-lg::after {
+      top: $step-icon-height-lg / 2;
+      left: $step-padding-x + $step-icon-width-lg;
+      width: calc(100% - #{$step-padding-x + $step-icon-width-lg});
+    }
+  }
+}

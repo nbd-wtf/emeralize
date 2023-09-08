@@ -1,0 +1,20 @@
+/*------------------------------------
+  Transform
+------------------------------------*/
+
+.transform-rotate-n40deg {
+  transform: rotate(-40deg);
+  transform-origin: 30% 20%;
+}
+
+.transform-rotate-n22deg {
+  transform: rotate(-22deg);
+}
+
+.rotated-3d-left {
+  transform: perspective(1140px) rotateX(7deg) rotateY(-17deg) rotateZ(4deg);
+}
+
+.rotated-3d-right {
+  transform: perspective(1140px) rotateX(7deg) rotateY(17deg) rotateZ(-4deg);
+}

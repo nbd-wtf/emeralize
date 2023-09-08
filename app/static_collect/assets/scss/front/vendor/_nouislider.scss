@@ -1,0 +1,83 @@
+/*------------------------------------
+  NoUiSlider
+------------------------------------*/
+
+.range-slider {
+  &.range-slider-pips {
+    min-height: $nouislider-pips-min-height;
+  }
+
+  .noUi-target {
+    border: none;
+    box-shadow: none;
+    background: $nouislider-target-bg-color;
+    margin-top: $nouislider-margin-y;
+  }
+
+  .noUi-connect {
+    background-color: $nouislider-connect-bg-color;
+  }
+
+  .noUi-horizontal {
+    height: $nouislider-horizontal-height;
+  }
+
+  .noUi-horizontal .noUi-handle {
+    top: $nouislider-handle-top-offset;
+    width: $nouislider-handle-width;
+    height: $nouislider-handle-height;
+    cursor: pointer;
+  }
+
+  .noUi-handle {
+    border: none;
+    box-shadow: $nouislider-handle-box-shadow;
+    @include border-radius($nouislider-handle-border-radius);
+
+    &:before,
+    &:after {
+      display: none;
+    }
+  }
+
+  .noUi-horizontal .noUi-tooltip {
+    bottom: 130%;
+  }
+
+  .noUi-tooltip {
+    border: none;
+    font-size: $nouislider-tooltip-font-size;
+    box-shadow: $nouislider-tooltip-box-shadow;
+    min-width: $nouislider-tooltip-min-width;
+    padding: $nouislider-tooltip-padding-y $nouislider-tooltip-padding-x;
+
+    &::after {
+      position: absolute;
+      display: block;
+      bottom: -$nouislider-tooltip-pseudo-bottom-offset;
+      left: 50%;
+      width: 0;
+      height: 0;
+      margin-left: -$nouislider-tooltip-pseudo-border-width;
+      overflow: hidden;
+      border: $nouislider-tooltip-pseudo-border-width solid transparent;
+      border-top-color: $nouislider-tooltip-pseudo-border-top-color;
+      content: '';
+    }
+  }
+
+  .noUi-marker {
+    width: $nouislider-marker-width;
+    background: $nouislider-marker-bg-color;
+  }
+
+  .noUi-pips {
+    color: $nouislider-pips-color;
+  }
+
+  .noUi-value-large {
+    color: $nouislider-lg-value-color;
+    font-size: $nouislider-lg-value-font-size;
+    margin-top: $nouislider-lg-value-margin-y;
+  }
+}

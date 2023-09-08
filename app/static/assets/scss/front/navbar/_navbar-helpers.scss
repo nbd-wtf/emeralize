@@ -1,0 +1,48 @@
+/*------------------------------------
+  Navbar Helpers
+------------------------------------*/
+
+.navbar-invisible {
+  display: none;
+}
+
+.navbar-moved-up {
+  transform: translate3d(0, -100%, 0);
+}
+
+.navbar-faded {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.navbar-section-hidden {
+  position: relative;
+}
+
+.navbar[data-hs-header-options*="fixMoment"] {
+  transition: $navbar-fix-effect-transition;
+}
+
+.navbar.navbar-untransitioned {
+  transition: none;
+}
+
+.navbar.navbar-scrolled {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: auto;
+
+  .navbar-topbar {
+    display: none;
+  }
+}
+
+.navbar-fix-top {
+  position: fixed;
+}
+
+.navbar.navbar-fix-top[data-hs-header-options*="effectCompensation"] {
+  transition: none;
+}

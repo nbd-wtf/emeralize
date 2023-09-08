@@ -1,0 +1,56 @@
+{% extends "emeralize/base.html" %}
+{% load static %}
+{% block title %}
+Tip {{creator.user.username}}
+{% endblock %}
+
+{% block content %}
+        
+      <div class="container content-space-2 content-space-sm-2">
+        <!-- Page Header -->
+        <div class="page-header">
+          <div class="row align-items-center mt-2">
+            <div class="col-sm mb-2 mb-sm-0">
+
+
+              <h2 class="page-header-title">Tip {{creator.user.username}}</h2>
+            </div>
+
+            <div class="col-sm-auto">
+              <a class="btn btn-primary btn-sm" href="{% url 'home' %}">
+                <i class="bi-back-arrow me-1"></i> Back
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- End Page Header -->
+      
+        <div class="row">
+            <div class="col">
+              <h3>Enter a tip amount in sats</h3>
+              <p>Your tip upon a successful payment will be credited to {{creator.user.username}}.</p>
+            </div>
+        </div>
+        <form method="POST" action="{% url 'marketplace:tip-pay' creator.user.username %}">
+          {% csrf_token %}
+        <div class="row mb-3">
+          <div class="col-md-12 col-lg-6">
+            <input class="form-control" type="number" name="amount" min="1" max="100000" required>
+          </div>
+        <!-- End Row -->
+        </div>
+        <div class="row">
+          <div class="col">
+            <button class="btn btn-primary" type="submit" >Next</button>
+          </div>
+        </div>
+      </div>
+    </form>
+
+
+{% endblock%}
+
+{% block customjs %}
+<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+
+{% endblock %}

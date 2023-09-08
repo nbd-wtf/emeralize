@@ -1,0 +1,50 @@
+/*------------------------------------
+  Blockquote
+------------------------------------*/
+
+.blockquote {
+  color: $blockquote-color;
+}
+
+.blockquote-left-border {
+  color: $blockquote-left-border-color;
+  border-left: $blockquote-border-left-width solid $blockquote-border-left-color;
+  padding-left: $blockquote-padding-x;
+}
+
+.blockquote-footer {
+  font-weight: $blockquote-footer-font-weight;
+  line-height: normal;
+  margin-top: $blockquote-footer-margin-y;
+  margin-bottom: 0;
+
+  &::before {
+    content: '';
+  }
+}
+
+.blockquote-footer-source {
+  display: block;
+  color: $blockquote-footer-source-color;
+  font-size: $blockquote-footer-source-font-size;
+  font-weight: $blockquote-footer-source-font-weight;
+  margin-top: $blockquote-footer-source-margin-y;
+}
+
+// Light
+.blockquote-light {
+  color: $blockquote-light-color;
+
+  .blockquote-footer-source {
+    color: $blockquote-light-footer-source-color;
+  }
+}
+
+// Sizes
+.blockquote-sm {
+  font-size: $blockquote-sm-font-size;
+}
+
+.blockquote-lg {
+  font-size: $blockquote-lg-font-size;
+}

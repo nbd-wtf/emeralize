@@ -1,0 +1,311 @@
+{% extends "emeralize/base.html" %}
+{% load static %}
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<!-- Card Grid -->
+<div class="container content-space-1 content-space-sm-1">
+  <!-- Heading -->
+  <div class="w-md-75 w-lg-50 mt-9 mb-5">
+    <div class="my-5">
+      <h1>Hello, {{ request.user }}! 👋</h1>
+      <p>Great to see you.</p>
+    </div>
+    <h2>Let's start exploring</h2>
+  </div>
+  <!-- End Heading -->
+
+  <div class="row mb-5">
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <div class="alert alert-info" role="alert">{{ message }}</div>
+        {% endfor %}
+    </ul>
+  {% endif %}
+  {% if purchases %}
+    
+      {% for purchase in purchases %}
+          {% if purchase.course %}
+            <div class="col-md-6 col-lg-3 mb-5">
+              <!-- Card -->
+              <div class="card card-bordered h-100">
+                <!-- Card Pinned -->
+                <div class="card-pinned">
+                  <img class="card-img-top" style="object-fit: cover; overflow:hidden !important; width: 100% !important; max-width: 100% !important; max-height: 100%;" src="{% if purchase.course.cover_image %} {{ purchase.course.cover_image.url }} {% endif %} " alt="Image Description">
+
+                </div>
+                <!-- End Card Pinned -->
+
+                <!-- Card Body -->
+                <div class="card-body">
+
+                  <div class="mb-3">
+                    <h3 class="card-title">
+                      <a class="text-dark" href="{% url 'criticalpath:course_detail' purchase.course.id %}">{{ purchase.course.title }}</a>
+                    </h3>
+                  </div>
+
+                  <div class="row align-items-center">
+                    <div class="col">
+                    </div>
+                    <!-- End Col --> 
+                    
+
+                  </div>
+                  <!-- End Row --> 
+                </div>
+                <!-- End Card Body -->
+
+                <!-- Card Footer -->
+                <div class="card-footer pt-0">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="me-2">
+                      <h5 class="card-title">{{ purchase.course.price }} sats</h5>
+                    </div>
+                    <a class="btn btn-primary btn-sm btn-transition" href="{% url 'criticalpath:course_detail' purchase.course.id %}">View</a>
+                  </div>
+                </div>
+                <!-- End Card Footer -->
+              </div>
+              <!-- End Card -->
+            </div>
+          <!-- End Col -->
+          {% elif purchase.ebook %}
+            <div class="col-md-6 col-lg-3 mb-5">
+              <!-- Card -->
+              <div class="card card-bordered h-100">
+                <!-- Card Pinned -->
+                <div class="card-pinned">
+                  <img class="card-img-top" style="object-fit: cover; overflow:hidden !important; width: 100% !important; max-width: 100% !important; max-height: 100%;" src="{% if purchase.ebook.cover_image %} {{ purchase.ebook.cover_image.url }} {% endif %} " alt="Image Description">
+
+                </div>
+                <!-- End Card Pinned -->
+
+                <!-- Card Body -->
+                <div class="card-body">
+
+                  <div class="mb-3">
+                    <h3 class="card-title">
+                      <a class="text-dark" href="{% url 'criticalpath:ebook_detail' purchase.ebook.id %}">{{ purchase.ebook.title }}</a>
+                    </h3>
+                  </div>
+
+                  <div class="row align-items-center">
+                    <div class="col">
+                    </div>
+                    <!-- End Col --> 
+                    
+
+                  </div>
+                  <!-- End Row --> 
+                </div>
+                <!-- End Card Body -->
+
+                <!-- Card Footer -->
+                <div class="card-footer pt-0">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="me-2">
+                      <h5 class="card-title">{{ purchase.ebook.price }} sats</h5>
+                    </div>
+                    <a class="btn btn-primary btn-sm btn-transition" href="{% url 'criticalpath:ebook_detail' purchase.ebook.id %}">View</a>
+                  </div>
+                </div>
+                <!-- End Card Footer -->
+              </div>
+              <!-- End Card -->
+            </div>
+            <!-- End Col -->
+          {% endif %}
+      {% endfor %}
+
+      {% else %}
+        <div class="col mb-5">
+          <p>You currently have no purchases. Discover them <a href="{% url 'marketplace:discover' %}">here</a></p>
+        </div>
+    {% endif %}
+  </div>
+  <!-- End Row -->
+</div>
+<!-- End Card Grid -->
+
+
+  {% else %}
+<div class="container content-space-2">
+  <div class="row justify-content-md-between align-items-sm-center">
+    <div class="col-8 col-sm-6 col-md-5 mb-5 mb-sm-0">
+      <img class="img-fluid" src="{% static 'assets/svg/hero.svg' %}" alt="Image Description">
+    </div>
+    <!-- End Col -->
+
+    <div class="col-sm-6">
+        <h1 class="display-4 mb-3">
+          <span class="text-primary text-highlight-warning">
+            <span class="js-typedjs"
+                  data-hs-typed-options='{
+                    "strings": ["Where educators earn sats.", "Earn while you learn."],
+                    "typeSpeed": 90,
+                    "loop": true,
+                    "backSpeed": 30,
+                    "backDelay": 2500
+                  }'></span>
+          </span>
+        </h1>
+        <p class="lead">With our platform, you can learn, create, and earn the world's ₿est money.</p>
+
+
+    </div>
+    <!-- End Col -->
+  </div>
+  <!-- End Row -->
+</div>
+<!-- End Hero -->
+
+<!-- Features -->
+<div class="container content-space-1 content-space-lg-1">
+  <!-- Heading -->
+  <div class="w-lg-50 text-center mx-lg-auto mb-2">
+    <h2>Educational Marketplace</h2>
+    <p>Buy and sell educational resources for bitcoin (sats). Discover new content and learn.</p>
+  </div>
+  <!-- End Heading -->
+
+
+  <div class="w-lg-75 mx-lg-auto mb-4">
+    <div class="row justify-content-md-center">
+      <div class="col-sm-4 mb-5 mb-sm-0">
+        <div class="text-center px-sm-4">
+          <span class="svg-icon text-primary mb-3">
+            <i class="bi bi-diamond" style="font-size: 2rem;"></i>
+
+
+          </span>
+          <h4>Discover</h4>
+        </div>
+      </div>
+      <!-- End Col -->
+
+      <div class="col-sm-4 mb-5 mb-sm-0">
+        <div class="text-center px-sm-4">
+          <span class="svg-icon text-primary mb-3">
+
+            <i class="bi bi-lightning-charge" style="font-size: 2rem;"></i>
+
+
+
+          </span>
+          <h4>Create</h4>
+        </div>
+      </div>
+      <!-- End Col -->
+
+      <div class="col-sm-4">
+        <div class="text-center px-sm-4">
+          <span class="svg-icon text-primary mb-3">
+
+
+            <i class="bi bi-lightbulb" style="font-size: 2rem;"></i>
+
+
+          </span>
+          <h4>Learn</h4>
+        </div>
+      </div>
+      <!-- End Col -->
+    </div>
+    <!-- End Row -->
+  </div>
+
+</div>
+<!-- End Features -->
+
+<!-- Features -->
+<div class="container content-space-t-2 content-space-b-2 content-space-b-lg-3">
+  <div class="row align-items-md-center justify-content-between">
+    <div class="col-md-5 order-md-2">
+      <!-- Heading -->
+      <div class="mb-5">
+        <h2 class="mb-3">Learners</h2>
+        <p>Find new and interesting content that you love.</p>
+      </div>
+      <!-- End Heading -->
+
+      <!-- List Checked -->
+      <ul class="list-checked list-checked-soft-bg-primary list-checked-lg">
+        <li class="list-checked-item">Get paid to learn</li>
+        <li class="list-checked-item">Explore and learn new things</li>
+        <li class="list-checked-item">Get your own profile page with social links and tips</li>
+        <li class="list-checked-item">Withdraw any time</li>
+        <li class="list-checked-item">Automatic withdrawals to your lightning address after 100 sats earned</li>
+
+      </ul>
+      <!-- End List Checked -->
+
+    </div>
+    <!-- End Col -->
+    <div class="col-md-5">
+      <div class="w-75 mx-auto">
+        <img class="img-fluid rounded-top-2" src="{% static 'assets/emeralize-4.png' %}" alt="Image Description">
+      </div>
+    </div>
+  </div>
+  <!-- End Row -->
+</div>
+<!-- End Features -->
+
+<!-- Features -->
+<div class="container content-space-2 content-space-lg-3">
+  <div class="row align-items-md-center justify-content-between">
+
+
+    <div class="col-md-5">
+      <!-- Heading -->
+      <div class="mb-5">
+        <h2 class="mb-3">Educators</h2>
+        <p>Share your amazing creations to earn directly from your audience</p>
+      </div>
+      <!-- End Heading -->
+
+      <!-- List Checked -->
+      <ul class="list-checked list-checked-soft-bg-primary list-checked-lg">
+        <li class="list-checked-item">Post resources such as art, blogs, videos, and audio.</li>
+        <li class="list-checked-item">Get your own profile page with social links and tips</li>
+        <li class="list-checked-item">Earn tips on your creations</li>
+        <li class="list-checked-item">Paywall content</li>
+        <li class="list-checked-item">Withdraw any time</li>
+        <li class="list-checked-item">Automatically withdraw to your lightning address</li>
+      </ul>
+      <!-- End List Checked -->
+    </div>
+    <!-- End Col -->
+    <div class="col-md-5">
+      <div class="w-75 mx-auto">
+        <img class="img-fluid rounded-top-2" src="{% static 'assets/emeralize-3.png' %}" alt="Image Description">
+      </div>
+    </div>
+  </div>
+
+  <!-- End Row -->
+</div>
+<!-- End Features -->
+<!-- CTA -->
+<div class="container content-space-b-2">
+  <div class="text-center bg-img-start py-6" style="background: url({% static 'assets/svg/components/shape-6.svg' %}) center no-repeat; background-color: #121421;">
+    <div class="mb-5">
+      <h2>Get started</h2>
+      <p>Register an account to get access to emeralize</p>
+    </div>
+
+    <a class="btn btn-primary btn-transition" href="{% url 'register' %}">Sign up</a>
+  </div>
+</div>
+<!-- End CTA -->
+{% endif %}
+
+{% endblock%}

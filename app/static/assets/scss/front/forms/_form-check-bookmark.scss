@@ -1,0 +1,36 @@
+/*------------------------------------
+  Form Check Bookmark
+------------------------------------*/
+
+.form-check-bookmark {
+  .form-check-input {
+    width: 0;
+    height: 0;
+    margin: 0;
+    border: none;
+  }
+
+  .form-check-bookmark-active {
+    color: $form-check-bookmark-active-color;
+  }
+
+  .form-check-input ~ .form-check-label {
+    .form-check-bookmark-default {
+      display: block;
+    }
+
+    .form-check-bookmark-active {
+      display: none;
+    }
+  }
+
+  .form-check-input:checked ~ .form-check-label {
+    .form-check-bookmark-default {
+      display: none;
+    }
+
+    .form-check-bookmark-active {
+      display: block;
+    }
+  }
+}

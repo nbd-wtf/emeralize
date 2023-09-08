@@ -1,0 +1,109 @@
+/*------------------------------------
+  List Pointer
+------------------------------------*/
+
+.list-pointer {
+  padding-left: 0;
+  list-style: none;
+}
+
+.list-pointer-item {
+  position: relative;
+  color: $list-pointer-item-color;
+  padding-left: $list-pointer-item-padding-x;
+
+  &:not(:last-child) {
+    margin-bottom: $list-pointer-item-margin-y;
+  }
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $list-pointer-pseudo-width;
+    height: $list-pointer-pseudo-height;
+    background-image: escape-svg($list-pointer-pseudo);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: $list-pointer-pseudo-width $list-pointer-pseudo-height;
+    content: '';
+    margin-top: $list-pointer-pseudo-margin-y;
+  }
+
+  &[hover]:hover {
+    color: $list-pointer-item-hover-color;
+  }
+}
+
+[class*="list-pointer-bg-"],
+[class*="list-pointer-soft-bg-"] {
+  .list-pointer-item::before {
+    margin-top: $list-pointer-bg-pseudo-margin-y;
+  }
+}
+
+// Styles
+@each $color, $value in $theme-colors {
+  .list-pointer-#{$color} {
+    .list-pointer-item::before {
+      background-image: escape-svg(url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='#{$value}' d='M15.78,11.28a.75.75,0,0,1,.22.53v.38a.77.77,0,0,1-.22.53l-5.14,5.13a.5.5,0,0,1-.71,0l-.71-.71a.49.49,0,0,1,0-.7L13.67,12,9.22,7.56a.5.5,0,0,1,0-.71l.71-.7a.5.5,0,0,1,.71,0Z'/></svg>"));
+    }
+  }
+
+  .list-pointer-bg-#{$color} {
+    .list-pointer-item::before {
+      background-image: escape-svg(url("data:image/svg+xml,<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><rect width='24' height='24' rx='12' fill='#{$value}'/><path d='M15.78 11.28C15.9207 11.4205 15.9998 11.6112 16 11.81V12.19C15.9977 12.3884 15.9189 12.5783 15.78 12.72L10.64 17.85C10.5935 17.8969 10.5382 17.9341 10.4773 17.9595C10.4164 17.9848 10.351 17.9979 10.285 17.9979C10.219 17.9979 10.1536 17.9848 10.0927 17.9595C10.0318 17.9341 9.97648 17.8969 9.93 17.85L9.22 17.14C9.17344 17.0944 9.13644 17.0399 9.11119 16.9798C9.08594 16.9197 9.07293 16.8552 9.07293 16.79C9.07293 16.7248 9.08594 16.6603 9.11119 16.6002C9.13644 16.5401 9.17344 16.4856 9.22 16.44L13.67 12L9.22 7.56C9.17314 7.51352 9.13594 7.45822 9.11055 7.39729C9.08517 7.33636 9.0721 7.27101 9.0721 7.205C9.0721 7.139 9.08517 7.07365 9.11055 7.01272C9.13594 6.95179 9.17314 6.89649 9.22 6.85L9.93 6.15C9.97648 6.10314 10.0318 6.06594 10.0927 6.04056C10.1536 6.01517 10.219 6.00211 10.285 6.00211C10.351 6.00211 10.4164 6.01517 10.4773 6.04056C10.5382 6.06594 10.5935 6.10314 10.64 6.15L15.78 11.28Z' fill='#{color-contrast($value)}'/></svg>"));
+    }
+  }
+
+  .list-pointer-soft-bg-#{$color} {
+    .list-pointer-item::before {
+      background-image: escape-svg(url("data:image/svg+xml,<svg width='24' height='24' viewBox='0 0 24 24' fill='#{$value}' xmlns='http://www.w3.org/2000/svg'><rect width='24' height='24' rx='12' fill='#{$value}' fill-opacity='0.1'/><path d='M15.78 11.28C15.9207 11.4205 15.9998 11.6112 16 11.81V12.19C15.9977 12.3884 15.9189 12.5783 15.78 12.72L10.64 17.85C10.5935 17.8969 10.5382 17.9341 10.4773 17.9595C10.4164 17.9848 10.351 17.9979 10.285 17.9979C10.219 17.9979 10.1536 17.9848 10.0927 17.9595C10.0318 17.9341 9.97648 17.8969 9.93 17.85L9.22 17.14C9.17344 17.0944 9.13644 17.0399 9.11119 16.9798C9.08594 16.9197 9.07293 16.8552 9.07293 16.79C9.07293 16.7248 9.08594 16.6603 9.11119 16.6002C9.13644 16.5401 9.17344 16.4856 9.22 16.44L13.67 12L9.22 7.56C9.17314 7.51352 9.13594 7.45822 9.11055 7.39729C9.08517 7.33636 9.0721 7.27101 9.0721 7.205C9.0721 7.139 9.08517 7.07365 9.11055 7.01272C9.13594 6.95179 9.17314 6.89649 9.22 6.85L9.93 6.15C9.97648 6.10314 10.0318 6.06594 10.0927 6.04056C10.1536 6.01517 10.219 6.00211 10.285 6.00211C10.351 6.00211 10.4164 6.01517 10.4773 6.04056C10.5382 6.06594 10.5935 6.10314 10.64 6.15L15.78 11.28Z' fill='#{$value}'/></svg>"));
+    }
+  }
+}
+
+// Sizes
+.list-pointer-sm {
+  .list-pointer-item {
+    padding-left: $list-pointer-sm-item-padding-x;
+
+    &::before {
+      width: $list-pointer-sm-pseudo-width;
+      height: $list-pointer-sm-pseudo-height;
+      background-size: $list-pointer-sm-pseudo-width $list-pointer-sm-pseudo-height;
+      margin-top: $list-pointer-sm-pseudo-margin-y;
+    }
+  }
+
+  &[class*="list-pointer-bg-"],
+  &[class*="list-pointer-soft-bg-"] {
+    .list-pointer-item::before {
+      margin-top: $list-pointer-sm-bg-pseudo-margin-y;
+    }
+  }
+}
+
+.list-pointer-lg {
+  .list-pointer-item {
+    padding-left: $list-pointer-lg-item-padding-x;
+
+    &:not(:last-child) {
+      margin-bottom: $list-pointer-lg-item-margin-y;
+    }
+
+    &::before {
+      width: $list-pointer-lg-pseudo-width;
+      height: $list-pointer-lg-pseudo-height;
+      background-size: $list-pointer-lg-pseudo-width $list-pointer-lg-pseudo-height;
+      margin-top: $list-pointer-lg-pseudo-margin-y;
+    }
+  }
+
+  &[class*="list-pointer-bg-"],
+  &[class*="list-pointer-soft-bg-"] {
+    .list-pointer-item::before {
+      margin-top: -$list-pointer-lg-bg-pseudo-margin-y;
+    }
+  }
+}

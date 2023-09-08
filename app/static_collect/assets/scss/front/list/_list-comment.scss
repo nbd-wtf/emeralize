@@ -1,0 +1,30 @@
+/*------------------------------------
+  List Comment
+------------------------------------*/
+
+.list-comment {
+  padding-left: 0;
+  list-style: none;
+  margin-bottom: 0;
+
+  &:first-child {
+    margin-top: -$list-comment-margin-y;
+  }
+}
+
+.list-comment-item {
+  margin-top: $list-comment-margin-y;
+
+  .list-comment .list-comment-item {
+    padding-left: $list-comment-item-padding-x;
+    border-left: $list-comment-item-border-left-width solid $list-comment-item-border-left-color;
+  }
+}
+
+// Divider
+.list-comment-divider {
+  .list-comment-item:not(:last-child) {
+    border-bottom: $list-comment-divider-item-border-width solid $list-comment-divider-item-border-color;
+    padding-bottom: $list-comment-margin-y;
+  }
+}

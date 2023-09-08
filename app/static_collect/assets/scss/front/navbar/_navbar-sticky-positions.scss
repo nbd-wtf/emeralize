@@ -1,0 +1,91 @@
+/*------------------------------------
+  Sticky Positions
+------------------------------------*/
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  $next: breakpoint-next($breakpoint, $grid-breakpoints);
+  $infix: breakpoint-infix($next, $grid-breakpoints);
+
+  .navbar-sticky#{$infix}-top {
+    @include media-breakpoint-up($next) {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+}
+
+// Medium Devices
+@include media-breakpoint-down(sm) {
+  .navbar-sticky-md-top .navbar-sticky-top-scroller {
+    max-height: $navbar-sticky-height;
+    overflow: hidden;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: $scrollbar-width;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $scrollbar-bg-color;
+      visibility: hidden;
+    }
+
+    &:hover {
+      &::-webkit-scrollbar-thumb {
+        visibility: visible;
+      }
+    }
+  }
+}
+
+// Extra Large Devices
+@include media-breakpoint-down(md) {
+  .navbar-sticky-top .navbar-sticky-top-scroller,
+  .navbar-sticky-sm-top .navbar-sticky-top-scroller,
+  .navbar-sticky-lg-top .navbar-sticky-top-scroller {
+    max-height: $navbar-sticky-height;
+    overflow: hidden;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: $scrollbar-width;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $scrollbar-bg-color;
+      visibility: hidden;
+    }
+
+    &:hover {
+      &::-webkit-scrollbar-thumb {
+        visibility: visible;
+      }
+    }
+  }
+}
+
+// Extra Large Devices
+@include media-breakpoint-down(lg) {
+  .navbar-sticky-xl-top .navbar-sticky-top-scroller {
+    max-height: $navbar-sticky-height;
+    overflow: hidden;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: $scrollbar-width;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $scrollbar-bg-color;
+      visibility: hidden;
+    }
+
+    &:hover {
+      &::-webkit-scrollbar-thumb {
+        visibility: visible;
+      }
+    }
+  }
+}

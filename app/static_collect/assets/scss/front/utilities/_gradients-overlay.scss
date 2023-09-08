@@ -1,0 +1,69 @@
+/*------------------------------------
+  Background Overlay Gradients
+------------------------------------*/
+
+[class*="gradient-x-overlay-"],
+[class*="gradient-y-overlay-"],
+[class*="gradient-y-three-overlay-"] {
+	position: relative;
+	z-index: 1;
+
+	&::before {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		right: 0;
+		z-index: -1;
+		width: 100%;
+		height: 100%;
+		content: "";
+	}
+
+	&.card::before {
+		@include border-radius($card-border-radius);
+	}
+}
+
+.gradient-x-overlay-lg-dark-video {
+	&::before {
+		z-index: 2;
+		@include gradient-x($start-color: rgba($gradient-dark, .95), $end-color: rgba($gradient-dark, .95));
+	}
+}
+
+.gradient-x-overlay-sm-primary {
+	&::before {
+		@include gradient-directional($start-color: $gradient-transparent, $end-color: rgba($gradient-primary, .05));
+	}
+}
+
+.gradient-x-overlay-sm-dark {
+	&::before {
+		@include gradient-x($start-color: rgba($gradient-dark, .25), $end-color: rgba($gradient-gray-900, .25));
+	}
+}
+
+.gradient-x-overlay-lg-dark {
+	&::before {
+		@include gradient-x($start-color: rgba($gradient-dark, .9), $end-color: rgba($gradient-dark, .9));
+	}
+}
+
+.gradient-y-overlay-lg-dark {
+  &::before {
+    @include gradient-y($start-color: $gradient-transparent, $end-color: mix(rgba($gradient-gray-900, .5), rgba(#000, .7)), $start-percent: 40%);
+  }
+}
+
+.gradient-y-overlay-lg-white {
+	&::before {
+		@include gradient-y($start-color: $gradient-white, $end-color: rgba($gradient-white, .9));
+	}
+}
+
+.gradient-y-overlay-sm-gray-900 {
+	&::before {
+		@include gradient-y($start-color: rgba($gradient-gray-900, .3), $end-color: rgba($gradient-dark, .2));
+	}
+}

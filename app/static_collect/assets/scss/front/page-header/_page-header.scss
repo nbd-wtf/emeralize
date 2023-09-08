@@ -1,0 +1,35 @@
+/*------------------------------------
+  Page Header
+------------------------------------*/
+
+.page-header {
+  border-bottom: $page-header-border-width solid $page-header-border-color;
+  padding-bottom: $page-header-padding-y;
+  margin-bottom: $page-header-margin-y;
+
+  .breadcrumb {
+    margin-bottom: $page-header-breadcrumb-margin-y;
+  }
+}
+
+.page-header-title {
+  margin-bottom: $page-header-title-margin-y;
+}
+
+.page-header-text {
+  margin-bottom: $page-header-text-margin-y;
+}
+
+.page-header-tabs {
+  margin-bottom: -$page-header-padding-y;
+  border-bottom-width: 0;
+
+  .hs-nav-scroller-horizontal & {
+    margin-bottom: -$page-header-padding-y;
+  }
+}
+
+.page-header-reset {
+  border-bottom-width: 0;
+  padding-bottom: 0;
+}

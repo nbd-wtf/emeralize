@@ -1,0 +1,62 @@
+/*------------------------------------
+  Default Styles
+------------------------------------*/
+
+a {
+  text-decoration: none;
+}
+
+:focus,
+a:focus,
+button:focus {
+  outline-color: rgba($primary, .5);
+}
+
+figure {
+  margin-bottom: 0;
+}
+
+dl {
+  margin-bottom: 0;
+}
+
+dt {
+  color: $dt-color;
+}
+
+dd {
+  margin-bottom: $dd-margin-y;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* Highlight Color */
+::-moz-selection {
+  color: $primary;
+  background-color: rgba($primary, .1);
+}
+
+::selection {
+  color: $primary;
+  background-color: rgba($primary, .1);
+}
+
+.bg-primary ::-moz-selection {
+  color: $white;
+  background-color: rgba($white, .1);
+}
+
+.bg-primary ::selection {
+  color: $white;
+  background-color: rgba($white, .1);
+}

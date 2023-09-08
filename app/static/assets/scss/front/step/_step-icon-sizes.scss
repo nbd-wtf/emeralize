@@ -1,0 +1,69 @@
+/*------------------------------------
+  Step Icon Sizes
+------------------------------------*/
+
+.step-icon-xs {
+  .step-icon,
+  &.step-icon {
+    font-size: $step-icon-font-size-xs;
+    width: $step-icon-width-xs;
+    height: $step-icon-height-xs;
+
+    &::after {
+      top: $step-icon-height-xs + $step-padding-y / 2;
+      left: $step-icon-width-xs / 2 - ($step-border-width / 2);
+      width: $step-border-width + $step-padding-x;
+      height: calc(100% - #{$step-icon-height-xs + $step-padding-y / 2 - $step-padding-x});
+    }
+  }
+
+  .step-divider {
+    &::after {
+      left: $step-icon-width-xs / 2;
+    }
+  }
+}
+
+.step-icon-sm {
+  .step-icon,
+  &.step-icon {
+    font-size: $step-icon-font-size-sm;
+    width: $step-icon-width-sm;
+    height: $step-icon-height-sm;
+
+    &::after {
+      top: $step-icon-height-sm + $step-padding-y / 2;
+      left: $step-icon-width-sm / 2 - ($step-border-width / 2);
+      width: $step-border-width + $step-padding-x;
+      height: calc(100% - #{$step-icon-height-sm + $step-padding-y / 2 - $step-padding-x});
+    }
+  }
+
+  .step-divider {
+    &::after {
+      left: $step-icon-width-sm / 2;
+    }
+  }
+}
+
+.step-icon-lg {
+  .step-icon,
+  &.step-icon {
+    font-size: $step-icon-font-size-lg;
+    width: $step-icon-width-lg;
+    height: $step-icon-height-lg;
+
+    &::after {
+      top: $step-icon-height-lg + $step-padding-y / 2;
+      left: $step-icon-width-lg / 2 - ($step-border-width / 2);
+      width: $step-border-width + $step-padding-x;
+      height: calc(100% - #{$step-icon-height-lg + $step-padding-y / 2 - $step-padding-x});
+    }
+  }
+
+  .step-divider {
+    &::after {
+      left: $step-icon-width-lg / 2;
+    }
+  }
+}
