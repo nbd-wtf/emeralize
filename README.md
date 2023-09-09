@@ -1,8 +1,8 @@
+<a href="https://nbd.wtf"><img align="right" height="196" src="https://user-images.githubusercontent.com/1653275/194609043-0add674b-dd40-41ed-986c-ab4a2e053092.png" alt=" NBD logo >
+
 ## emeralize
 
 ----
-
-<a href="https://godoc.org/github.com/nbd-wtf/go-nostr"><img src="https://img.shields.io/badge/api-reference-blue.svg?style=flat-square" alt="GoDoc"></a>
 
 emeralize is a Lightning-enabled marketplace (ecommerce) and Learning Management System (LMS) that has the ability to enable learn-to-earn on free and paid content.
 
@@ -21,7 +21,7 @@ emeralize is a Lightning-enabled marketplace (ecommerce) and Learning Management
 
 ## About the Codebase
 
-emeralize is built on the (django web framework)[https://djangoproject.com]. 
+emeralize is built on the [django web framework](https://djangoproject.com).
 
 It has a few main apps:
 - emeralize. This is the project settings. Check `emeralize/settings.py``.
@@ -57,7 +57,7 @@ Navigate to the `app` directory, then install the requirements.txt.
 
 `cd app && pip3 install -r requirements.txt`
 
-OK, now you have the requirements. Let's make migrations and execute the migration. This will build all the tables from your database. This is viewable for each app in the models.py files in their respective directories.
+OK, now you have the requirements. Let's make migrations and execute the migration. This will build all the tables from your database. This is viewable for each app in the m odels.py files in their respective directories.
 
 `python3 manage.py makemigrations && python3 manage.py migrate`
 
@@ -99,5 +99,5 @@ Assign each with transaction type 1:
 - `Resource Purchase`
 - `Tip`
 
-## Summary
-You're now all set to use emeralize locally. You can follow this guide to see how to deploy the app to [namecheap](https://www.youtube.com/watch?v=nvq7NNSfKdw)
+## Deployment.
+You're now all set to use emeralize locally. You can follow this guide to see how to deploy the app to [namecheap](https://www.youtube.com/watch?v=nvq7NNSfKdw). If there's interest I can write a guide for AWS deployment.
